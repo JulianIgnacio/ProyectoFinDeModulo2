@@ -72,3 +72,28 @@ body {
     padding: 7p 0px;
     object-fit: cover;
   }
+
+  /* carrusel */
+  .carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+  color: #f4511e;
+  margin-bottom: 25px;
+}
+
+.carousel-indicators li {
+  margin-top: 18px;
+  display: none
+}
+
+.item span {
+    font-style: normal;
+  }
+  
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
