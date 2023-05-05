@@ -1,0 +1,51 @@
+body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+  background-color: #292344;
+  }
+  
+  .titulos-h2-blancos {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  .texto-blanco {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+  
+  .header-footer-quienes-somos {
+    background-color: #0f092b;
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+  }
+
+  /*imagenes*/
+  .section-personalizado{
+    display:flex;
+    width:600px;
+    height: 430px;
+    }
+    
+    .section-img{
+      width: 0px;
+      height: 490px;
+      flex-grow: 1;
+      object-fit: cover;
+      opacity: .8;
+      transition: .05 ease;
+    }
+    
+    .section img:hover{
+      cursor: crosshair;
+      width: 300px;
+      opacity: 1;
+      filter: contrast(1)
+    }
+    
