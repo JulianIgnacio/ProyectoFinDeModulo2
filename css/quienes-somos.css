@@ -11,6 +11,7 @@ body {
     font-weight: 600;
     margin-bottom: 30px;
   }
+  
   .texto-blanco {
     font-size: 19px;
     line-height: 1.375em;
@@ -25,7 +26,14 @@ body {
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
   }
-
+  
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
   /*imagenes*/
   .section-personalizado{
     display:flex;
@@ -48,4 +56,19 @@ body {
       opacity: 1;
       filter: contrast(1)
     }
-    
+
+    /* avatar de quienes somos*/
+.borderojoquienessomos {
+    border: rgb(153, 92, 51) solid 3px;
+  }
+  
+  .quienesSomos {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: block;
+    margin: 10% auto;
+    border: auto;
+    padding: 7p 0px;
+    object-fit: cover;
+  }
