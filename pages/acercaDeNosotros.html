@@ -20,6 +20,20 @@
   />
   <link rel="stylesheet" href="/css/quienes-somos.css" />
     <title>Quienes Somos</title>
+    <style>
+      /* Cambios adicionales en CSS para hacer la página responsiva */
+      .quienesSomos {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      @media (min-width: 768px) {
+        .col-sm-4 {
+          text-align: center;
+        }
+      }
+    </style>
 </head>
 <body>
     <header>   <section class="header-footer-quienes-somos text-center">
@@ -28,9 +42,9 @@
       </section>
   </header>
     <main>
-        <section id="about" class="container-fluid">
+        <section id="about" class="container">
             <div class="row">
-              <article class="col-sm-6">
+              <article class="col-sm-6 col-xs-12">
                 <h2 class="titulos-h2-blancos">Sobre nosotros</h2>
                 <br />
                 <h4 class="texto-blanco">
@@ -54,23 +68,17 @@
                   compromiso por brindar un excelente servicio a nuestros clientes.
                 </p>
               </article>
-              <aside class="col-sm-6">
-                <span>
-                    <section
-                    class="section-personalizado section img:hover container-fluid p"
-                  >
-                    <img src="/img/avatar-cigar-h3.jpg" alt="" class="section-img" />
-                    <img src="/img/avatar-m2.jpg" alt="" class="section-img" />
-                    <img
-                      src="/img/avatar-tryndamere-h2.jpg"
-                      alt=""
-                      class="section-img"
-                    />
-                    <img src="/img/avatar-sylas-h.jpg" alt="" class="section-img" />
-                    <img src="/img/avatar-yuumi-m.jpg" alt="" class="section-img" />
-                    <img src="/img/avatar-xin-zhao-h.jpg" alt="" class="section-img" />
-                  </section>
-                </span>
+              <aside class="col-sm-6 col-xs-12 hide-on-small">
+                
+                    <section class="section-personalizado section img:hover container p">
+                        <img src="/img/avatar-cigar-h3.jpg" alt="" class="section-img img-fluid" />
+                        <img src="/img/avatar-m2.jpg" alt="" class="section-img img-fluid" />
+                        <img src="/img/avatar-tryndamere-h2.jpg" alt="" class="section-img img-fluid" />
+                        <img src="/img/avatar-sylas-h.jpg" alt="" class="section-img img-fluid" />
+                        <img src="/img/avatar-yuumi-m.jpg" alt="" class="section-img img-fluid" />
+                        <img src="/img/avatar-xin-zhao-h.jpg" alt="" class="section-img img-fluid" />
+                      </section>
+                
               </aside>
             </div>
           </section>
@@ -79,7 +87,7 @@
             <div class="row">
               <aside class="col-sm-4">
                 <span>
-                  <img src="img/img-gamer.png" alt="" style="width: 100%"
+                  <img src="/img/img-gamer.png" alt="" style="width: 100%"
                 /></span>
               </aside>
               <article class="col-sm-8">

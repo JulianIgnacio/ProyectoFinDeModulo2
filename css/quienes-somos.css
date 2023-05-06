@@ -1,80 +1,41 @@
 body {
-    font: 400 15px Lato, sans-serif;
-    line-height: 1.8;
+  font: 400 15px Lato, sans-serif;
+  line-height: 1.8;
   background-color: #292344;
-  }
-  
-  .titulos-h2-blancos {
-    font-size: 24px;
-    text-transform: uppercase;
-    color: #ffffff;
-    font-weight: 600;
-    margin-bottom: 30px;
-  }
-  
-  .texto-blanco {
-    font-size: 19px;
-    line-height: 1.375em;
-    color: #ffffff;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
-  
-  .header-footer-quienes-somos {
-    background-color: #0f092b;
-    color: #fff;
-    padding: 100px 25px;
-    font-family: Montserrat, sans-serif;
-  }
-  
-  .container-fluid {
-    padding: 60px 50px;
-  }
-  
-  .bg-grey {
-    background-color: #f6f6f6;
-  }
-  /*imagenes*/
-  .section-personalizado{
-    display:flex;
-    width:600px;
-    height: 430px;
-    }
-    
-    .section-img{
-      width: 0px;
-      height: 490px;
-      flex-grow: 1;
-      object-fit: cover;
-      opacity: .8;
-      transition: .05 ease;
-    }
-    
-    .section img:hover{
-      cursor: crosshair;
-      width: 300px;
-      opacity: 1;
-      filter: contrast(1)
-    }
+}
 
-    /* avatar de quienes somos*/
-.borderojoquienessomos {
-    border: rgb(153, 92, 51) solid 3px;
-  }
-  
-  .quienesSomos {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    display: block;
-    margin: 10% auto;
-    border: auto;
-    padding: 7p 0px;
-    object-fit: cover;
-  }
+.titulos-h2-blancos {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
 
-  /* carrusel */
-  .carousel-control.right,
+.texto-blanco {
+  font-size: 19px;
+  line-height: 1.375em;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.header-footer-quienes-somos {
+  background-color: #0f092b;
+  color: #fff;
+  padding: 100px 25px;
+  font-family: Montserrat, sans-serif;
+}
+
+.container-fluid {
+  padding: 60px 50px;
+}
+
+.bg-grey {
+  background-color: #f6f6f6;
+}
+
+.carousel-control.right,
 .carousel-control.left {
   background-image: none;
   color: #f4511e;
@@ -82,18 +43,109 @@ body {
 }
 
 .carousel-indicators li {
+  border-color: #f4511e;
   margin-top: 18px;
-  display: none
+  display: none;
+}
+
+.carousel-indicators li.active {
+  background-color: #f4511e;
+  margin-top: 5px;
+  display: none;
 }
 
 .item span {
-    font-style: normal;
+  font-style: normal;
+}
+
+.slide {
+  animation-name: slide;
+  -webkit-animation-name: slide;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  visibility: visible;
+}
+
+/* Imágenes */
+.section-personalizado {
+  display: flex;
+  width: 600px;
+  height: 430px;
+}
+
+.section-img {
+  width: 0px;
+  height: 490px;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: 0.05 ease;
+}
+
+.section img:hover {
+  cursor: crosshair;
+  width: 300px;
+  opacity: 1;
+  filter: contrast(1);
+}
+
+/* Avatar de quienes somos */
+.borderojoquienessomos {
+  border: rgb(153, 92, 51) solid 3px;
+}
+
+.quienesSomos {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: block;
+  margin: 10% auto;
+  border: auto;
+  padding: 7px 0px;
+  object-fit: cover;
+}
+
+/* Media queries para responsive */
+@media (max-width: 767px) {
+  .section-personalizado {
+    width: 100%;
+    flex-wrap: wrap;
   }
-  
-  .slide {
-    animation-name: slide;
-    -webkit-animation-name: slide;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
-    visibility: visible;
+
+  .hide-on-small {
+    display: none;
   }
+
+  .section-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .section-personalizado {
+    width: 100%;
+  }
+
+  .section-img {
+    width: 50%;
+    height: auto;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .section-personalizado {
+    width: 100%;
+  }
+
+  .section-img {
+    width: 33.33%;
+    height: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-personalizado {
+    width: 100%;
+  }
+}
