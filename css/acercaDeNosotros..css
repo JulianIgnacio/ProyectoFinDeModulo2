@@ -1,7 +1,7 @@
 body {
   font: 400 15px Lato, sans-serif;
   line-height: 1.8;
-  background-color: #292344;
+  background-color: #292343;
 }
 
 .titulos-h2-blancos {
@@ -23,13 +23,13 @@ body {
 .texto-oscuro {
   font-size: 19px;
   line-height: 1.375em;
-  color: #0f0f0f;
+  color: rgb(15, 15, 15);
   font-weight: 400;
   margin-bottom: 30px;
 }
 .section-style {
-  background-color: #0f092b;
-  color: #fff;
+  background-color: rgb(15, 9, 43);
+  color: #ffffff;
   padding: 100px 25px;
   font-family: Montserrat, sans-serif;
 }
@@ -45,7 +45,7 @@ body {
 .carousel-control.right,
 .carousel-control.left {
   background-image: none;
-  color: #f4511e;
+  color: rgb(244, 81, 30);
   margin-bottom: 50px;
   margin-left: 30px 30px;
 }
