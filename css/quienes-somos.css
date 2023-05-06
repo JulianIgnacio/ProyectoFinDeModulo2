@@ -20,6 +20,13 @@ body {
   margin-bottom: 30px;
 }
 
+.texto-oscuro {
+  font-size: 19px;
+  line-height: 1.375em;
+  color: #0f0f0f;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
 .section-style {
   background-color: #0f092b;
   color: #fff;
