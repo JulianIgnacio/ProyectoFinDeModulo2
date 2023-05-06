@@ -43,13 +43,11 @@ body {
 }
 
 .carousel-indicators li {
-  border-color: #f4511e;
   margin-top: 18px;
   display: none;
 }
 
 .carousel-indicators li.active {
-  background-color: #f4511e;
   margin-top: 5px;
   display: none;
 }
