@@ -99,6 +99,25 @@ function crearJuego() {
     '' //reseniaDescripcion
   );
   console.log(juegoNuevo);
+  //la voy agregar en un array
+  listaJuegos.push(juegoNuevo);
+  console.log(listaJuegos);
+  //almacenar el array de pelis en localsotarge
+  guardarEnLocalstorage();
+  //cerrar el modal con el formulario
+  limpiarFormulario();
+  //dibujar la fila nueva en la tabla
+  crearFila(juegoNuevo, listaJuegos.length);
+  //se oculta el modal
+  modalFormJuego.hide();
+}
+
+function guardarEnLocalstorage() {
+  localStorage.setItem('listaJuegos', JSON.stringify(listaJuegos));
+}
+
+function limpiarFormulario() {
+  formularioAdminJuego.reset();
 }
 
 function mostrarFormularioJuego() {
