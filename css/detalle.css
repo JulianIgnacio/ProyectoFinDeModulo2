@@ -1,3 +1,35 @@
+#presentacion{
+    display: flex;
+    justify-content: center;
+}
 #descripcion {
     font-size: small;
+}
+#multiCollapseExample1{
+    width: 18rem;
+}
+#multiCollapseExample2{
+    width: 18rem;
+}
+#titulo {
+    display: flex;
+    justify-content: center;
+}
+#sliderDetalle{
+    padding-right: 30px;
+}
+#tablaRequisitos{
+    height: 50%;
+    width: 50%;
+    border: 1px gray solid;
+}
+@media all and (max-width:576px) {
+    #carouselExample{
+        width: 230px;
+        height: 100%;
+    }
+    #sliderDetalle{
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
 }
