@@ -1,4 +1,5 @@
 import Juego from './classJuego.js';
+import { sumarioValidacionJuego } from './validacionJuego.js';
 
 //variables globales
 let listaJuegos = JSON.parse(localStorage.getItem('listaJuegos')) || [];
@@ -85,31 +86,42 @@ function prepararFormularioJuego(e) {
 }
 
 function crearJuego() {
-  //se crea el objeto
-  const juegoNuevo = new Juego(
-    nombre.value,
-    precio.value,
-    categoria.value,
-    stock.value,
-    descripcion.value,
-    imagen.value,
-    requisitosSistema.value,
-    desarrollador.value,
-    0, //reseniaVoto
-    '' //reseniaDescripcion
-  );
-  console.log(juegoNuevo);
-  //la voy agregar en un array
-  listaJuegos.push(juegoNuevo);
-  console.log(listaJuegos);
-  //almacenar el array de pelis en localsotarge
-  guardarEnLocalstorage();
-  //cerrar el modal con el formulario
-  limpiarFormulario();
-  //dibujar la fila nueva en la tabla
-  crearFila(juegoNuevo, listaJuegos.length);
-  //se oculta el modal
-  modalFormJuego.hide();
+  //validar los datos del formulario
+  let resumen = sumarioValidacionJuego(nombre.value);
+
+  if (resumen.length === 0) {
+    // los datos son validos
+    //se crea el objeto
+    const juegoNuevo = new Juego(
+      nombre.value,
+      precio.value,
+      categoria.value,
+      stock.value,
+      descripcion.value,
+      imagen.value,
+      requisitosSistema.value,
+      desarrollador.value,
+      0, //reseniaVoto
+      '' //reseniaDescripcion
+    );
+    console.log(juegoNuevo);
+    //la voy agregar en un array
+    listaJuegos.push(juegoNuevo);
+    console.log(listaJuegos);
+    //almacenar el array de pelis en localsotarge
+    guardarEnLocalstorage();
+    //cerrar el modal con el formulario
+    limpiarFormulario();
+    //dibujar la fila nueva en la tabla
+    crearFila(juegoNuevo, listaJuegos.length);
+    //se oculta el modal
+    modalFormJuego.hide();
+  } else {
+    //mostrar al usuario el cartel de error
+    let alerta = document.getElementById('alerta');
+    alerta.innerHTML = resumen;
+    alerta.className = 'alert alert-danger mt-3';
+  }
 }
 
 function guardarEnLocalstorage() {
