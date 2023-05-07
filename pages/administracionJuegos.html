@@ -73,9 +73,7 @@
                 <p class="mb-0">Opciones:</p>
                 <button
                   class="btn btn-outline-primary btn-sm ms-3"
-                  id="btnCrearPelicula"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalJuego"
+                  id="btnCrearJuego"
                 >
                   <i class="bi bi-clipboard2-plus-fill"></i>
                 </button>
@@ -97,7 +95,7 @@
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tablaJuego">
                       <tr>
                         <th>1</th>
                         <td>Juego 1</td>
@@ -310,7 +308,7 @@
               <div class="mb-3">
                 <label for="Desarrollador">Desarrollador: *</label>
                 <input
-                  id="Desarrollador"
+                  id="desarrollador"
                   type="text"
                   class="form-control"
                   placeholder="Ej: Riot"
