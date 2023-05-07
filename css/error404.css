@@ -1,0 +1,34 @@
+.error_404 img {
+  width: 100%;
+}
+
+.bg_img_404 {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
+
+.bg_img_404 h1 {
+  font-size: 80px;
+}
+
+.bg_img_404 h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff;
+  padding: 10px 20px;
+  background: #39ac31;
+  border-radius: 10px;
+  margin: 20px 0;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.link_404:hover {
+  background: #2d7528;
+}
+.box_404 {
+  margin-top: -50px;
+}
