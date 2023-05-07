@@ -23,6 +23,9 @@
     width: 50%;
     border: 1px gray solid;
 }
+.card{
+    width: 500px;
+}
 @media all and (max-width:576px) {
     #carouselExample{
         width: 230px;
@@ -32,4 +35,8 @@
         margin-left: 0px;
         margin-bottom: 20px;
     }
+    .card{
+        width: 100%;
+    }
+    
 }
