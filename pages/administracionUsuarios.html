@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/Style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <title>Administración de Usuarios</title>
+  </head>
+  <body>
+    <header class="border border-danger p-2">Header</header>
+
+    <div class="container-fluid overflow-hidden">
+      <div class="row overflow-auto vh-100">
+        <aside
+          class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top"
+        >
+          <div
+            class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white"
+          >
+            <a
+              href="/"
+              class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none"
+            >
+              <span class="fs-5 pt-2"
+                ><span class="d-none d-sm-inline"
+                  >Panel de administración</span
+                ></span
+              >
+            </a>
+            <ul
+              class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start"
+              id="menu"
+            >
+              <li class="nav-item">
+                <a
+                  href="./administracionJuegos.html"
+                  class="nav-link px-sm-0 px-2"
+                >
+                  <i class="bi bi-controller"></i
+                  ><span class="ms-1 d-none d-sm-inline">Juegos</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="./administracionUsuarios.html"
+                  class="nav-link px-sm-0 px-2"
+                >
+                  <i class="fs-5 bi-people"></i
+                  ><span class="ms-1 d-none d-sm-inline">Usuarios</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+        <div class="col d-flex flex-column h-sm-100 text-bg-dark">
+          <main class="row overflow-auto bg-main-administracion-usuarios">
+            <div class="col pt-4">
+              <h2 class="text-center mb-2">ADMINISTRACION DE USUARIOS</h2>
+              <hr />
+              <section class="d-flex">
+                <p class="mb-0">Opciones:</p>
+                <button
+                  class="btn btn-outline-primary btn-sm ms-3"
+                  id="btnCrearPelicula"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalUsuario"
+                >
+                  <i class="bi bi-clipboard2-plus-fill"></i>
+                </button>
+              </section>
+              <section class="my-3">
+                <h3>LISTA DE USUARIOS</h3>
+
+                <article class="table-responsive">
+                  <table
+                    class="table table-dark table-striped table-bordered text-center mt-3"
+                  >
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Correo Electrónico</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>1</th>
+                        <td>Julian</td>
+                        <td>Montenegro</td>
+                        <td class="tamanioCelda text-truncate">
+                          correo1@gmail.com
+                        </td>
+                        <td>
+                          <button class="btn btn-primary">
+                            <i class="bi bi-search"></i>
+                          </button>
+                          <button class="btn btn-warning my-2 my-md-0">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button class="btn btn-danger">
+                            <i class="bi bi-x-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>2</th>
+                        <td>Hugo</td>
+                        <td>Triunffeti</td>
+                        <td>correo2@gmail.com</td>
+                        <td>
+                          <button class="btn btn-primary">
+                            <i class="bi bi-search"></i>
+                          </button>
+                          <button class="btn btn-warning my-2 my-md-0">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button class="btn btn-danger">
+                            <i class="bi bi-x-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>3</th>
+                        <td>Alberto</td>
+                        <td>Ivan</td>
+                        <td>correo3@gmail.com</td>
+                        <td>
+                          <button class="btn btn-primary">
+                            <i class="bi bi-search"></i>
+                          </button>
+                          <button class="btn btn-warning my-2 my-md-0">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button class="btn btn-danger">
+                            <i class="bi bi-x-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>4</th>
+                        <td>Eugenia</td>
+                        <td>Caceres</td>
+                        <td>correo4@gmail.com</td>
+
+                        <td>
+                          <button class="btn btn-primary">
+                            <i class="bi bi-search"></i>
+                          </button>
+                          <button class="btn btn-warning my-2 my-md-0">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button class="btn btn-danger">
+                            <i class="bi bi-x-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>5</th>
+                        <td>Samara</td>
+                        <td>Zapata</td>
+                        <td>correo5@gmail.com</td>
+
+                        <td>
+                          <button class="btn btn-primary">
+                            <i class="bi bi-search"></i>
+                          </button>
+                          <button class="btn btn-warning my-2 my-md-0">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button class="btn btn-danger">
+                            <i class="bi bi-x-lg"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </article>
+              </section>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <footer class="border border-info p-2">Footer</footer>
+
+    <!-- Modal para administrar usuarios -->
+    <div
+      class="modal fade"
+      id="modalUsuario"
+      tabindex="-1"
+      aria-labelledby="modalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Nuevo Usuario</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formUsuario">
+              <div class="mb-3">
+                <label for="codigo">Código</label>
+                <input
+                  id="codigo"
+                  type="text"
+                  class="form-control"
+                  placeholder="123456"
+                  maxlength="6"
+                  minlength="1"
+                  disabled
+                />
+              </div>
+              <div class="mb-3">
+                <label for="nombre">Nombre *</label>
+                <input
+                  id="nombre"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: Steve"
+                  maxlength="100"
+                  minlength="5"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="apellido">Apellido *</label>
+                <input
+                  id="apellido"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: Jobs"
+                  maxlength="100"
+                  minlength="5"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="contrasenia"
+                  >Contraseña *<small class="text-secondary">
+                    (debe contener mayúsculas, minúsculas y símbolos)</small
+                  ></label
+                >
+                <input
+                  id="contrasenia"
+                  type="number"
+                  class="form-control"
+                  placeholder="Ej: 123ABC?@!"
+                  maxlength="60"
+                  minlength="1"
+                  required
+                />
+              </div>
+              <button class="btn btn-primary" type="submit" id="btnFormulario">
+                Enviar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
