@@ -236,7 +236,7 @@
                   type="number"
                   class="form-control"
                   placeholder="Ej: 3500 (sólo números)"
-                  maxlength="20"
+                  maxlength="10"
                   minlength="1"
                   required
                 />
@@ -302,13 +302,14 @@
                   maxlength="120"
                   minlength="2"
                   required
+                  pattern="https?://.+\.(png|jpe?g|gif|svg)"
                 />
                 <div class="invalid-feedback">
                   Por favor ingrese el link de la imagen.
                 </div>
               </div>
               <div class="mb-3">
-                <label for="requisitos"
+                <label for="requisitosSistema"
                   >Requisitos del sistema *<small class="text-secondary">
                     (cada característica separado por , )</small
                   ></label

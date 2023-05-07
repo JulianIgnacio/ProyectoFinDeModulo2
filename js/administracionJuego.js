@@ -87,7 +87,16 @@ function prepararFormularioJuego(e) {
 
 function crearJuego() {
   //validar los datos del formulario
-  let resumen = sumarioValidacionJuego(nombre.value);
+  let resumen = sumarioValidacionJuego(
+    nombre.value,
+    precio.value,
+    categoria.value,
+    stock.value,
+    descripcion.value,
+    imagen.value,
+    requisitosSistema.value,
+    desarrollador.value
+  );
 
   if (resumen.length === 0) {
     // los datos son validos
