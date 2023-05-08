@@ -12,7 +12,6 @@ if (listaJuegos.length !== 0) {
         juego.nombre,
         juego.precio,
         juego.categoria,
-        juego.stock,
         juego.descripcion,
         juego.imagen,
         juego.requisitosSistema,
@@ -31,7 +30,6 @@ let codigo = document.getElementById('codigo'),
   nombre = document.getElementById('nombre'),
   precio = document.getElementById('precio'),
   categoria = document.getElementById('categoria'),
-  stock = document.getElementById('stock'),
   descripcion = document.getElementById('descripcion'),
   imagen = document.getElementById('imagen'),
   requisitosSistema = document.getElementById('requisitosSistema'),
@@ -73,7 +71,7 @@ function crearFila(juego) {
   <td class="tamanioCelda text-truncate">
     ${juego.categoria}
   </td>
-  <td>${juego.stock}</td>
+  <td class="tamanioCelda text-truncate">${juego.imagen}</td>
   <td>
     <button class="btn btn-primary">
     <i class="bi bi-search"></i>
@@ -100,7 +98,6 @@ function crearJuego() {
     nombre.value,
     precio.value,
     categoria.value,
-    stock.value,
     descripcion.value,
     imagen.value,
     requisitosSistema.value,
@@ -114,7 +111,6 @@ function crearJuego() {
       nombre.value,
       precio.value,
       categoria.value,
-      stock.value,
       descripcion.value,
       imagen.value,
       requisitosSistema.value,

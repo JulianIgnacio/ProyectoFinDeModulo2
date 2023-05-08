@@ -23,7 +23,6 @@ export function sumarioValidacionJuego(
   nombre,
   precio,
   categoria,
-  stock,
   descripcion,
   imagen,
   requisitosSistema,
@@ -38,9 +37,6 @@ export function sumarioValidacionJuego(
   }
   if (!validarCantidadCaracteres(categoria, 2, 50)) {
     resumen += 'La categoría del Juego debe tener entre 2 y 50 caracteres <br>';
-  }
-  if (!validarCantidadCaracteres(stock, 1, 10)) {
-    resumen += 'El stock debe tener entre 1 y 10 caracteres <br>';
   }
   if (!validarCantidadCaracteres(descripcion, 2, 200)) {
     resumen += 'La descripción debe tener entre 2 y 200 caracteres <br>';
