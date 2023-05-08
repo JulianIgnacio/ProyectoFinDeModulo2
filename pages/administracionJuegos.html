@@ -73,9 +73,7 @@
                 <p class="mb-0">Opciones:</p>
                 <button
                   class="btn btn-outline-primary btn-sm ms-3"
-                  id="btnCrearPelicula"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalJuego"
+                  id="btnCrearJuego"
                 >
                   <i class="bi bi-clipboard2-plus-fill"></i>
                 </button>
@@ -97,7 +95,7 @@
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tablaJuego">
                       <tr>
                         <th>1</th>
                         <td>Juego 1</td>
@@ -202,8 +200,8 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form id="formJuego">
-              <div class="mb-3">
+            <form id="formJuego" class="row g-3 needs-validation" novalidate>
+              <div class="mb-3 position-relative">
                 <label for="codigo">Código</label>
                 <input
                   id="codigo"
@@ -226,7 +224,11 @@
                   minlength="5"
                   required
                 />
+                <div class="invalid-feedback">
+                  Por favor ingrese un nombre del Juego.
+                </div>
               </div>
+              <div class="valid-tooltip">Looks good!</div>
               <div class="mb-3">
                 <label for="precio">Precio *</label>
                 <input
@@ -234,10 +236,11 @@
                   type="number"
                   class="form-control"
                   placeholder="Ej: 3500 (sólo números)"
-                  maxlength="20"
+                  maxlength="10"
                   minlength="1"
                   required
                 />
+                <div class="invalid-feedback">Por favor ingrese un precio.</div>
               </div>
               <div class="mb-3">
                 <label for="categoria">Categoria *</label>
@@ -250,6 +253,9 @@
                   minlength="2"
                   required
                 />
+                <div class="invalid-feedback">
+                  Por favor ingrese una categoria.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="stock">Stock *</label>
@@ -262,6 +268,9 @@
                   minlength="1"
                   required
                 />
+                <div class="invalid-feedback">
+                  Por favor ingrese el Stock actual.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="descripcion">Descripcion *</label>
@@ -274,6 +283,9 @@
                   minlength="2"
                   required
                 ></textarea>
+                <div class="invalid-feedback">
+                  Por favor ingrese una descripción del Juego
+                </div>
               </div>
               <div class="mb-3">
                 <label for="imagen"
@@ -289,16 +301,21 @@
                   placeholder="Ej: http://127.0.0.1:5500/pages/leagueoflegends.png"
                   maxlength="120"
                   minlength="2"
+                  required
+                  pattern="https?://.+\.(png|jpe?g|gif|svg)"
                 />
+                <div class="invalid-feedback">
+                  Por favor ingrese el link de la imagen.
+                </div>
               </div>
               <div class="mb-3">
-                <label for="requisitos"
+                <label for="requisitosSistema"
                   >Requisitos del sistema *<small class="text-secondary">
                     (cada característica separado por , )</small
                   ></label
                 >
                 <textarea
-                  id="requisitos"
+                  id="requisitosSistema"
                   rows="4"
                   class="form-control"
                   placeholder="Ej: Procesador: de 3 GHz (compatible con conjunto de instrucciones SSE2 o superior), Memoria RAM: de 2 GB, Espacio disponible en el disco duro: 12 GB como mínimo, Tarjeta gráfica: compatible con sombreador de píxeles 2.0b."
@@ -306,18 +323,30 @@
                   minlength="2"
                   required
                 ></textarea>
+                <div class="invalid-feedback">
+                  Por favor ingrese los requisitos del sistema.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="Desarrollador">Desarrollador: *</label>
                 <input
-                  id="Desarrollador"
+                  id="desarrollador"
                   type="text"
                   class="form-control"
                   placeholder="Ej: Riot"
                   maxlength="60"
                   minlength="2"
+                  required
                 />
+                <div class="invalid-feedback">
+                  Por favor ingrese el desarrollador del Juego.
+                </div>
               </div>
+              <div
+                class="alert alert-danger mt-3 d-none"
+                role="alert"
+                id="alerta"
+              ></div>
               <button class="btn btn-primary" type="submit" id="btnFormulario">
                 Enviar
               </button>
@@ -331,5 +360,11 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="../js/administracionJuego.js" type="module"></script>
   </body>
 </html>
