@@ -237,8 +237,8 @@
                   type="text"
                   class="form-control"
                   placeholder="Ej: Steve"
-                  maxlength="100"
-                  minlength="5"
+                  maxlength="70"
+                  minlength="2"
                   required
                 />
               </div>
@@ -249,11 +249,24 @@
                   type="text"
                   class="form-control"
                   placeholder="Ej: Jobs"
+                  maxlength="70"
+                  minlength="2"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="correoElectronico">Correo Electrónico *</label>
+                <input
+                  id="correoElectronico"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: correo@gmail.com"
                   maxlength="100"
                   minlength="5"
                   required
                 />
               </div>
+
               <div class="mb-3">
                 <label for="contrasenia"
                   >Contraseña *<small class="text-secondary">
@@ -265,10 +278,18 @@
                   type="number"
                   class="form-control"
                   placeholder="Ej: 123ABC?@!"
-                  maxlength="60"
+                  maxlength="100"
                   minlength="1"
                   required
                 />
+              </div>
+              <div class="mb-3">
+                <label for="rol">Rol *</label>
+                <select id="rol" class="form-control">
+                  <option value="">Selecione una opcion</option>
+                  <option value="administrador">Administrador</option>
+                  <option value="normal">Normal</option>
+                </select>
               </div>
               <button class="btn btn-primary" type="submit" id="btnFormulario">
                 Enviar
