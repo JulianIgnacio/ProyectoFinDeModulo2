@@ -217,8 +217,8 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form id="formUsuario">
-              <div class="mb-3">
+            <form id="formUsuario" class="row g-3 needs-validation" novalidate>
+              <div class="mb-3" position-relative>
                 <label for="codigo">Código</label>
                 <input
                   id="codigo"
@@ -241,6 +241,7 @@
                   minlength="2"
                   required
                 />
+                <div class="invalid-feedback">Por favor ingrese su nombre.</div>
               </div>
               <div class="mb-3">
                 <label for="apellido">Apellido *</label>
@@ -253,6 +254,9 @@
                   minlength="2"
                   required
                 />
+                <div class="invalid-feedback">
+                  Por favor ingrese su apellido.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="correoElectronico">Correo Electrónico *</label>
@@ -263,8 +267,12 @@
                   placeholder="Ej: correo@gmail.com"
                   maxlength="100"
                   minlength="5"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                   required
                 />
+                <div class="invalid-feedback">
+                  Por favor ingrese su correo electrónico.
+                </div>
               </div>
 
               <div class="mb-3">
@@ -279,18 +287,29 @@
                   class="form-control"
                   placeholder="Ej: 123ABC?@!"
                   maxlength="100"
-                  minlength="1"
+                  minlength="4"
                   required
                 />
+                <div class="invalid-feedback">
+                  Por favor ingrese una contraseña.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="rol">Rol *</label>
-                <select id="rol" class="form-control">
+                <select id="rol" class="form-control" required>
                   <option value="">Selecione una opcion</option>
                   <option value="administrador">Administrador</option>
                   <option value="normal">Normal</option>
                 </select>
+                <div class="invalid-feedback">
+                  Por favor seleccione un rol de usuario.
+                </div>
               </div>
+              <div
+                class="alert alert-danger mt-3 d-none"
+                role="alert"
+                id="alerta"
+              ></div>
               <button class="btn btn-primary" type="submit" id="btnFormulario">
                 Enviar
               </button>
@@ -304,6 +323,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/validation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <script src="
     https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js

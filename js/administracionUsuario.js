@@ -1,4 +1,5 @@
 import Usuario from './classUsuario.js';
+import { sumarioValidacionUsuario } from './validacionUsuario.js';
 
 //variables globales
 let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
@@ -80,40 +81,56 @@ function prepararFormularioUsuario(e) {
 }
 
 function crearUsuario() {
-  //se crea el objeto
-  const usuarioNuevo = new Usuario(
+  //validar los datos del formulario
+  let resumen = sumarioValidacionUsuario(
     nombre.value,
     apellido.value,
     correoElectronico.value,
     contrasenia.value,
     rol.value
   );
-  console.log(usuarioNuevo);
-  //la voy agregar en un array
-  listaUsuarios.push(usuarioNuevo);
-  console.log(listaUsuarios);
-  //almacenar el array de pelis en localsotarge
-  guardarEnLocalstorage();
-  //cerrar el modal con el formulario
-  limpiarFormulario();
-  //dibujar la fila nueva en la tabla
-  crearFila(usuarioNuevo, listaUsuarios.length);
-  //avisar con una alerta que se grabó un nuevo usuario
-  Swal.fire({
-    position: 'top-end',
-    icon: 'success',
-    title: 'Se guardó correctamente el nuevo usuario',
-    showConfirmButton: false,
-    timer: 2000,
-  });
-  //reiniciar la validación de los campos del modal de bootstrap
-  //   document
-  //     .getElementsByClassName('needs-validation')[0]
-  //     .classList.remove('was-validated');
-  //se limpia el resumen de la alerta
-  alerta.innerHTML = '';
-  //se oculta el modal
-  modalFormUsuario.hide();
+
+  if (resumen.length === 0) {
+    // los datos son validos
+    //se crea el objeto
+    const usuarioNuevo = new Usuario(
+      nombre.value,
+      apellido.value,
+      correoElectronico.value,
+      contrasenia.value,
+      rol.value
+    );
+    console.log(usuarioNuevo);
+    //la voy agregar en un array
+    listaUsuarios.push(usuarioNuevo);
+    console.log(listaUsuarios);
+    //almacenar el array de pelis en localsotarge
+    guardarEnLocalstorage();
+    //cerrar el modal con el formulario
+    limpiarFormulario();
+    //dibujar la fila nueva en la tabla
+    crearFila(usuarioNuevo, listaUsuarios.length);
+    //avisar con una alerta que se grabó un nuevo usuario
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Se guardó correctamente el nuevo usuario',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    //reiniciar la validación de los campos del modal de bootstrap
+    document
+      .getElementsByClassName('needs-validation')[0]
+      .classList.remove('was-validated');
+    //se limpia el resumen de la alerta
+    alerta.innerHTML = '';
+    //se oculta el modal
+    modalFormUsuario.hide();
+  } else {
+    //mostrar al usuario el cartel de error
+    alerta.innerHTML = resumen;
+    alerta.className = 'alert alert-danger mt-3';
+  }
 }
 
 function guardarEnLocalstorage() {
