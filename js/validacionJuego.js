@@ -49,6 +49,7 @@ export function sumarioValidacionJuego(
     resumen +=
       'La imagen del juego debe ser una URL valida terminada en (.jpg, .jpeg, .png, .svg o .gif) <br>';
   }
+  //Todo: Corregir el resumen de requisitos y desarrollador
   if (!validarCantidadCaracteres(requisitosSistema, 2, 500)) {
     resumen += 'La descripción debe tener entre 2 y 500 caracteres <br>';
   }
