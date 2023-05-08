@@ -39,6 +39,14 @@ let alerta = document.getElementById('alerta');
 //manejadores de eventos
 formularioAdminUsuario.addEventListener('submit', prepararFormularioUsuario);
 btnCrearUsuario.addEventListener('click', mostrarFormularioUsuario);
+document
+  .getElementById('modalUsuario')
+  .addEventListener('hidden.bs.modal', function () {
+    //cerrar el modal con el formulario
+    limpiarFormulario();
+    //se limpia el resumen de la alerta
+    cambiarContenidoAlerta('', '');
+  });
 
 cargaInicial();
 
@@ -123,14 +131,12 @@ function crearUsuario() {
       .getElementsByClassName('needs-validation')[0]
       .classList.remove('was-validated');
     //se limpia el resumen de la alerta
-    alerta.innerHTML = '';
-    alerta.className = '';
+    cambiarContenidoAlerta('', '');
     //se oculta el modal
     modalFormUsuario.hide();
   } else {
     //mostrar al usuario el cartel de error
-    alerta.innerHTML = resumen;
-    alerta.className = 'alert alert-danger mt-3';
+    cambiarContenidoAlerta(resumen, 'alert alert-danger mt-3');
   }
 }
 
@@ -140,6 +146,12 @@ function guardarEnLocalstorage() {
 
 function limpiarFormulario() {
   formularioAdminUsuario.reset();
+  //reiniciar los estilos de validaciones de los campos del formulario Juego
+  let formControls = formularioAdminUsuario.querySelectorAll('.form-control');
+  // Eliminar las clases de validación
+  formControls.forEach(function (element) {
+    element.classList.remove('is-valid', 'is-invalid');
+  });
 }
 
 function mostrarFormularioUsuario() {

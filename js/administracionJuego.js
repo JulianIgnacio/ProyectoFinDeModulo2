@@ -44,6 +44,14 @@ let alerta = document.getElementById('alerta');
 //manejadores de eventos
 formularioAdminJuego.addEventListener('submit', prepararFormularioJuego);
 btnCrearJuego.addEventListener('click', mostrarFormularioJuego);
+document
+  .getElementById('modalJuego')
+  .addEventListener('hidden.bs.modal', function () {
+    //cerrar el modal con el formulario
+    limpiarFormulario();
+    //se limpia el resumen de la alerta
+    cambiarContenidoAlerta('', '');
+  });
 
 cargaInicial();
 
@@ -132,18 +140,14 @@ function crearJuego() {
       showConfirmButton: false,
       timer: 2000,
     });
-    //reiniciar la validación de los campos del modal de bootstrap
-    document
-      .getElementsByClassName('needs-validation')[0]
-      .classList.remove('was-validated');
+
     //se limpia el resumen de la alerta
-    alerta.innerHTML = '';
+    cambiarContenidoAlerta('', '');
     //se oculta el modal
     modalFormJuego.hide();
   } else {
     //mostrar al usuario el cartel de error
-    alerta.innerHTML = resumen;
-    alerta.className = 'alert alert-danger mt-3';
+    cambiarContenidoAlerta(resumen, 'alert alert-danger mt-3');
   }
 }
 
@@ -153,8 +157,19 @@ function guardarEnLocalstorage() {
 
 function limpiarFormulario() {
   formularioAdminJuego.reset();
+  //reiniciar los estilos de validaciones de los campos del formulario Juego
+  let formControls = formularioAdminJuego.querySelectorAll('.form-control');
+  // Eliminar las clases de validación
+  formControls.forEach(function (element) {
+    element.classList.remove('is-valid', 'is-invalid');
+  });
 }
 
 function mostrarFormularioJuego() {
   modalFormJuego.show();
+}
+
+function cambiarContenidoAlerta(texto, clases) {
+  alerta.innerHTML = texto;
+  alerta.className = clases;
 }
