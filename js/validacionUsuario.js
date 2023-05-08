@@ -19,6 +19,15 @@ function validarCorreoElectronico(correo) {
   }
 }
 
+function existeCorreoElectronico(correo) {
+  let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
+  console.log(listaUsuarios);
+  const buscarCorreElectronico = listaUsuarios.some((usuario) => {
+    return usuario.correoElectronico === correo;
+  });
+  return buscarCorreElectronico;
+}
+
 function validarRol(rol) {
   if (rol === 'administrador' || rol === 'normal') {
     console.log('El rol es un valor de la lista desplegable');
@@ -45,6 +54,10 @@ export function sumarioValidacionUsuario(
   }
   if (!validarCorreoElectronico(correoElectronico)) {
     resumen += 'El correo electrónico no válido <br>';
+  }
+
+  if (existeCorreoElectronico(correoElectronico)) {
+    resumen += 'Ya existe el correo Electrónico. Intente con otro <br>';
   }
   if (!validarCantidadCaracteres(contrasenia, 4, 100)) {
     resumen += 'La contraseña debe tener entre 4 y 100 caracteres <br>';

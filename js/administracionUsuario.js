@@ -124,6 +124,7 @@ function crearUsuario() {
       .classList.remove('was-validated');
     //se limpia el resumen de la alerta
     alerta.innerHTML = '';
+    alerta.className = '';
     //se oculta el modal
     modalFormUsuario.hide();
   } else {
