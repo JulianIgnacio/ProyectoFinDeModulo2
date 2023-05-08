@@ -3,7 +3,6 @@ export default class Juego {
   #nombre;
   #precio;
   #categoria;
-  #stock;
   #descripcion;
   #imagen;
   #requisitosSistema;
@@ -15,7 +14,6 @@ export default class Juego {
     nombre,
     precio,
     categoria,
-    stock,
     descripcion,
     imagen,
     requisitosSistema,
@@ -27,7 +25,6 @@ export default class Juego {
     this.#nombre = nombre;
     this.#precio = precio;
     this.#categoria = categoria;
-    this.#stock = stock;
     this.#descripcion = descripcion;
     this.#imagen = imagen;
     this.#requisitosSistema = requisitosSistema;
@@ -66,14 +63,6 @@ export default class Juego {
 
   set categoria(categoria) {
     this.#categoria = categoria;
-  }
-
-  get stock() {
-    return this.#stock;
-  }
-
-  set stock(stock) {
-    this.#stock = stock;
   }
 
   get descripcion() {
@@ -130,7 +119,6 @@ export default class Juego {
       nombre: this.nombre,
       precio: this.precio,
       categoria: this.categoria,
-      stock: this.stock,
       descripcion: this.descripcion,
       imagen: this.imagen,
       requisitosSistema: this.requisitosSistema,
