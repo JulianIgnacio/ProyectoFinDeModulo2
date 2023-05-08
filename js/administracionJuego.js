@@ -39,6 +39,7 @@ let codigo = document.getElementById('codigo'),
 let modalFormJuego = new bootstrap.Modal(document.getElementById('modalJuego'));
 console.log(modalFormJuego);
 let btnCrearJuego = document.getElementById('btnCrearJuego');
+let alerta = document.getElementById('alerta');
 
 //manejadores de eventos
 formularioAdminJuego.addEventListener('submit', prepararFormularioJuego);
@@ -123,11 +124,24 @@ function crearJuego() {
     limpiarFormulario();
     //dibujar la fila nueva en la tabla
     crearFila(juegoNuevo, listaJuegos.length);
+    //avisar con una alerta que se grabó un nuevo juego
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Se guardó correctamente el nuevo juego',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    //reiniciar la validación de los campos del modal de bootstrap
+    document
+      .getElementsByClassName('needs-validation')[0]
+      .classList.remove('was-validated');
+    //se limpia el resumen de la alerta
+    alerta.innerHTML = '';
     //se oculta el modal
     modalFormJuego.hide();
   } else {
     //mostrar al usuario el cartel de error
-    let alerta = document.getElementById('alerta');
     alerta.innerHTML = resumen;
     alerta.className = 'alert alert-danger mt-3';
   }
