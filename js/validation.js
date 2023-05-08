@@ -5,6 +5,9 @@
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll('.needs-validation');
 
+  // Get all form-groups in need of validation
+  const validateGroup = document.getElementsByClassName('validate-me');
+
   // Loop over them and prevent submission
   Array.from(forms).forEach((form) => {
     form.addEventListener(
@@ -14,8 +17,17 @@
           event.preventDefault();
           event.stopPropagation();
         }
-
-        form.classList.add('was-validated');
+        for (let i = 0; i < validateGroup.length; i++) {
+          let invalidGroup = validateGroup[i].querySelectorAll(':invalid');
+          for (let j = 0; j < invalidGroup.length; j++) {
+            invalidGroup[j].classList.add('is-invalid');
+            invalidGroup[j].addEventListener(
+              'input',
+              (e) => e.target.classList.remove('is-invalid'),
+              { once: true }
+            );
+          }
+        }
       },
       false
     );
