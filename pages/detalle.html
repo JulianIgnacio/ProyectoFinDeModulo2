@@ -53,64 +53,60 @@
           <hr>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum consequuntur ea itaque unde consequatur vel totam, tenetur ducimus nihil voluptatibus natus voluptatem at eius aut velit fugiat libero, non impedit maxime. Totam dolor laboriosam illum velit sapiente, ut dolore fuga ullam qui assumenda nobis labore veritatis, temporibus nemo dicta quod.</p>
         </section>
-        <section class="container-fluid w-75">
+        <section class="container-fluid w-75 my-2">
           <h5>Requisitos del sistema</h5>
           <hr>
-          <div class="d-flex">
           <p>
-            <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-              Windows
-            </button>
+            <a class="btn btn-outline-info" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Windows</a>
+            <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">macOS</button>
+            <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Ambos</button>
           </p>
-          <p>
-            <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample2" aria-expanded="false" aria-controls="collapseWidthExample2">
-              macOS
-            </button>
-          </p>
-        </div>
-          <div style="min-height: 120px;">
-            <div class="collapse collapse-horizontal" id="collapseWidthExample">
-              <div class="card card-body d-flex">
-                <ul>
-                   MÍNIMO:
-                  <li>SO: </li>
-                  <li>Procesador: </li>
-                  <li>Memoria: </li>
-                  <li>Gráficos: </li>
-                  <li>DirectX: </li>
-                  <li>Almacenamiento: </li>
-                  <li>Tarjeta de sonido: </li>
-                </ul>
-                <ul>
-                  <li>RECOMENDADO: </li>
-                  <li>SO: </li>
-                  <li>Procesador: </li>
-                  <li>Memoria: </li>
-                  <li>Gráficos: </li>
-                  <li>DirectX: </li>
-                  <li>Almacenamiento: </li>
-                  <li>Tarjeta de sonido: </li>
-                </ul>
+          <div class="row" id="columnas">
+            <div class="col-6">
+              <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div class="card card-body">
+                  <ul>
+                    MÍNIMO:
+                   <li>SO: </li>
+                   <li>Procesador: </li>
+                   <li>Memoria: </li>
+                   <li>Gráficos: </li>
+                   <li>DirectX: </li>
+                   <li>Almacenamiento: </li>
+                   <li>Tarjeta de sonido: </li>
+                 </ul>
+                 <ul>
+                   <li>RECOMENDADO: </li>
+                   <li>SO: </li>
+                   <li>Procesador: </li>
+                   <li>Memoria: </li>
+                   <li>Gráficos: </li>
+                   <li>DirectX: </li>
+                   <li>Almacenamiento: </li>
+                   <li>Tarjeta de sonido: </li>
+                 </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="card card-body">
+                  <ul>
+                    MÍNIMO:
+                   <li>SO: </li>
+                   <li>Procesador: </li>
+                   <li>Memoria: </li>
+                   <li>Gráficos: </li>
+                   <li>DirectX: </li>
+                   <li>Almacenamiento: </li>
+                   <li>Tarjeta de sonido: </li>
+                 </ul>
+                </div>
               </div>
             </div>
           </div>
-          <div style="min-height: 120px;">
-            <div class="collapse collapse-horizontal" id="collapseWidthExample2">
-              <div class="card card-body d-flex">
-                <ul>
-                   MÍNIMO:
-                  <li>SO: </li>
-                  <li>Procesador: </li>
-                  <li>Memoria: </li>
-                  <li>Gráficos: </li>
-                  <li>DirectX: </li>
-                  <li>Almacenamiento: </li>
-                  <li>Tarjeta de sonido: </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        <section class="container-fluid" id="containerReseñas">
+        </section>
+        <section class="container-fluid w-75" id="containerReseñas">
           <h5>Reseñas</h5>
           <hr>
           <form class="d-flex justify-content-end">
