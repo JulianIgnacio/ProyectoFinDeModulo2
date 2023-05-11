@@ -211,3 +211,6 @@ function escrituraInput(input) {
   input.classList.replace('form-control-plaintext', 'form-control');
   input.readOnly = false;
 }
+function eliminarJuego (){
+  
+}
