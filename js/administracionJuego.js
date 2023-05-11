@@ -37,7 +37,6 @@ let codigo = document.getElementById('codigo'),
 let modalFormJuego = new bootstrap.Modal(document.getElementById('modalJuego'));
 console.log(modalFormJuego);
 let btnCrearJuego = document.getElementById('btnCrearJuego');
-let alerta = document.getElementById('alerta');
 
 //manejadores de eventos
 formularioAdminJuego.addEventListener('submit', prepararFormularioJuego);
@@ -47,8 +46,6 @@ document
   .addEventListener('hidden.bs.modal', function () {
     //cerrar el modal con el formulario
     limpiarFormulario();
-    //se limpia el resumen de la alerta
-    cambiarContenidoAlerta('', '');
     //se vuelve por defecto el valor del title del formulario
     let modalLabel = document.getElementById('modalLabel');
     modalLabel.innerHTML = 'Crear Juego';
@@ -90,7 +87,7 @@ function crearFila(juego) {
     <button class="btn btn-primary" onclick="verJuego('${juego.codigo}')">
     <i class="bi bi-search"></i>
     </button>
-    <button class="btn btn-warning my-2 my-md-0">
+    <button class="btn btn-warning my-2 my-lg-0">
     <i class="bi bi-pencil"></i>
     </button>
     <button class="btn btn-danger">
@@ -148,17 +145,17 @@ function escrituraInput(input) {
 
 function crearJuego() {
   //validar los datos del formulario
-  let resumen = sumarioValidacionJuego(
-    nombre.value,
-    precio.value,
-    categoria.value,
-    descripcion.value,
-    imagen.value,
-    requisitosSistema.value,
-    desarrollador.value
+  let validado = sumarioValidacionJuego(
+    nombre,
+    precio,
+    categoria,
+    descripcion,
+    imagen,
+    requisitosSistema,
+    desarrollador
   );
 
-  if (resumen.length === 0) {
+  if (validado === true) {
     // los datos son validos
     //se crea el objeto
     const juegoNuevo = new Juego(
@@ -190,14 +187,8 @@ function crearJuego() {
       showConfirmButton: false,
       timer: 2000,
     });
-
-    //se limpia el resumen de la alerta
-    cambiarContenidoAlerta('', '');
     //se oculta el modal
     modalFormJuego.hide();
-  } else {
-    //mostrar al usuario el cartel de error
-    cambiarContenidoAlerta(resumen, 'alert alert-danger mt-3');
   }
 }
 
@@ -217,9 +208,4 @@ function limpiarFormulario() {
 
 function mostrarFormularioJuego() {
   modalFormJuego.show();
-}
-
-function cambiarContenidoAlerta(texto, clases) {
-  alerta.innerHTML = texto;
-  alerta.className = clases;
 }

@@ -126,6 +126,7 @@
               aria-label="Close"
             ></button>
           </div>
+
           <div class="modal-body">
             <form id="formJuego" class="row g-3 needs-validation" novalidate>
               <div class="mb-3 position-relative">
@@ -152,10 +153,9 @@
                   required
                 />
                 <div class="invalid-feedback">
-                  Por favor ingrese un nombre del Juego.
+                  El nombre del Juego debe tener entre 5 y 100 caracteres.
                 </div>
               </div>
-              <div class="valid-tooltip">Looks good!</div>
               <div class="mb-3 validate-me">
                 <label for="precio">Precio *</label>
                 <input
@@ -167,7 +167,9 @@
                   minlength="1"
                   required
                 />
-                <div class="invalid-feedback">Por favor ingrese un precio.</div>
+                <div class="invalid-feedback">
+                  El precio del Juego debe tener entre 1 y 10 caracteres.
+                </div>
               </div>
               <div class="mb-3 validate-me">
                 <label for="categoria">Categoria *</label>
@@ -181,7 +183,7 @@
                   required
                 />
                 <div class="invalid-feedback">
-                  Por favor ingrese una categoria.
+                  La categoría del Juego debe tener entre 2 y 50 caracteres.
                 </div>
               </div>
               <div class="mb-3 validate-me">
@@ -196,7 +198,7 @@
                   required
                 ></textarea>
                 <div class="invalid-feedback">
-                  Por favor ingrese una descripción del Juego
+                  La descripción debe tener entre 2 y 200 caracteres.
                 </div>
               </div>
               <div class="mb-3 validate-me">
@@ -213,11 +215,12 @@
                   placeholder="Ej: http://127.0.0.1:5500/pages/leagueoflegends.png"
                   maxlength="120"
                   minlength="2"
-                  required
                   pattern="https?://.+\.(png|jpe?g|gif|svg)"
+                  required
                 />
                 <div class="invalid-feedback">
-                  Por favor ingrese el link de la imagen.
+                  La imagen del juego debe ser una URL valida terminada en
+                  (.jpg, .jpeg, .png, .svg o .gif)
                 </div>
               </div>
               <div class="mb-3 validate-me">
@@ -236,7 +239,7 @@
                   required
                 ></textarea>
                 <div class="invalid-feedback">
-                  Por favor ingrese los requisitos del sistema.
+                  Los requisitos del sistema debe tener entre 2 y 500 caracteres
                 </div>
               </div>
               <div class="mb-3 validate-me">
@@ -251,14 +254,9 @@
                   required
                 />
                 <div class="invalid-feedback">
-                  Por favor ingrese el desarrollador del Juego.
+                  El desarrollador del Juego debe tener entre 2 y 60 caracteres
                 </div>
               </div>
-              <div
-                class="alert alert-danger mt-3 d-none"
-                role="alert"
-                id="alerta"
-              ></div>
               <button class="btn btn-primary" type="submit" id="btnFormulario">
                 Enviar
               </button>

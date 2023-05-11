@@ -1,20 +1,20 @@
 function validarCantidadCaracteres(texto, min, max) {
-  if (texto.length >= min && texto.length <= max) {
-    console.log('dato correcto');
+  if (texto.value.length >= min && texto.value.length <= max) {
+    texto.className = 'form-control is-valid';
     return true;
   } else {
-    console.log('dato erroneo');
+    texto.className = 'form-control is-invalid';
     return false;
   }
 }
 
 function validarURLImagen(imagen) {
   let patron = /^(http(s?):)([/|.|\w|\s|-])*\.(?:png|jpe?g|gif|svg)$/;
-  if (patron.test(imagen)) {
-    console.log('la expresion regular de la imagen funciona');
+  if (patron.test(imagen.value)) {
+    imagen.className = 'form-control is-valid';
     return true;
   } else {
-    console.log('la expresion regular de la imagen fallo');
+    imagen.className = 'form-control is-invalid';
     return false;
   }
 }
@@ -28,30 +28,28 @@ export function sumarioValidacionJuego(
   requisitosSistema,
   desarrollador
 ) {
-  let resumen = '';
+  let validado = true;
   if (!validarCantidadCaracteres(nombre, 5, 100)) {
-    resumen += 'El nombre del Juego debe tener entre 5 y 100 caracteres <br>';
+    validado = false;
   }
   if (!validarCantidadCaracteres(precio, 1, 10)) {
-    resumen += 'El precio del Juego debe tener entre 1 y 10 caracteres <br>';
+    validado = false;
   }
   if (!validarCantidadCaracteres(categoria, 2, 50)) {
-    resumen += 'La categoría del Juego debe tener entre 2 y 50 caracteres <br>';
+    validado = false;
   }
   if (!validarCantidadCaracteres(descripcion, 2, 200)) {
-    resumen += 'La descripción debe tener entre 2 y 200 caracteres <br>';
+    validado = false;
   }
   if (!validarURLImagen(imagen)) {
-    resumen +=
-      'La imagen del juego debe ser una URL valida terminada en (.jpg, .jpeg, .png, .svg o .gif) <br>';
+    validado = false;
   }
-  //TODO: Corregir el resumen de requisitos y desarrollador
   if (!validarCantidadCaracteres(requisitosSistema, 2, 500)) {
-    resumen += 'La descripción debe tener entre 2 y 500 caracteres <br>';
+    validado = false;
   }
   if (!validarCantidadCaracteres(desarrollador, 2, 60)) {
-    resumen += 'La descripción debe tener entre 2 y 60 caracteres <br>';
+    validado = false;
   }
 
-  return resumen;
+  return validado;
 }
