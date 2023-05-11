@@ -1,39 +1,51 @@
 function validarCantidadCaracteres(texto, min, max) {
-  if (texto.length >= min && texto.length <= max) {
-    console.log('dato correcto');
+  if (texto.value.length >= min && texto.value.length <= max) {
+    texto.className = 'form-control is-valid';
     return true;
   } else {
-    console.log('dato erroneo');
+    texto.className = 'form-control is-invalid';
     return false;
   }
 }
 
 function validarCorreoElectronico(correo) {
-  let patron = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  if (patron.test(correo)) {
-    console.log('la expresion regular del correo funciona');
+  let patron =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (patron.test(correo.value)) {
+    correo.className = 'form-control is-valid';
     return true;
   } else {
-    console.log('la expresion regular del correo fallo');
+    correo.className = 'form-control is-invalid';
     return false;
   }
 }
 
 function existeCorreoElectronico(correo) {
   let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
-  console.log(listaUsuarios);
   const buscarCorreElectronico = listaUsuarios.some((usuario) => {
-    return usuario.correoElectronico === correo;
+    usuario.correoElectronico === correo;
   });
-  return buscarCorreElectronico;
+  console.log(buscarCorreElectronico);
+}
+
+function validarContrasenia(contrasenia) {
+  let patron =
+    /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/;
+  if (patron.test(contrasenia.value)) {
+    contrasenia.className = 'form-control is-valid';
+    return true;
+  } else {
+    contrasenia.className = 'form-control is-invalid';
+    return false;
+  }
 }
 
 function validarRol(rol) {
-  if (rol === 'administrador' || rol === 'normal') {
-    console.log('El rol es un valor de la lista desplegable');
+  if (rol.value === 'administrador' || rol.value === 'normal') {
+    rol.className = 'form-control is-valid';
     return true;
   } else {
-    console.log('El rol no es un valor de la lista desplegable');
+    rol.className = 'form-control is-invalid';
     return false;
   }
 }
@@ -45,26 +57,29 @@ export function sumarioValidacionUsuario(
   contrasenia,
   rol
 ) {
-  let resumen = '';
+  let validado = true;
   if (!validarCantidadCaracteres(nombre, 2, 70)) {
-    resumen += 'El nombre debe tener entre 2 y 70 caracteres <br>';
+    validado = false;
   }
   if (!validarCantidadCaracteres(apellido, 2, 70)) {
-    resumen += 'El apellido  debe tener entre 2 y 70 caracteres <br>';
+    validado = false;
   }
   if (!validarCorreoElectronico(correoElectronico)) {
-    resumen += 'El correo electrónico no válido <br>';
+    validado = false;
   }
 
   if (existeCorreoElectronico(correoElectronico)) {
-    resumen += 'Ya existe el correo Electrónico. Intente con otro <br>';
+    validado = false;
   }
   if (!validarCantidadCaracteres(contrasenia, 4, 100)) {
-    resumen += 'La contraseña debe tener entre 4 y 100 caracteres <br>';
+    validado = false;
+  }
+  if (validarContrasenia(contrasenia)) {
+    validado = false;
   }
   if (!validarRol(rol)) {
-    resumen += 'El rol debe ser Administrador o Normal <br>';
+    validado = false;
   }
 
-  return resumen;
+  return validado;
 }

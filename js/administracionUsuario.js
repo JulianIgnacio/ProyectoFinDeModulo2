@@ -34,7 +34,6 @@ let modalFormUsuario = new bootstrap.Modal(
 );
 console.log(modalFormUsuario);
 let btnCrearUsuario = document.getElementById('btnCrearUsuario');
-let alerta = document.getElementById('alerta');
 
 //manejadores de eventos
 formularioAdminUsuario.addEventListener('submit', prepararFormularioUsuario);
@@ -44,8 +43,6 @@ document
   .addEventListener('hidden.bs.modal', function () {
     //cerrar el modal con el formulario
     limpiarFormulario();
-    //se limpia el resumen de la alerta
-    cambiarContenidoAlerta('', '');
   });
 
 cargaInicial();
@@ -90,15 +87,15 @@ function prepararFormularioUsuario(e) {
 
 function crearUsuario() {
   //validar los datos del formulario
-  let resumen = sumarioValidacionUsuario(
-    nombre.value,
-    apellido.value,
-    correoElectronico.value,
-    contrasenia.value,
-    rol.value
+  let validado = sumarioValidacionUsuario(
+    nombre,
+    apellido,
+    correoElectronico,
+    contrasenia,
+    rol
   );
 
-  if (resumen.length === 0) {
+  if (validado === true) {
     // los datos son validos
     //se crea el objeto
     const usuarioNuevo = new Usuario(
@@ -130,13 +127,8 @@ function crearUsuario() {
     document
       .getElementsByClassName('needs-validation')[0]
       .classList.remove('was-validated');
-    //se limpia el resumen de la alerta
-    cambiarContenidoAlerta('', '');
     //se oculta el modal
     modalFormUsuario.hide();
-  } else {
-    //mostrar al usuario el cartel de error
-    cambiarContenidoAlerta(resumen, 'alert alert-danger mt-3');
   }
 }
 
