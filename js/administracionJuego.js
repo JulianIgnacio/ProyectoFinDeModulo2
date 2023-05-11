@@ -103,46 +103,6 @@ function prepararFormularioJuego(e) {
   crearJuego();
 }
 
-window.verJuego = (codigoJuego) => {
-  console.log('aqui veo los detalles del juego');
-  //1- buscar el objeto que quiero mostrar en el form
-  let juegoBuscado = listaJuegos.find((juego) => juego.codigo === codigoJuego);
-  console.log(juegoBuscado);
-  //2- mostrar el formulario con los datos
-  modalFormJuego.show();
-  codigo.value = juegoBuscado.codigo;
-  nombre.value = juegoBuscado.nombre;
-  soloLecturaInput(nombre);
-  precio.value = juegoBuscado.precio;
-  soloLecturaInput(precio);
-  categoria.value = juegoBuscado.categoria;
-  soloLecturaInput(categoria);
-  descripcion.value = juegoBuscado.descripcion;
-  soloLecturaInput(descripcion);
-  imagen.value = juegoBuscado.imagen;
-  soloLecturaInput(imagen);
-  requisitosSistema.value = juegoBuscado.requisitosSistema;
-  soloLecturaInput(requisitosSistema);
-  desarrollador.value = juegoBuscado.desarrollador;
-  soloLecturaInput(desarrollador);
-  //Cambiar el title del modal
-  let modalLabel = document.getElementById('modalLabel');
-  modalLabel.innerHTML = 'Ver Juego';
-  // ocultar el botón estableciendo su propiedad "display" en "none"
-  let btnFormulario = document.getElementById('btnFormulario');
-  btnFormulario.style.display = 'none';
-};
-
-function soloLecturaInput(input) {
-  input.classList.replace('form-control', 'form-control-plaintext');
-  input.readOnly = true;
-}
-
-function escrituraInput(input) {
-  input.classList.replace('form-control-plaintext', 'form-control');
-  input.readOnly = false;
-}
-
 function crearJuego() {
   //validar los datos del formulario
   let validado = sumarioValidacionJuego(
@@ -189,6 +149,8 @@ function crearJuego() {
     });
     //se oculta el modal
     modalFormJuego.hide();
+  } else {
+    console.log('entro por el false');
   }
 }
 
@@ -208,4 +170,44 @@ function limpiarFormulario() {
 
 function mostrarFormularioJuego() {
   modalFormJuego.show();
+}
+
+window.verJuego = (codigoJuego) => {
+  console.log('aqui veo los detalles del juego');
+  //1- buscar el objeto que quiero mostrar en el form
+  let juegoBuscado = listaJuegos.find((juego) => juego.codigo === codigoJuego);
+  console.log(juegoBuscado);
+  //2- mostrar el formulario con los datos
+  modalFormJuego.show();
+  codigo.value = juegoBuscado.codigo;
+  nombre.value = juegoBuscado.nombre;
+  soloLecturaInput(nombre);
+  precio.value = juegoBuscado.precio;
+  soloLecturaInput(precio);
+  categoria.value = juegoBuscado.categoria;
+  soloLecturaInput(categoria);
+  descripcion.value = juegoBuscado.descripcion;
+  soloLecturaInput(descripcion);
+  imagen.value = juegoBuscado.imagen;
+  soloLecturaInput(imagen);
+  requisitosSistema.value = juegoBuscado.requisitosSistema;
+  soloLecturaInput(requisitosSistema);
+  desarrollador.value = juegoBuscado.desarrollador;
+  soloLecturaInput(desarrollador);
+  //Cambiar el title del modal
+  let modalLabel = document.getElementById('modalLabel');
+  modalLabel.innerHTML = 'Ver Juego';
+  // ocultar el botón estableciendo su propiedad "display" en "none"
+  let btnFormulario = document.getElementById('btnFormulario');
+  btnFormulario.style.display = 'none';
+};
+
+function soloLecturaInput(input) {
+  input.classList.replace('form-control', 'form-control-plaintext');
+  input.readOnly = true;
+}
+
+function escrituraInput(input) {
+  input.classList.replace('form-control-plaintext', 'form-control');
+  input.readOnly = false;
 }
