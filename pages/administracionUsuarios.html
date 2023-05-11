@@ -29,7 +29,7 @@
             class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white"
           >
             <a
-              href="/"
+              href="./administracionJuegos.html"
               class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none"
             >
               <span class="fs-5 pt-2"
@@ -95,97 +95,7 @@
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
-                    <tbody id="tablaUsuario">
-                      <tr>
-                        <th>1</th>
-                        <td>Julian</td>
-                        <td>Montenegro</td>
-                        <td class="tamanioCelda text-truncate">
-                          correo1@gmail.com
-                        </td>
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>2</th>
-                        <td>Hugo</td>
-                        <td>Triunffeti</td>
-                        <td>correo2@gmail.com</td>
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>3</th>
-                        <td>Alberto</td>
-                        <td>Ivan</td>
-                        <td>correo3@gmail.com</td>
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>4</th>
-                        <td>Eugenia</td>
-                        <td>Caceres</td>
-                        <td>correo4@gmail.com</td>
-
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>5</th>
-                        <td>Samara</td>
-                        <td>Zapata</td>
-                        <td>correo5@gmail.com</td>
-
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
+                    <tbody id="tablaUsuario"></tbody>
                   </table>
                 </article>
               </section>
@@ -241,7 +151,9 @@
                   minlength="2"
                   required
                 />
-                <div class="invalid-feedback">Por favor ingrese su nombre.</div>
+                <div class="invalid-feedback">
+                  El nombre debe tener entre 2 y 70 caracteres.
+                </div>
               </div>
               <div class="mb-3 validate-me">
                 <label for="apellido">Apellido *</label>
@@ -255,7 +167,7 @@
                   required
                 />
                 <div class="invalid-feedback">
-                  Por favor ingrese su apellido.
+                  El apellido debe tener entre 2 y 70 caracteres.
                 </div>
               </div>
               <div class="mb-3 validate-me">
@@ -271,27 +183,28 @@
                   required
                 />
                 <div class="invalid-feedback">
-                  Por favor ingrese su correo electrónico.
+                  El correo electrónico no es válido o ya existe. Intente con
+                  otro.
                 </div>
               </div>
 
               <div class="mb-3 validate-me">
                 <label for="contrasenia"
-                  >Contraseña *<small class="text-secondary">
-                    (debe contener mayúsculas, minúsculas y símbolos)</small
-                  ></label
-                >
+                  >Contraseña *<small class="text-secondary"></small
+                ></label>
                 <input
                   id="contrasenia"
-                  type="number"
+                  type="text"
                   class="form-control"
-                  placeholder="Ej: 123ABC?@!"
-                  maxlength="100"
-                  minlength="4"
+                  placeholder="Ej: w3Unpocode>t0d0"
+                  maxlength="16"
+                  minlength="8"
                   required
                 />
                 <div class="invalid-feedback">
-                  Por favor ingrese una contraseña.
+                  La contraseña debe tener al entre 8 y 16 caracteres, al menos
+                  un dígito, al menos una minúscula, al menos una mayúscula y al
+                  menos un caracter no alfanumérico.
                 </div>
               </div>
               <div class="mb-3 validate-me">
@@ -302,14 +215,9 @@
                   <option value="normal">Normal</option>
                 </select>
                 <div class="invalid-feedback">
-                  Por favor seleccione un rol de usuario.
+                  El rol debe ser Administrador o Normal.
                 </div>
               </div>
-              <div
-                class="alert alert-danger mt-3 d-none"
-                role="alert"
-                id="alerta"
-              ></div>
               <button class="btn btn-primary" type="submit" id="btnFormulario">
                 Enviar
               </button>
