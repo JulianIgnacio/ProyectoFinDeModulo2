@@ -22,10 +22,16 @@ function validarCorreoElectronico(correo) {
 
 function existeCorreoElectronico(correo) {
   let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
-  const buscarCorreElectronico = listaUsuarios.some((usuario) => {
-    usuario.correoElectronico === correo;
-  });
-  console.log(buscarCorreElectronico);
+  let usuarioBuscado = listaUsuarios.some(
+    (usuario) => usuario.correoElectronico === correo.value
+  );
+  if (usuarioBuscado || !validarCantidadCaracteres(correo, 5, 100)) {
+    correo.className = 'form-control is-invalid';
+    return false;
+  } else {
+    correo.className = 'form-control is-valid';
+    return true;
+  }
 }
 
 function validarContrasenia(contrasenia) {
@@ -67,14 +73,13 @@ export function sumarioValidacionUsuario(
   if (!validarCorreoElectronico(correoElectronico)) {
     validado = false;
   }
-
-  if (existeCorreoElectronico(correoElectronico)) {
+  if (!existeCorreoElectronico(correoElectronico)) {
     validado = false;
   }
   if (!validarCantidadCaracteres(contrasenia, 4, 100)) {
     validado = false;
   }
-  if (validarContrasenia(contrasenia)) {
+  if (!validarContrasenia(contrasenia)) {
     validado = false;
   }
   if (!validarRol(rol)) {

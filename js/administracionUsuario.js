@@ -43,6 +43,18 @@ document
   .addEventListener('hidden.bs.modal', function () {
     //cerrar el modal con el formulario
     limpiarFormulario();
+    //se vuelve por defecto el valor del title del formulario
+    let modalLabel = document.getElementById('modalLabel');
+    modalLabel.innerHTML = 'Crear Usuario';
+    //volver los inputs a escritura
+    escrituraInput(nombre);
+    escrituraInput(apellido);
+    escrituraInput(correoElectronico);
+    escrituraInput(contrasenia);
+    escrituraInput(rol);
+    //volver a mostrar el boton Enviar
+    let btnFormulario = document.getElementById('btnFormulario');
+    btnFormulario.style.display = 'block';
   });
 
 cargaInicial();
@@ -66,7 +78,7 @@ function crearFila(usuario) {
     ${usuario.correoElectronico}
   </td>
   <td>
-    <button class="btn btn-primary">
+    <button class="btn btn-primary" onclick="verUsuario('${usuario.codigo}')">
     <i class="bi bi-search"></i>
     </button>
     <button class="btn btn-warning my-2 my-md-0">
@@ -148,4 +160,42 @@ function limpiarFormulario() {
 
 function mostrarFormularioUsuario() {
   modalFormUsuario.show();
+}
+
+window.verUsuario = (codigoUsuario) => {
+  console.log('aqui veo los detalles del usuario');
+  //1- buscar el objeto que quiero mostrar en el form
+  let usuarioBuscado = listaUsuarios.find(
+    (usuario) => usuario.codigo === codigoUsuario
+  );
+  console.log(usuarioBuscado);
+  //2- mostrar el formulario con los datos
+  modalFormUsuario.show();
+  codigo.value = usuarioBuscado.codigo;
+  nombre.value = usuarioBuscado.nombre;
+  soloLecturaInput(nombre);
+  apellido.value = usuarioBuscado.apellido;
+  soloLecturaInput(apellido);
+  correoElectronico.value = usuarioBuscado.correoElectronico;
+  soloLecturaInput(correoElectronico);
+  contrasenia.value = usuarioBuscado.contrasenia;
+  soloLecturaInput(contrasenia);
+  rol.value = usuarioBuscado.rol;
+  soloLecturaInput(rol);
+  //Cambiar el title del modal
+  let modalLabel = document.getElementById('modalLabel');
+  modalLabel.innerHTML = 'Ver Usuario';
+  // ocultar el botón estableciendo su propiedad "display" en "none"
+  let btnFormulario = document.getElementById('btnFormulario');
+  btnFormulario.style.display = 'none';
+};
+
+function soloLecturaInput(input) {
+  input.classList.replace('form-control', 'form-control-plaintext');
+  input.readOnly = true;
+}
+
+function escrituraInput(input) {
+  input.classList.replace('form-control-plaintext', 'form-control');
+  input.readOnly = false;
 }
