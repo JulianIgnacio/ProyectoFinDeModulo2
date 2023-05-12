@@ -13,7 +13,6 @@ if (listaUsuarios.length !== 0) {
         usuario.apellido,
         usuario.correoElectronico,
         usuario.contrasenia,
-        usuario.descripcion,
         usuario.rol
       )
   );
@@ -51,7 +50,7 @@ document
     escrituraInput(apellido);
     escrituraInput(correoElectronico);
     escrituraInput(contrasenia);
-    escrituraInput(rol);
+    escrituraSelect(rol);
     //volver a mostrar el boton Enviar
     let btnFormulario = document.getElementById('btnFormulario');
     btnFormulario.style.display = 'block';
@@ -63,12 +62,17 @@ function cargaInicial() {
   if (listaUsuarios.length > 0) {
     //dibujo una fila en la tabla
     listaUsuarios.map((usuario) => crearFila(usuario));
+  } else {
+    let articleUsuario = document.querySelector('#articleUsuario');
+    articleUsuario.innerHTML =
+      '<h2 class="mt-3 text-center">No hay usuarios disponibles</h2>';
   }
 }
 
 function crearFila(usuario) {
   let tbody = document.querySelector('#tablaUsuario');
-  tbody.innerHTML += `<tr>
+  if (tbody !== null) {
+    tbody.innerHTML += `<tr>
   <td scope="col">1</td>
   <td>${usuario.nombre}</td>
   <td>
@@ -89,6 +93,9 @@ function crearFila(usuario) {
     </button>
   </td>
 </tr>`;
+  } else {
+    setTimeout(location.reload(), 2500);
+  }
 }
 
 function prepararFormularioUsuario(e) {
@@ -136,9 +143,9 @@ function crearUsuario() {
       timer: 2000,
     });
     //reiniciar la validación de los campos del modal de bootstrap
-    document
-      .getElementsByClassName('needs-validation')[0]
-      .classList.remove('was-validated');
+    // document
+    //   .getElementsByClassName('needs-validation')[0]
+    //   .classList.remove('was-validated');
     //se oculta el modal
     modalFormUsuario.hide();
   }
@@ -150,7 +157,7 @@ function guardarEnLocalstorage() {
 
 function limpiarFormulario() {
   formularioAdminUsuario.reset();
-  //reiniciar los estilos de validaciones de los campos del formulario Juego
+  //reiniciar los estilos de validaciones de los campos del formulario Usuario
   let formControls = formularioAdminUsuario.querySelectorAll('.form-control');
   // Eliminar las clases de validación
   formControls.forEach(function (element) {
@@ -168,7 +175,6 @@ window.verUsuario = (codigoUsuario) => {
   let usuarioBuscado = listaUsuarios.find(
     (usuario) => usuario.codigo === codigoUsuario
   );
-  console.log(usuarioBuscado);
   //2- mostrar el formulario con los datos
   modalFormUsuario.show();
   codigo.value = usuarioBuscado.codigo;
@@ -181,7 +187,8 @@ window.verUsuario = (codigoUsuario) => {
   contrasenia.value = usuarioBuscado.contrasenia;
   soloLecturaInput(contrasenia);
   rol.value = usuarioBuscado.rol;
-  soloLecturaInput(rol);
+
+  soloLecturaSelect(rol);
   //Cambiar el title del modal
   let modalLabel = document.getElementById('modalLabel');
   modalLabel.innerHTML = 'Ver Usuario';
@@ -198,4 +205,10 @@ function soloLecturaInput(input) {
 function escrituraInput(input) {
   input.classList.replace('form-control-plaintext', 'form-control');
   input.readOnly = false;
+}
+function soloLecturaSelect(select) {
+  select.disabled = true;
+}
+function escrituraSelect(select) {
+  select.disabled = false;
 }

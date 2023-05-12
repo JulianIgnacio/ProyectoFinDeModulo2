@@ -25,7 +25,11 @@ function existeCorreoElectronico(correo) {
   let usuarioBuscado = listaUsuarios.some(
     (usuario) => usuario.correoElectronico === correo.value
   );
-  if (usuarioBuscado || !validarCantidadCaracteres(correo, 5, 100)) {
+  if (
+    usuarioBuscado ||
+    !validarCantidadCaracteres(correo, 5, 100) ||
+    !validarCorreoElectronico(correo)
+  ) {
     correo.className = 'form-control is-invalid';
     return false;
   } else {
@@ -48,10 +52,10 @@ function validarContrasenia(contrasenia) {
 
 function validarRol(rol) {
   if (rol.value === 'administrador' || rol.value === 'normal') {
-    rol.className = 'form-control is-valid';
+    rol.className = 'form-select is-valid';
     return true;
   } else {
-    rol.className = 'form-control is-invalid';
+    rol.className = 'form-select is-invalid';
     return false;
   }
 }
@@ -68,9 +72,6 @@ export function sumarioValidacionUsuario(
     validado = false;
   }
   if (!validarCantidadCaracteres(apellido, 2, 70)) {
-    validado = false;
-  }
-  if (!validarCorreoElectronico(correoElectronico)) {
     validado = false;
   }
   if (!existeCorreoElectronico(correoElectronico)) {

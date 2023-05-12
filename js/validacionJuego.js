@@ -19,6 +19,23 @@ function validarURLImagen(imagen) {
   }
 }
 
+function validarCategoria(categoria) {
+  if (
+    categoria.value === 'sandbox' ||
+    categoria.value === 'simulacion' ||
+    categoria.value === 'fabricacion' ||
+    categoria.value === 'construccion' ||
+    categoria.value === 'aventura' ||
+    categoria.value === 'accion'
+  ) {
+    categoria.className = 'form-select is-valid';
+    return true;
+  } else {
+    categoria.className = 'form-select is-invalid';
+    return false;
+  }
+}
+
 export function sumarioValidacionJuego(
   nombre,
   precio,
@@ -29,15 +46,19 @@ export function sumarioValidacionJuego(
   desarrollador
 ) {
   let validado = true;
-  if (!validarCantidadCaracteres(nombre, 5, 100)) {
+  if (!validarCantidadCaracteres(nombre, 2, 100)) {
     validado = false;
   }
   if (!validarCantidadCaracteres(precio, 1, 10)) {
     validado = false;
   }
+  if (!validarCategoria(categoria)) {
+    validado = false;
+  }
   if (!validarCantidadCaracteres(categoria, 2, 50)) {
     validado = false;
   }
+
   if (!validarCantidadCaracteres(descripcion, 2, 200)) {
     validado = false;
   }
