@@ -228,7 +228,7 @@ function escrituraSelect(select) {
 
 window.borrarJuego = (codigoJuego) => {
   Swal.fire({
-    title: '¿Esta seguro de eliminar la pelicula?',
+    title: '¿Esta seguro que desea eliminar el juego seleccionado?',
     text: 'No se puede revertir este proceso',
     icon: 'warning',
     showCancelButton: true,
