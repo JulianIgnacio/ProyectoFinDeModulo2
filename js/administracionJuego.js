@@ -9,7 +9,7 @@ if (listaJuegos.length !== 0) {
   listaJuegos = listaJuegos.map(
     (juego) =>
       new Juego(
-        juego.nombre,
+        juego.codigo,
         juego.precio,
         juego.categoria,
         juego.descripcion,
@@ -69,16 +69,17 @@ function cargaInicial() {
     //dibujo una fila en la tabla
     listaJuegos.map((juego) => crearFila(juego));
   } else {
-    let articleJuego = document.querySelector('#articleJuego');
-    articleJuego.innerHTML =
-      '<h2 class="mt-3 text-center">No hay juegos disponibles</h2>';
+    Swal.fire(
+      'No hay juegos cargados',
+      'Ingrese el primer juego en Opciones',
+      'error'
+    );
   }
 }
 
 function crearFila(juego) {
   let tbody = document.querySelector('#tablaJuego');
-  if (tbody !== null) {
-    tbody.innerHTML += `<tr>
+  tbody.innerHTML += `<tr>
   <td scope="col">1</td>
   <td>${juego.nombre}</td>
   <td>
@@ -100,9 +101,6 @@ function crearFila(juego) {
     </button>
   </td>
 </tr>`;
-  } else {
-    setTimeout(location.reload(), 2500);
-  }
 }
 
 function prepararFormularioJuego(e) {
@@ -127,6 +125,7 @@ function crearJuego() {
     // los datos son validos
     //se crea el objeto
     const juegoNuevo = new Juego(
+      undefined,
       nombre.value,
       precio.value,
       categoria.value,
@@ -226,16 +225,17 @@ function soloLecturaSelect(select) {
 function escrituraSelect(select) {
   select.disabled = false;
 }
+
 window.borrarJuego = (codigoJuego) => {
   Swal.fire({
-    title: "¿Esta seguro de eliminar la pelicula?",
-    text: "No se puede revertir este proceso",
-    icon: "warning",
+    title: '¿Esta seguro de eliminar la pelicula?',
+    text: 'No se puede revertir este proceso',
+    icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Borrar",
-    cancelButtonText: "Cancelar",
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Borrar',
+    cancelButtonText: 'Cancelar',
   }).then((result) => {
     console.log(result);
     if (result.isConfirmed) {
@@ -248,9 +248,13 @@ window.borrarJuego = (codigoJuego) => {
       //actualizar el localstorage
       guardarEnLocalstorage();
       //borrar la fila de la tabla
-      let tbody = document.querySelector("#tablaJuego");
+      let tbody = document.querySelector('#tablaJuego');
       tbody.removeChild(tbody.children[posicionJuego]);
-      Swal.fire("Juego eliminado", "El juego fue eliminado correctamente", "success");
+      Swal.fire(
+        'Juego eliminado',
+        'El juego fue eliminado correctamente',
+        'success'
+      );
     }
   });
 };
