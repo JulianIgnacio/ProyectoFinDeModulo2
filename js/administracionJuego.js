@@ -52,7 +52,7 @@ document
     //volver los inputs a escritura
     escrituraInput(nombre);
     escrituraInput(precio);
-    escrituraInput(categoria);
+    escrituraSelect(categoria);
     escrituraInput(descripcion);
     escrituraInput(imagen);
     escrituraInput(requisitosSistema);
@@ -68,12 +68,17 @@ function cargaInicial() {
   if (listaJuegos.length > 0) {
     //dibujo una fila en la tabla
     listaJuegos.map((juego) => crearFila(juego));
+  } else {
+    let articleJuego = document.querySelector('#articleJuego');
+    articleJuego.innerHTML =
+      '<h2 class="mt-3 text-center">No hay juegos disponibles</h2>';
   }
 }
 
 function crearFila(juego) {
   let tbody = document.querySelector('#tablaJuego');
-  tbody.innerHTML += `<tr>
+  if (tbody !== null) {
+    tbody.innerHTML += `<tr>
   <td scope="col">1</td>
   <td>${juego.nombre}</td>
   <td>
@@ -95,6 +100,9 @@ function crearFila(juego) {
     </button>
   </td>
 </tr>`;
+  } else {
+    setTimeout(location.reload(), 2500);
+  }
 }
 
 function prepararFormularioJuego(e) {
@@ -185,7 +193,7 @@ window.verJuego = (codigoJuego) => {
   precio.value = juegoBuscado.precio;
   soloLecturaInput(precio);
   categoria.value = juegoBuscado.categoria;
-  soloLecturaInput(categoria);
+  soloLecturaSelect(categoria);
   descripcion.value = juegoBuscado.descripcion;
   soloLecturaInput(descripcion);
   imagen.value = juegoBuscado.imagen;
@@ -210,6 +218,13 @@ function soloLecturaInput(input) {
 function escrituraInput(input) {
   input.classList.replace('form-control-plaintext', 'form-control');
   input.readOnly = false;
+}
+
+function soloLecturaSelect(select) {
+  select.disabled = true;
+}
+function escrituraSelect(select) {
+  select.disabled = false;
 }
 window.borrarJuego = (codigoJuego) => {
   Swal.fire({
