@@ -95,7 +95,7 @@ function crearFila(juego) {
     <button class="btn btn-warning my-2 my-lg-0">
     <i class="bi bi-pencil"></i>
     </button>
-    <button class="btn btn-danger">
+    <button class="btn btn-danger" onclick="borrarJuego('${juego.codigo}')">
     <i class="bi bi-x-lg"></i>
     </button>
   </td>
@@ -226,3 +226,31 @@ function soloLecturaSelect(select) {
 function escrituraSelect(select) {
   select.disabled = false;
 }
+window.borrarJuego = (codigoJuego) => {
+  Swal.fire({
+    title: "¿Esta seguro de eliminar la pelicula?",
+    text: "No se puede revertir este proceso",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Borrar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    console.log(result);
+    if (result.isConfirmed) {
+      //agrega mi codigo de borrar
+      //borrar juego del array
+      let posicionJuego = listaJuegos.findIndex(
+        (juego) => juego.codigo === codigoJuego
+      );
+      listaJuegos.splice(posicionJuego, 1);
+      //actualizar el localstorage
+      guardarEnLocalstorage();
+      //borrar la fila de la tabla
+      let tbody = document.querySelector("#tablaJuego");
+      tbody.removeChild(tbody.children[posicionJuego]);
+      Swal.fire("Juego eliminado", "El juego fue eliminado correctamente", "success");
+    }
+  });
+};
