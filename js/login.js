@@ -23,19 +23,34 @@ var modalLogin = new bootstrap.Modal(document.getElementById("modalLogin"));
 function login(event) {
   event.preventDefault();
 
-  let correoElectronico = document.getElementById("correoElectronico").value;
-  let contrasenia = document.getElementById("contrasenia").value;
+  let correoElectronico = document.getElementById("correoElectronico");
+  let contrasenia = document.getElementById("contrasenia");
+  let div = document.getElementById("opciones_administrador");
 
-  var div = document.getElementById("opciones_administrador");
+  // Verificar el correo electrónico
+  if (!esCorreoValido(correoElectronico.value)) {
+    correoElectronico.classList.add("is-invalid");
+  } else {
+    correoElectronico.classList.remove("is-invalid");
+  }
+
+  // Verificar la contraseña
+  if (!esContraseniaValida(contrasenia.value)) {
+    contrasenia.classList.add("is-invalid");
+  } else {
+    contrasenia.classList.remove("is-invalid");
+  }
+
   if (
-    correoElectronico === administrador.email &&
-    contrasenia === administrador.contrasenia &&
-    esCorreoValido(correoElectronico) &&
-    esContraseniaValida(contrasenia)
+    correoElectronico.value === administrador.email &&
+    contrasenia.value === administrador.contrasenia
   ) {
     div.style.display = "flex";
+    modalLogin.hide();
   } else {
     div.style.display = "none";
-  }
-  modalLogin.hide();
+    let alertaFormuralio = document.getElementById("alertaFormulario");
+    alertaFormuralio.classList.add("d-flex")
+    alertaFormuralio.classList.remove("d-none")
+    }
 }
