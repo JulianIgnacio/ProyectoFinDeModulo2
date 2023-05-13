@@ -11,6 +11,7 @@ export default class Juego {
   #reseniaDescripcion;
 
   constructor(
+    codigo = uuidv4(),
     nombre,
     precio,
     categoria,
@@ -21,8 +22,7 @@ export default class Juego {
     reseniaVoto,
     reseniaDescripcion
   ) {
-    //TODO: ver el id del codigo
-    this.#codigo = uuidv4();
+    this.#codigo = codigo;
     this.#nombre = nombre;
     this.#precio = precio;
     this.#categoria = categoria;

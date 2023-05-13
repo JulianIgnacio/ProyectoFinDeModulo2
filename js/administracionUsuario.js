@@ -9,6 +9,7 @@ if (listaUsuarios.length !== 0) {
   listaUsuarios = listaUsuarios.map(
     (usuario) =>
       new Usuario(
+        usuario.codigo,
         usuario.nombre,
         usuario.apellido,
         usuario.correoElectronico,
@@ -118,6 +119,7 @@ function crearUsuario() {
     // los datos son validos
     //se crea el objeto
     const usuarioNuevo = new Usuario(
+      undefined,
       nombre.value,
       apellido.value,
       correoElectronico.value,
@@ -142,11 +144,6 @@ function crearUsuario() {
       showConfirmButton: false,
       timer: 2000,
     });
-    //reiniciar la validación de los campos del modal de bootstrap
-    // document
-    //   .getElementsByClassName('needs-validation')[0]
-    //   .classList.remove('was-validated');
-    //se oculta el modal
     modalFormUsuario.hide();
   }
 }
@@ -187,7 +184,6 @@ window.verUsuario = (codigoUsuario) => {
   contrasenia.value = usuarioBuscado.contrasenia;
   soloLecturaInput(contrasenia);
   rol.value = usuarioBuscado.rol;
-
   soloLecturaSelect(rol);
   //Cambiar el title del modal
   let modalLabel = document.getElementById('modalLabel');

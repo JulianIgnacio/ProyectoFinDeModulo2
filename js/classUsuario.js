@@ -6,9 +6,15 @@ export default class Usuario {
   #contrasenia;
   #rol;
 
-  constructor(nombre, apellido, correoElectronico, contrasenia, rol) {
-    //TODO: ver el id del codigo
-    this.#codigo = uuidv4();
+  constructor(
+    codigo = uuidv4(),
+    nombre,
+    apellido,
+    correoElectronico,
+    contrasenia,
+    rol
+  ) {
+    this.#codigo = codigo;
     this.#nombre = nombre;
     this.#apellido = apellido;
     this.#correoElectronico = correoElectronico;
