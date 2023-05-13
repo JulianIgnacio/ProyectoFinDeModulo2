@@ -160,6 +160,12 @@ function limpiarFormulario() {
   formControls.forEach(function (element) {
     element.classList.remove('is-valid', 'is-invalid');
   });
+  //reiniciar los estilos de validaciones de los campos del formulario Usuario
+  let formSelects = formularioAdminUsuario.querySelectorAll('.form-select');
+  // Eliminar las clases de validación
+  formSelects.forEach(function (element) {
+    element.classList.remove('is-valid', 'is-invalid');
+  });
 }
 
 function mostrarFormularioUsuario() {

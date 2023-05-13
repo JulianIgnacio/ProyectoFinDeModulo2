@@ -10,6 +10,7 @@ if (listaJuegos.length !== 0) {
     (juego) =>
       new Juego(
         juego.codigo,
+        juego.nombre,
         juego.precio,
         juego.categoria,
         juego.descripcion,
@@ -171,6 +172,12 @@ function limpiarFormulario() {
   let formControls = formularioAdminJuego.querySelectorAll('.form-control');
   // Eliminar las clases de validación
   formControls.forEach(function (element) {
+    element.classList.remove('is-valid', 'is-invalid');
+  });
+  //reiniciar los estilos de validaciones de los campos del formulario Juego
+  let formSelects = formularioAdminJuego.querySelectorAll('.form-select');
+  // Eliminar las clases de validación
+  formSelects.forEach(function (element) {
     element.classList.remove('is-valid', 'is-invalid');
   });
 }
