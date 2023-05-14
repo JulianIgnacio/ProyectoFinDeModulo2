@@ -4,8 +4,8 @@ let listaUsuarios = [];
 
 let usuario = new Usuario(
   "Administrador",
-  "Aministrador",
-  "aministrador",
+  "Administrador",
+  "administrador",
   "admin@rollingcode.com",
   "123456Aa$",
   "administrador"
