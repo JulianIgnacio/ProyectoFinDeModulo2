@@ -14,7 +14,7 @@ function esCorreoValido(correo) {
 
 function esContraseniaValida(contrasenia) {
   var regexContrasenia =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
   return regexContrasenia.test(contrasenia);
 }
 
