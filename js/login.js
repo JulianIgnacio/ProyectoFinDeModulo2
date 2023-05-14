@@ -4,7 +4,7 @@ window.onload = function () {
 
 const administrador = {
   email: "admin@rollingcode.com",
-  contrasenia: "1",
+  contrasenia: "123456Aa$",
 };
 
 function esCorreoValido(correo) {
