@@ -25,3 +25,33 @@ main {
     height: 100%;
   }
 }
+
+.nav{
+  background-color: rgb(15, 9, 43);
+  
+}
+
+.navbar-brand img {
+  max-height: 50px;
+  margin-right: 40px;
+}
+
+.carousel img 
+{
+  display: inline-block;
+  height: 700px;
+  width: auto;
+  margin-right: 30px;
+}
+
+
+
+
+
+
+
+ 
+
+
+
+
