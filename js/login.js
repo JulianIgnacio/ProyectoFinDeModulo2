@@ -1,10 +1,7 @@
+import Usuario from "./classUsuario.js";
+
 window.onload = function () {
   document.getElementById("formLogin").addEventListener("submit", login);
-};
-
-const administrador = {
-  email: "admin@rollingcode.com",
-  contrasenia: "123456Aa$",
 };
 
 function esCorreoValido(correo) {
@@ -22,10 +19,40 @@ var modalLogin = new bootstrap.Modal(document.getElementById("modalLogin"));
 
 function login(event) {
   event.preventDefault();
+  let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || [];
+
+  if (listaUsuarios.length !== 0) {
+    //objecto Usuario
+    listaUsuarios = listaUsuarios.map(
+      (usuario) =>
+        new Usuario(
+          usuario.codigo,
+          usuario.nombre,
+          usuario.apellido,
+          usuario.correoElectronico,
+          usuario.contrasenia,
+          usuario.rol
+        )
+    );
+  }
 
   let correoElectronico = document.getElementById("correoElectronico");
   let contrasenia = document.getElementById("contrasenia");
   let div = document.getElementById("opciones_administrador");
+
+  let esValidado = listaUsuarios.some(
+    (u) =>
+      u.correoElectronico === correoElectronico.value &&
+      u.contrasenia === contrasenia.value &&
+      u.rol === "normal"
+  );
+
+  let esValidadoAdministrador = listaUsuarios.some(
+    (u) =>
+      u.correoElectronico === correoElectronico.value &&
+      u.contrasenia === contrasenia.value &&
+      u.rol === "administrador"
+  );
 
   // Verificar el correo electrónico
   if (!esCorreoValido(correoElectronico.value)) {
@@ -41,16 +68,16 @@ function login(event) {
     contrasenia.classList.remove("is-invalid");
   }
 
-  if (
-    correoElectronico.value === administrador.email &&
-    contrasenia.value === administrador.contrasenia
-  ) {
+  if (esValidadoAdministrador) {
     div.style.display = "flex";
+    modalLogin.hide();
+  } else if (esValidado) {
+    div.style.display = "none";
     modalLogin.hide();
   } else {
     div.style.display = "none";
     let alertaFormuralio = document.getElementById("alertaFormulario");
-    alertaFormuralio.classList.add("d-flex")
-    alertaFormuralio.classList.remove("d-none")
-    }
+    alertaFormuralio.classList.add("d-flex");
+    alertaFormuralio.classList.remove("d-none");
+  }
 }
