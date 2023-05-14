@@ -28,7 +28,12 @@ body {
   margin-bottom: 30px;
 }
 .section-style {
-  background-color: rgb(15, 9, 43);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(2, 2, 2),
+    rgb(23, 14, 66),
+    rgb(22, 13, 66)
+  );
   color: #ffffff;
   padding: 100px 25px;
   font-family: Montserrat, sans-serif;
@@ -119,11 +124,11 @@ body {
 }
 
 /* Media queries para ser responsive */
-@media (max-width: 280px){
+@media (max-width: 280px) {
   .ocultar {
     display: none;
   }
-} 
+}
 @media (max-width: 767px) {
   .section-personalizado {
     display: flex;

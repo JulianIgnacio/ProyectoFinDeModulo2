@@ -9,6 +9,7 @@ if (listaJuegos.length !== 0) {
   listaJuegos = listaJuegos.map(
     (juego) =>
       new Juego(
+        juego.codigo,
         juego.nombre,
         juego.precio,
         juego.categoria,
@@ -52,7 +53,7 @@ document
     //volver los inputs a escritura
     escrituraInput(nombre);
     escrituraInput(precio);
-    escrituraInput(categoria);
+    escrituraSelect(categoria);
     escrituraInput(descripcion);
     escrituraInput(imagen);
     escrituraInput(requisitosSistema);
@@ -68,6 +69,12 @@ function cargaInicial() {
   if (listaJuegos.length > 0) {
     //dibujo una fila en la tabla
     listaJuegos.map((juego) => crearFila(juego));
+  } else {
+    Swal.fire(
+      'No hay juegos cargados',
+      'Ingrese el primer juego en Opciones',
+      'error'
+    );
   }
 }
 
@@ -90,7 +97,7 @@ function crearFila(juego) {
     <button class="btn btn-warning my-2 my-lg-0">
     <i class="bi bi-pencil"></i>
     </button>
-    <button class="btn btn-danger">
+    <button class="btn btn-danger" onclick="borrarJuego('${juego.codigo}')">
     <i class="bi bi-x-lg"></i>
     </button>
   </td>
@@ -119,6 +126,7 @@ function crearJuego() {
     // los datos son validos
     //se crea el objeto
     const juegoNuevo = new Juego(
+      undefined,
       nombre.value,
       precio.value,
       categoria.value,
@@ -166,6 +174,12 @@ function limpiarFormulario() {
   formControls.forEach(function (element) {
     element.classList.remove('is-valid', 'is-invalid');
   });
+  //reiniciar los estilos de validaciones de los campos del formulario Juego
+  let formSelects = formularioAdminJuego.querySelectorAll('.form-select');
+  // Eliminar las clases de validación
+  formSelects.forEach(function (element) {
+    element.classList.remove('is-valid', 'is-invalid');
+  });
 }
 
 function mostrarFormularioJuego() {
@@ -185,7 +199,7 @@ window.verJuego = (codigoJuego) => {
   precio.value = juegoBuscado.precio;
   soloLecturaInput(precio);
   categoria.value = juegoBuscado.categoria;
-  soloLecturaInput(categoria);
+  soloLecturaSelect(categoria);
   descripcion.value = juegoBuscado.descripcion;
   soloLecturaInput(descripcion);
   imagen.value = juegoBuscado.imagen;
@@ -211,3 +225,43 @@ function escrituraInput(input) {
   input.classList.replace('form-control-plaintext', 'form-control');
   input.readOnly = false;
 }
+
+function soloLecturaSelect(select) {
+  select.disabled = true;
+}
+function escrituraSelect(select) {
+  select.disabled = false;
+}
+
+window.borrarJuego = (codigoJuego) => {
+  Swal.fire({
+    title: '¿Esta seguro que desea eliminar el juego seleccionado?',
+    text: 'No se puede revertir este proceso',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Borrar',
+    cancelButtonText: 'Cancelar',
+  }).then((result) => {
+    console.log(result);
+    if (result.isConfirmed) {
+      //agrega mi codigo de borrar
+      //borrar juego del array
+      let posicionJuego = listaJuegos.findIndex(
+        (juego) => juego.codigo === codigoJuego
+      );
+      listaJuegos.splice(posicionJuego, 1);
+      //actualizar el localstorage
+      guardarEnLocalstorage();
+      //borrar la fila de la tabla
+      let tbody = document.querySelector('#tablaJuego');
+      tbody.removeChild(tbody.children[posicionJuego]);
+      Swal.fire(
+        'Juego eliminado',
+        'El juego fue eliminado correctamente',
+        'success'
+      );
+    }
+  });
+};
