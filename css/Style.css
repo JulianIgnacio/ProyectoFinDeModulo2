@@ -8,6 +8,14 @@ main {
   flex-grow: 1;
 }
 
+.bg-main-administracion-juegos {
+  background: rgb(15, 9, 43);
+}
+
+.bg-main-administracion-usuarios {
+  background: rgb(41, 35, 67);
+}
+
 .tamanioCelda {
   max-width: 2rem;
 }

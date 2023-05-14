@@ -22,7 +22,7 @@
     <header class="border border-danger p-2">Header</header>
 
     <div class="container-fluid overflow-hidden">
-      <div class="row overflow-auto vh-100">
+      <div class="row overflow-auto">
         <aside
           class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top"
         >
@@ -30,12 +30,12 @@
             class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white"
           >
             <a
-              href="/"
+              href="./administracionJuegos.html"
               class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none"
             >
-              <span class="fs-5 pt-2"
+              <span class="fs-6 pt-2"
                 ><span class="d-none d-sm-inline"
-                  >Panel de administración</span
+                  >Panel Administrador</span
                 ></span
               >
             </a>
@@ -65,7 +65,7 @@
           </div>
         </aside>
         <div class="col d-flex flex-column h-sm-100 text-bg-dark">
-          <main class="row overflow-auto">
+          <main class="row overflow-auto bg-main-administracion-juegos vh-100">
             <div class="col pt-4">
               <h2 class="text-center mb-2">ADMINISTRACION DE JUEGOS</h2>
               <hr />
@@ -73,7 +73,7 @@
                 <p class="mb-0">Opciones:</p>
                 <button
                   class="btn btn-outline-primary btn-sm ms-3"
-                  id="btnCrearPelicula"
+                  id="btnCrearJuego"
                 >
                   <i class="bi bi-clipboard2-plus-fill"></i>
                 </button>
@@ -81,9 +81,9 @@
               <section class="my-3">
                 <h3>LISTA DE JUEGOS</h3>
 
-                <article class="table-responsive">
+                <article id="articleJuego" class="table-responsive mt-3">
                   <table
-                    class="table table-dark table-striped table-bordered text-center mt-3"
+                    class="table table-dark table-striped table-bordered text-center"
                   >
                     <thead>
                       <tr>
@@ -91,84 +91,11 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Categoría</th>
-                        <th scope="col">Stock</th>
+                        <th scope="col">Imagen</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th>1</th>
-                        <td>Juego 1</td>
-                        <td>$1000</td>
-                        <td class="tamanioCelda text-truncate">Aventura</td>
-                        <td>50</td>
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>2</th>
-                        <td>Juego 2</td>
-                        <td>$1200</td>
-                        <td>Fabricación</td>
-                        <td>50</td>
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>3</th>
-                        <td>Juego 3</td>
-                        <td>$1400</td>
-                        <td>Construcción</td>
-                        <td>50</td>
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>4</th>
-                        <td>Juego 4</td>
-                        <td>$1600</td>
-                        <td>Sandbox</td>
-                        <td>50</td>
-                        <td>
-                          <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                          </button>
-                          <button class="btn btn-warning my-2 my-md-0">
-                            <i class="bi bi-pencil"></i>
-                          </button>
-                          <button class="btn btn-danger">
-                            <i class="bi bi-x-lg"></i>
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
+                    <tbody id="tablaJuego"></tbody>
                   </table>
                 </article>
               </section>
@@ -179,10 +106,176 @@
     </div>
 
     <footer class="border border-info p-2">Footer</footer>
+
+    <!-- Modal para administrar juegos -->
+    <div
+      class="modal fade"
+      id="modalJuego"
+      tabindex="-1"
+      aria-labelledby="modalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Nuevo Juego</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="formJuego" class="row g-3 needs-validation" novalidate>
+              <div class="mb-3 position-relative">
+                <label for="codigo">Código</label>
+                <input
+                  id="codigo"
+                  type="text"
+                  class="form-control"
+                  placeholder="123456"
+                  maxlength="6"
+                  minlength="1"
+                  disabled
+                />
+              </div>
+              <div class="mb-3 validate-me">
+                <label for="nombre">Nombre *</label>
+                <input
+                  id="nombre"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: League of Legends"
+                  maxlength="100"
+                  minlength="2"
+                  required
+                />
+                <div class="invalid-feedback">
+                  El nombre del Juego debe tener entre 2 y 100 caracteres.
+                </div>
+              </div>
+              <div class="mb-3 validate-me">
+                <label for="precio">Precio *</label>
+                <input
+                  id="precio"
+                  type="number"
+                  class="form-control"
+                  placeholder="Ej: 3500 (sólo números)"
+                  maxlength="10"
+                  minlength="1"
+                  required
+                />
+                <div class="invalid-feedback">
+                  El precio del Juego debe tener entre 1 y 10 caracteres
+                  numéricos.
+                </div>
+              </div>
+              <div class="mb-3 validate-me">
+                <label for="categoria">Categoria *</label>
+                <select id="categoria" class="form-select">
+                  <option value="">Selecione una opcion</option>
+                  <option value="sandbox">Sandbox</option>
+                  <option value="simulacion">Simulación</option>
+                  <option value="fabricacion">Fabricación</option>
+                  <option value="construccion">Contrucción</option>
+                  <option value="aventura">Aventura</option>
+                  <option value="accion">Acción</option>
+                </select>
+                <div class="invalid-feedback">
+                  Seleccione una categoria del Juego.
+                </div>
+              </div>
+              <div class="mb-3 validate-me">
+                <label for="descripcion">Descripcion *</label>
+                <textarea
+                  id="descripcion"
+                  rows="4"
+                  class="form-control"
+                  placeholder="Ej: Es un Juego de multijugadores en línea..."
+                  maxlength="200"
+                  minlength="2"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">
+                  La descripción debe tener entre 2 y 200 caracteres.
+                </div>
+              </div>
+              <div class="mb-3 validate-me">
+                <label for="imagen"
+                  >Imagen *
+                  <small class="text-secondary">
+                    (URL con formato .png, .jpg o gif)</small
+                  ></label
+                >
+                <input
+                  id="imagen"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: http://127.0.0.1:5500/pages/leagueoflegends.png"
+                  maxlength="120"
+                  minlength="2"
+                  pattern="https?://.+\.(png|jpe?g|gif|svg)"
+                  required
+                />
+                <div class="invalid-feedback">
+                  La imagen del juego debe ser una URL valida terminada en
+                  (.jpg, .jpeg, .png, .svg o .gif)
+                </div>
+              </div>
+              <div class="mb-3 validate-me">
+                <label for="requisitosSistema"
+                  >Requisitos del sistema *<small class="text-secondary">
+                    (cada característica separado por , )</small
+                  ></label
+                >
+                <textarea
+                  id="requisitosSistema"
+                  rows="4"
+                  class="form-control"
+                  placeholder="Ej: Procesador: de 3 GHz (compatible con conjunto de instrucciones SSE2 o superior), Memoria RAM: de 2 GB, Espacio disponible en el disco duro: 12 GB como mínimo, Tarjeta gráfica: compatible con sombreador de píxeles 2.0b."
+                  maxlength="500"
+                  minlength="2"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">
+                  Los requisitos del sistema debe tener entre 2 y 500 caracteres
+                </div>
+              </div>
+              <div class="mb-3 validate-me">
+                <label for="Desarrollador">Desarrollador: *</label>
+                <input
+                  id="desarrollador"
+                  type="text"
+                  class="form-control"
+                  placeholder="Ej: Riot"
+                  maxlength="60"
+                  minlength="2"
+                  required
+                />
+                <div class="invalid-feedback">
+                  El desarrollador del Juego debe tener entre 2 y 60 caracteres
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit" id="btnFormulario">
+                Enviar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="../js/administracionJuego.js" type="module"></script>
   </body>
 </html>
