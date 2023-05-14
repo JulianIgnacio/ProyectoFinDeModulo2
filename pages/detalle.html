@@ -133,9 +133,40 @@
         <section class="container-fluid w-75" id="containerReseñas">
           <h5>Reseñas</h5>
           <hr>
-          <form class="d-flex justify-content-end">
-            <textarea class="form-control w-75" rows="2"></textarea>
-          </form>
+          <article class="container-fluid my-2 d-flex justify-content-around">
+              <aside class="rounded-2 mx-1" id="avatar">
+
+              </aside>
+              <aside class="w-75 mx-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint nam consequuntur ullam ab veniam esse aliquam illum asperiores dolore repellendus architecto repudiandae, praesentium quis, quo quia. Eveniet molestiae praesentium quo. Quis praesentium magnam accusantium. Laborum cum atque maxime? Cupiditate non repellat, tempore vero at facilis consectetur ratione temporibus officia maiores nemo corporis culpa itaque incidunt magnam, animi tenetur, sed blanditiis dicta excepturi. Aliquam commodi totam numquam in sunt nam quis amet suscipit labore est. Earum nihil iure, ut itaque omnis asperiores quaerat id qui, natus maxime voluptatem tempora ea sapiente alias eos mollitia non nemo repudiandae sint. Et, similique asperiores!
+              </aside>
+          </article>
+          <article class="container-fluid">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Agregar Comentario
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"    aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                   <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Comentario</h1>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="d-flex">
+                      <textarea class="form-control w-100" rows="3"></textarea>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Publicar Comentario</button>
+                  </div>
+                </div>
+             </div>
+            </div>
+          </article>
         </section>
     </main>
 
