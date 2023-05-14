@@ -89,7 +89,7 @@ function crearFila(usuario) {
     <button class="btn btn-warning my-2 my-md-0">
     <i class="bi bi-pencil"></i>
     </button>
-    <button class="btn btn-danger">
+    <button class="btn btn-danger" onclick="borrarUsuario('${usuario.codigo}')">
     <i class="bi bi-x-lg"></i>
     </button>
   </td>
@@ -214,3 +214,36 @@ function soloLecturaSelect(select) {
 function escrituraSelect(select) {
   select.disabled = false;
 }
+
+window.borrarUsuario = (codigoUsuario) => {
+  Swal.fire({
+    title: '¿Esta seguro que desea eliminar el Usuario seleccionado?',
+    text: 'No se puede revertir este proceso',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Borrar',
+    cancelButtonText: 'Cancelar',
+  }).then((result) => {
+    console.log(result);
+    if (result.isConfirmed) {
+      //agrega mi codigo de borrar
+      //borrar juego del array
+      let posicionUsuario = listaUsuarios.findIndex(
+        (usuario) => usuario.codigo === codigoUsuario
+      );
+      listaUsuarios.splice(posicionUsuario);
+      //actualizar el localstorage
+      guardarEnLocalstorage();
+      //borrar la fila de la tabla
+      let tbody = document.querySelector('#tablaUsuario');
+      tbody.removeChild(tbody.children[posicionUsuario]);
+      Swal.fire(
+        'Usuario eliminado',
+        'El Usuario fue eliminado correctamente',
+        'success'
+      );
+    }
+  });
+};
