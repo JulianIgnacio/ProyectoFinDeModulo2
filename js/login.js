@@ -39,6 +39,7 @@ function login(event) {
   let correoElectronico = document.getElementById("correoElectronico");
   let contrasenia = document.getElementById("contrasenia");
   let div = document.getElementById("opciones_administrador");
+  let botonLogin = document.getElementById("botonLogin")
 
   let esValidado = listaUsuarios.some(
     (u) =>
@@ -71,9 +72,11 @@ function login(event) {
   if (esValidadoAdministrador) {
     div.style.display = "flex";
     modalLogin.hide();
+    botonLogin.style.display = "none"
   } else if (esValidado) {
     div.style.display = "none";
     modalLogin.hide();
+    botonLogin.style.display = "none"
   } else {
     div.style.display = "none";
     let alertaFormuralio = document.getElementById("alertaFormulario");
