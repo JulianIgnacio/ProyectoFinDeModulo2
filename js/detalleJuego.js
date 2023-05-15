@@ -12,13 +12,13 @@ seccion1.innerHTML =`
   <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner ">
       <div class="carousel-item active">
-        <img src="${juegoBuscado.imagen}" class="d-block w-100" alt="${juegoBuscado.titulo}">
+        <img src="${juegoBuscado.imagen}" class="d-block w-100" alt="${juegoBuscado.nombre}">
       </div>
       <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
+        <img src="" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
+        <img src="" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -32,7 +32,7 @@ seccion1.innerHTML =`
   </div>
 </aside>
 <aside class="container-fluid col">
-    <p>${juegoBuscado.titulo}</p>
+    <p>${juegoBuscado.nombre}</p>
     <p>${juegoBuscado.precio}</p>
     <p>${juegoBuscado.categoria}</p>
     <p>${juegoBuscado.codigo}</p>
