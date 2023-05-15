@@ -81,7 +81,7 @@ cargaInicial();
 function cargaInicial() {
   if (listaJuegos.length > 0) {
     //dibujo una fila en la tabla
-    listaJuegos.map((juego) => crearFila(juego));
+    listaJuegos.map((juego, indice) => crearFila(juego, indice + 1));
   } else {
     Swal.fire(
       'No hay juegos cargados',
@@ -91,13 +91,13 @@ function cargaInicial() {
   }
 }
 
-function crearFila(juego) {
+function crearFila(juego, indice) {
   let tbody = document.querySelector('#tablaJuego');
   tbody.innerHTML += `<tr>
-  <td scope="col">1</td>
+  <td scope="col">${indice}</td>
   <td>${juego.nombre}</td>
   <td>
-    ${juego.precio}
+    $ ${juego.precio}
   </td>
   <td class="tamanioCelda text-truncate">
     ${juego.categoria}
