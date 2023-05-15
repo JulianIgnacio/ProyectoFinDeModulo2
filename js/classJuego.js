@@ -5,7 +5,10 @@ export default class Juego {
   #categoria;
   #descripcion;
   #imagen;
-  #requisitosSistema;
+  #requisitosProcesador;
+  #requisitosMemoriaram;
+  #requisitosAlmacenamiento;
+  #requisitosTarjetagrafica;
   #desarrollador;
   #reseniaVoto;
   #reseniaDescripcion;
@@ -17,7 +20,10 @@ export default class Juego {
     categoria,
     descripcion,
     imagen,
-    requisitosSistema,
+    requisitosProcesador,
+    requisitosMemoriaram,
+    requisitosAlmacenamiento,
+    requisitosTarjetagrafica,
     desarrollador,
     reseniaVoto,
     reseniaDescripcion
@@ -28,7 +34,10 @@ export default class Juego {
     this.#categoria = categoria;
     this.#descripcion = descripcion;
     this.#imagen = imagen;
-    this.#requisitosSistema = requisitosSistema;
+    this.#requisitosProcesador = requisitosProcesador;
+    this.#requisitosMemoriaram = requisitosMemoriaram;
+    this.#requisitosAlmacenamiento = requisitosAlmacenamiento;
+    this.#requisitosTarjetagrafica = requisitosTarjetagrafica;
     this.#desarrollador = desarrollador;
     this.#reseniaVoto = reseniaVoto;
     this.#reseniaDescripcion = reseniaDescripcion;
@@ -82,12 +91,36 @@ export default class Juego {
     this.#imagen = imagen;
   }
 
-  get requisitosSistema() {
-    return this.#requisitosSistema;
+  get requisitosProcesador() {
+    return this.#requisitosProcesador;
   }
 
-  set requisitosSistema(requisitosSistema) {
-    this.#requisitosSistema = requisitosSistema;
+  set requisitosProcesador(requisitosProcesador) {
+    this.#requisitosProcesador = requisitosProcesador;
+  }
+
+  get requisitosMemoriaram() {
+    return this.#requisitosMemoriaram;
+  }
+
+  set requisitosMemoriaram(requisitosMemoriaram) {
+    this.#requisitosMemoriaram = requisitosMemoriaram;
+  }
+
+  get requisitosAlmacenamiento() {
+    return this.#requisitosAlmacenamiento;
+  }
+
+  set requisitosAlmacenamiento(requisitosAlmacenamiento) {
+    this.#requisitosAlmacenamiento = requisitosAlmacenamiento;
+  }
+
+  get requisitosTarjetagrafica() {
+    return this.#requisitosTarjetagrafica;
+  }
+
+  set requisitosTarjetagrafica(requisitosTarjetagrafica) {
+    this.#requisitosTarjetagrafica = requisitosTarjetagrafica;
   }
 
   get desarrollador() {
@@ -122,7 +155,10 @@ export default class Juego {
       categoria: this.categoria,
       descripcion: this.descripcion,
       imagen: this.imagen,
-      requisitosSistema: this.requisitosSistema,
+      requisitosProcesador: this.requisitosProcesador,
+      requisitosMemoriaram: this.requisitosMemoriaram,
+      requisitosAlmacenamiento: this.#requisitosAlmacenamiento,
+      requisitosTarjetagrafica: this.#requisitosTarjetagrafica,
       desarrollador: this.desarrollador,
       reseniaVoto: this.reseniaVoto,
       reseniaDescripcion: this.reseniaDescripcion,

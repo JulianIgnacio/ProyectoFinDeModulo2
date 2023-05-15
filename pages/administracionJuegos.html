@@ -175,7 +175,7 @@
               <div class="mb-3 validate-me">
                 <label for="categoria">Categoria *</label>
                 <select id="categoria" class="form-select">
-                  <option value="">Selecione una opcion</option>
+                  <option value="">Seleccione una opción</option>
                   <option value="sandbox">Sandbox</option>
                   <option value="simulacion">Simulación</option>
                   <option value="fabricacion">Fabricación</option>
@@ -224,23 +224,79 @@
                   (.jpg, .jpeg, .png, .svg o .gif)
                 </div>
               </div>
-              <div class="mb-3 validate-me">
-                <label for="requisitosSistema"
-                  >Requisitos del sistema *<small class="text-secondary">
-                    (cada característica separado por , )</small
-                  ></label
-                >
-                <textarea
-                  id="requisitosSistema"
-                  rows="4"
-                  class="form-control"
-                  placeholder="Ej: Procesador: de 3 GHz (compatible con conjunto de instrucciones SSE2 o superior), Memoria RAM: de 2 GB, Espacio disponible en el disco duro: 12 GB como mínimo, Tarjeta gráfica: compatible con sombreador de píxeles 2.0b."
-                  maxlength="500"
-                  minlength="2"
-                  required
-                ></textarea>
-                <div class="invalid-feedback">
-                  Los requisitos del sistema debe tener entre 2 y 500 caracteres
+
+              <p class="mt-2">Requisitos Mínimos *:</p>
+              <div class="row row-cols-1 row-cols-md-2 g-2">
+                <div class="col mb-3 validate-me">
+                  <label for="requisitosProcesador">Procesador *</label>
+                  <select id="requisitosProcesador" class="form-select">
+                    <option value="">Seleccione una opción</option>
+                    <option value="pentium4a3ghz">Pentium 4 a 3 GHz</option>
+                    <option value="dualcorea3ghz">Dual Core a 3GHz</option>
+                    <option value="i3a3ghz">I3 a 3GHz</option>
+                    <option value="ryzen3a3ghz">Ryzen3 a 3GHz</option>
+                    <option value="i5a35ghz">I5 a 3,5GHz</option>
+                    <option value="ryzen5a35ghz">Ryzen5 a 3,5GHz</option>
+                    <option value="i7a35ghz">I7 a 3,5 GHz</option>
+                    <option value="ryzen7a35ghz">Ryzen7 a 3,5GHz</option>
+                    <option value="i9a42ghz">I9 a 4,2 GHz</option>
+                    <option value="ryzen9a42ghz">Ryzen9 a 4,2GHz</option>
+                  </select>
+                  <div class="invalid-feedback">Seleccione un procesador.</div>
+                </div>
+                <div class="col mb-3 validate-me">
+                  <label for="requisitosMemoriaram">Memoria RAM *</label>
+                  <select id="requisitosMemoriaram" class="form-select">
+                    <option value="">Seleccione una opción</option>
+                    <option value="1gbram">1GB</option>
+                    <option value="2gbram">2GB</option>
+                    <option value="4gbram">4GB</option>
+                    <option value="8gbram">8GB</option>
+                    <option value="16gbram">16GB</option>
+                    <option value="32gbram">32GB</option>
+                    <option value="64gbram">64GB</option>
+                    <option value="128gbram">128GB</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Seleccione una Memoria RAM.
+                  </div>
+                </div>
+                <div class="col mb-3 validate-me">
+                  <label for="requisitosAlmacenamiento">Almacenamiento *</label>
+                  <select id="requisitosAlmacenamiento" class="form-select">
+                    <option value="">Seleccione una opción</option>
+                    <option value="1gbdisco">1GB</option>
+                    <option value="2gbdisco">2GB</option>
+                    <option value="5gbdisco">5GB</option>
+                    <option value="75gbdisco">7,5GB</option>
+                    <option value="10gbdisco">10GB</option>
+                    <option value="20gbdisco">20GB</option>
+                    <option value="50gbdisco">50GB</option>
+                    <option value="100gbdisco">100GB</option>
+                    <option value="200gbdisco">200GB</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Seleccione un espacio de Almacenamiento.
+                  </div>
+                </div>
+                <div class="col mb-3 validate-me">
+                  <label for="requisitosTarjetagrafica"
+                    >Tarjeta gráfica *</label
+                  >
+                  <select id="requisitosTarjetagrafica" class="form-select">
+                    <option value="">Seleccione una opción</option>
+                    <option value="nvidia7600">nVidia 7600 (2GB)</option>
+                    <option value="gtx1650">
+                      Nvidia® GeForce™ GTX 1650 (4GB)
+                    </option>
+                    <option value="radeonr9390x">
+                      AMD® Radeon™ R9 390X (8GB)
+                    </option>
+                    <option value="atix1600">ATI X1600 (2GB)</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Seleccione una tarjeta gráfica.
+                  </div>
                 </div>
               </div>
               <div class="mb-3 validate-me">

@@ -33,6 +33,9 @@ main {
 .nav {
   background-color: rgb(15, 9, 43);
 }
+#menu {
+  background-color: #212529;
+}
 
 .navbar-brand img {
   max-height: 50px;
