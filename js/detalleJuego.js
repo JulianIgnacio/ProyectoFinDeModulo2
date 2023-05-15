@@ -4,8 +4,9 @@ let listaJuegos = JSON.parse(localStorage.getItem('listaJuegos')) || [];
 
 const juegoBuscado = listaJuegos.find((juego)=> juego.codigo === parametroCodigo.get('codigo'));
 
-let seccion1 = document.getElementById('#presentacion');
-seccion1.innerHTML = `
+let seccion1 = document.getElementById('presentacion');
+
+seccion1.innerHTML =`
 <div class="row">
 <aside class="container-fluid h-25 w-75" id="sliderDetalle">
   <div id="carouselExample" class="carousel slide">
@@ -30,7 +31,7 @@ seccion1.innerHTML = `
     </button>
   </div>
 </aside>
-<aside class="container-fluid col" >
+<aside class="container-fluid col">
     <p>${juegoBuscado.titulo}</p>
     <p>${juegoBuscado.precio}</p>
     <p>${juegoBuscado.categoria}</p>
@@ -39,13 +40,13 @@ seccion1.innerHTML = `
   </aside>
 </div>`
 
-let seccion2 = document.getElementById('#descripcion');
+let seccion2 = document.getElementById('descripcion');
 seccion2.innerHTML =`
 <h4>Descripcion</h4>
 <hr>
 <p>${juegoBuscado.descripcion}</p>`
 
-let seccion3 = document.getElementById('#requisitos');
+let seccion3 = document.getElementById('requisitos');
 seccion3.innerHTML = `
 <h5>Requisitos del sistema</h5>
 <hr>
