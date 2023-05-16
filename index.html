@@ -165,11 +165,96 @@
                   >Política de privacidad</a
                 >
               </div>
+              <div class="text-center mt-4">
+                <p>
+                  ¿Aún no tienes cuenta en Gamer Haven?
+                  <button
+                    class="text-decoration-underline btn"
+                    data-bs-target="#modalRegistro"
+                    data-bs-toggle="modal"
+                  >
+                    Regístrarse
+                  </button>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
+      <!-- modal registro -->
+      <div class="modal" id="modalRegistro" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content text-light">
+            <div class="modal-header">
+              <h4 class="modal-title">Regístrarse</h4>
+              <button
+                type="button"
+                class="btn-close text-bg-light"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="formRegistro">
+                <div>
+                  <label for="titulo">Nombre</label>
+                  <input
+                    id="nombre"
+                    class="form-control"
+                    type="text"
+                    placeholder="Nombre"
+                    maxlength="25"
+                    minlength="2"
+                  />
+                  <div class="invalid-feedback">Ingrese un nombre valido.</div>
+                </div>
+                <div class="mt-4">
+                  <label for="titulo">Correo Electronico</label>
+                  <input
+                    id="correoElectronico"
+                    class="form-control"
+                    type="email"
+                    placeholder="name@example.com"
+                  />
+                  <div class="invalid-feedback">Ingrese un email valido</div>
+                </div>
+                <div class="mt-4">
+                  <label for="titulo">Contraseña</label>
+                  <input
+                    id="contrasenia"
+                    class="form-control"
+                    type="password"
+                    placeholder="Contraseña"
+                  />
+                  <div class="invalid-feedback">
+                    Ingrese una contraseña valida: 8 caracteres minimos, una
+                    mayuscula, una minuscula y un simbolo.
+                  </div>
+                </div>
+                <div
+                  class="alert alert-danger mt-3 d-none"
+                  role="alert"
+                  id="alertaFormulario"
+                >
+                  Las credenciales son invalidas.
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-4 d-block m-auto"
+                  id="btnFormulario"
+                >
+                  Regístrarse
+                </button>
+              </form>
+              <div class="text-center mt-4">
+                <a href="/pages/error404.html" class="privacidad"
+                  >Política de privacidad</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         id="carouselExampleIndicators"
         class="carousel slide"
@@ -246,7 +331,7 @@
         ></article>
       </section>
     </main>
-    
+
     <footer class="p-3 mb-2 text-white text-center text-lg-start">
       <div class="row">
         <aside class="col-md-4">
