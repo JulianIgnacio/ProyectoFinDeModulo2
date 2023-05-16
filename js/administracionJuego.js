@@ -69,7 +69,7 @@ document
     escrituraSelect(categoria);
     escrituraInput(descripcion);
     escrituraInput(imagen);
-    escrituraInput(requisitosProcesador);
+    escrituraSelect(requisitosProcesador);
     escrituraSelect(requisitosMemoriaram);
     escrituraSelect(requisitosAlmacenamiento);
     escrituraSelect(requisitosTarjetagrafica);
@@ -308,7 +308,7 @@ function mandaralLocalstorage() {
 window.prepararJuego = (codigoJuego) => {
   //buscar el objeto que quiero mostrar en el form
   let juegoBuscado = listaJuegos.find((juego) => juego.codigo === codigoJuego);
-  console.log(juegoBuscado);
+  console.log('eeeee', juegoBuscado);
 
   //mostrar el formulario con los datos
   modalFormJuego.show();
@@ -326,6 +326,10 @@ window.prepararJuego = (codigoJuego) => {
 
   //cambiar el estado de la variable crearjuegoNueva a false
   crearJuegoNuevo = false;
+  //Cambiar el title del modal
+  let modalLabel = document.getElementById('modalLabel');
+  modalLabel.innerHTML = 'Editar Juego';
+  console.log('crearJuegoNue', crearJuegoNuevo);
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 window.editarJuego = () => {
@@ -363,5 +367,6 @@ window.editarJuego = () => {
     showConfirmButton: false,
     timer: 2000,
   });
+
   modalFormJuego.hide();
 };

@@ -5,6 +5,7 @@ verificarUserAdmin();
 
 //variables globales
 let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
+let crearUsuarioNuevo = true;
 //saber si el array esta no vacio
 if (listaUsuarios.length !== 0) {
   //objecto Usuario
@@ -66,9 +67,11 @@ function cargaInicial() {
     //dibujo una fila en la tabla
     listaUsuarios.map((usuario, indice) => crearFila(usuario, indice + 1));
   } else {
-    let articleUsuario = document.querySelector('#articleUsuario');
-    articleUsuario.innerHTML =
-      '<h2 class="mt-3 text-center">No hay usuarios disponibles</h2>';
+    Swal.fire(
+      'No hay usuarios cargados',
+      'Ingrese el primer usuario en Opciones',
+      'error'
+    );
   }
 }
 
@@ -90,7 +93,8 @@ function crearFila(usuario, indice) {
     <button class="btn btn-primary" onclick="verUsuario('${usuario.codigo}')">
     <i class="bi bi-search"></i>
     </button>
-    <button class="btn btn-warning my-2 my-md-0">
+    <button class="btn btn-warning my-2 my-md-0"
+    onclick="prepararUsuario('${usuario.codigo}')" >
     <i class="bi bi-pencil"></i>
     </button>
     <button class="btn btn-danger" onclick="borrarUsuario('${usuario.codigo}')">
@@ -98,15 +102,16 @@ function crearFila(usuario, indice) {
     </button>
   </td>
 </tr>`;
-  } else {
-    setTimeout(location.reload(), 2500);
   }
 }
 
 function prepararFormularioUsuario(e) {
   e.preventDefault();
-  console.log('aqui creo el usuario');
-  crearUsuario();
+  if (crearUsuarioNuevo) {
+    crearUsuario();
+  } else {
+    editarUsuario();
+  }
 }
 
 function crearUsuario() {
@@ -233,7 +238,7 @@ window.borrarUsuario = (codigoUsuario) => {
     console.log(result);
     if (result.isConfirmed) {
       //agrega mi codigo de borrar
-      //borrar juego del array
+      //borrar usuario del array
       let posicionUsuario = listaUsuarios.findIndex(
         (usuario) => usuario.codigo === codigoUsuario
       );
@@ -250,4 +255,62 @@ window.borrarUsuario = (codigoUsuario) => {
       );
     }
   });
+};
+
+function mandaralLocalstorage() {
+  localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
+}
+
+window.prepararUsuario = (codigoUsuario) => {
+  //buscar el objeto que quiero mostrar en el form
+  let usuarioBuscado = listaUsuarios.find(
+    (usuario) => usuario.codigo === codigoUsuario
+  );
+
+  //mostrar el formulario con los datos
+  modalFormUsuario.show();
+  codigo.value = usuarioBuscado.codigo;
+  nombre.value = usuarioBuscado.nombre;
+  apellido.value = usuarioBuscado.apellido;
+  correoElectronico.value = usuarioBuscado.correoElectronico;
+  contrasenia.value = usuarioBuscado.contrasenia;
+  rol.value = usuarioBuscado.rol;
+  //Cambiar el title del modal
+  let modalLabel = document.getElementById('modalLabel');
+  modalLabel.innerHTML = 'Editar Usuario';
+  //cambiar el estado de la variable crearusuario nuevo a false
+  crearUsuarioNuevo = false;
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+window.editarUsuario = () => {
+  console.log('aqui quiero editar');
+  //en que posicion esta almancenado el usuario que quiero editar
+  let posicionUsuario = listaUsuarios.findIndex(
+    (usuario) => usuario.codigo === codigo.value
+  );
+  console.log(posicionUsuario);
+  //aca se editan los datos del usuario
+  listaUsuarios[posicionUsuario].nombre = nombre.value;
+  listaUsuarios[posicionUsuario].apellido = apellido.value;
+  listaUsuarios[posicionUsuario].correoElectronico = correoElectronico.value;
+  listaUsuarios[posicionUsuario].contrasenia = contrasenia.value;
+  listaUsuarios[posicionUsuario].rol = rol.value;
+
+  //actualizar el localstorage
+  mandaralLocalstorage();
+  //actualizar la fila de la tabla
+  let tbody = document.querySelector('#tablaUsuario');
+  tbody.children[posicionUsuario].children[1].innerHTML = nombre.value;
+  tbody.children[posicionUsuario].children[2].innerHTML =
+    correoElectronico.value;
+  tbody.children[posicionUsuario].children[3].innerHTML = rol.value;
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: `Se modificó correctamente el usuario: ${correoElectronico.value}`,
+    showConfirmButton: false,
+    timer: 2000,
+  });
+
+  modalFormUsuario.hide();
 };
