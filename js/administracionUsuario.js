@@ -75,12 +75,14 @@ function crearFila(usuario, indice) {
   if (tbody !== null) {
     tbody.innerHTML += `<tr>
   <td scope="col">${indice}</td>
-  <td>${usuario.nombre}</td>
-  <td>
-    ${usuario.apellido}
+  <td class="tamanioCelda text-truncate">
+    ${usuario.nombre}
   </td>
-  <td >
+  <td class="tamanioCelda text-truncate" >
     ${usuario.correoElectronico}
+  </td>
+  <td>
+    ${usuario.rol}
   </td>
   <td>
     <button class="btn btn-primary" onclick="verUsuario('${usuario.codigo}')">
