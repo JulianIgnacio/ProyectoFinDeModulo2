@@ -3,8 +3,7 @@ export function verificarUserAdmin() {
   let botonLogin = document.getElementById('botonLogin');
 
   let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'));
-  let user = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || null;
-
+  let user = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || {};
   const usuarioBuscado = listaUsuarios.some(
     (usuario) =>
       usuario.correoElectronico === user.correoElectronico &&
