@@ -5,6 +5,7 @@ verificarUserAdmin();
 
 //variables globales
 let listaJuegos = JSON.parse(localStorage.getItem('listaJuegos')) || [];
+let crearJuegoNuevo = true;
 //saber si el array esta no vacio
 if (listaJuegos.length !== 0) {
   //objecto Juego
@@ -111,7 +112,7 @@ function crearFila(juego, indice) {
     <button class="btn btn-primary" onclick="verJuego('${juego.codigo}')">
     <i class="bi bi-search"></i>
     </button>
-    <button class="btn btn-warning my-2 my-lg-0">
+    <button class="btn btn-warning my-2 my-lg-0" onclick="prepararJuego('${juego.codigo}')" >
     <i class="bi bi-pencil"></i>
     </button>
     <button class="btn btn-danger" onclick="borrarJuego('${juego.codigo}')">
@@ -124,7 +125,11 @@ function crearFila(juego, indice) {
 function prepararFormularioJuego(e) {
   e.preventDefault();
   console.log('aqui creo el juego');
-  crearJuego();
+  if (crearJuegoNuevo) {
+    crearJuego();
+  } else {
+    editarJuego();
+  }
 }
 
 function crearJuego() {
@@ -206,6 +211,7 @@ function limpiarFormulario() {
 }
 
 function mostrarFormularioJuego() {
+  crearJuegoNuevo = true;
   modalFormJuego.show();
 }
 
@@ -293,4 +299,69 @@ window.borrarJuego = (codigoJuego) => {
       );
     }
   });
+};
+
+function mandaralLocalstorage() {
+  localStorage.setItem('listaJuegos', JSON.stringify(listaJuegos));
+}
+
+window.prepararJuego = (codigoJuego) => {
+  //buscar el objeto que quiero mostrar en el form
+  let juegoBuscado = listaJuegos.find((juego) => juego.codigo === codigoJuego);
+  console.log(juegoBuscado);
+
+  //mostrar el formulario con los datos
+  modalFormJuego.show();
+  codigo.value = juegoBuscado.codigo;
+  nombre.value = juegoBuscado.nombre;
+  precio.value = juegoBuscado.precio;
+  categoria.value = juegoBuscado.categoria;
+  descripcion.value = juegoBuscado.descripcion;
+  imagen.value = juegoBuscado.imagen;
+  requisitosProcesador.value = juegoBuscado.requisitosProcesador;
+  requisitosMemoriaram.value = juegoBuscado.requisitosMemoriaram;
+  requisitosAlmacenamiento.value = juegoBuscado.requisitosAlmacenamiento;
+  requisitosTarjetagrafica.value = juegoBuscado.requisitosTarjetagrafica;
+  desarrollador.value = juegoBuscado.desarrollador;
+
+  //cambiar el estado de la variable crearjuegoNueva a false
+  crearJuegoNuevo = false;
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+window.editarJuego = () => {
+  console.log('aqui quiero editar');
+  //en que posicion esta almancenado el juego que quiero editar
+  let posicionJuego = listaJuegos.findIndex(
+    (juego) => juego.codigo === codigo.value
+  );
+  //aca se editan los datos del juego
+  listaJuegos[posicionJuego].nombre = nombre.value;
+  listaJuegos[posicionJuego].precio = precio.value;
+  listaJuegos[posicionJuego].categoria = categoria.value;
+  listaJuegos[posicionJuego].descripcion = descripcion.value;
+  listaJuegos[posicionJuego].imagen = imagen.value;
+  listaJuegos[posicionJuego].requisitosProcesador = requisitosProcesador.value;
+  listaJuegos[posicionJuego].requisitosMemoriaram = requisitosMemoriaram.value;
+  listaJuegos[posicionJuego].requisitosAlmacenamiento =
+    requisitosAlmacenamiento.value;
+  listaJuegos[posicionJuego].requisitosTarjetagrafica =
+    requisitosTarjetagrafica.value;
+  listaJuegos[posicionJuego].desarrollador = desarrollador.value;
+
+  //actualizar el localstorage
+  mandaralLocalstorage();
+  //actualizar la fila de la tabla
+  let tbody = document.querySelector('#tablaJuego');
+  tbody.children[posicionJuego].children[1].innerHTML = nombre.value;
+  tbody.children[posicionJuego].children[2].innerHTML = descripcion.value;
+  tbody.children[posicionJuego].children[3].innerHTML = imagen.value;
+  tbody.children[posicionJuego].children[4].innerHTML = categoria.value;
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: `Se modificó correctamente el juego: ${nombre.value}`,
+    showConfirmButton: false,
+    timer: 2000,
+  });
+  modalFormJuego.hide();
 };
