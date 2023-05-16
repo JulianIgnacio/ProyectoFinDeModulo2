@@ -36,13 +36,17 @@ function crearCard(juego) {
         <p class="badge rounded-pill text-bg-dark card-text fs-6 text-uppercase">
         ${juego.categoria}
         </p>
-        <p class="fw-bold fs-3">$ ${juego.precio}</p>
+        <p class="fw-bold fs-3 precio">$ ${juego.precio}</p>
     </div>
     <a
         class="badge badge-primary text-light m-3 text-start hover-mas-informacion"
         onclick="navegarDetalleJuego('${juego.codigo}')"
         >Más información</a
     >
+    <a
+        class="btn btn-primary full-width agregar-carrito"
+        >Agregar Al Carrito</a
+      >
     </div>
 </div>
 `;

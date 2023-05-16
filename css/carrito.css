@@ -1,26 +1,27 @@
+.tamanioCelda {
+  max-width: 2rem;
+}
+
 .submenu {
   position: relative;
 }
 .submenu #carrito {
   display: none;
 }
+
 .submenu:hover #carrito {
   display: block;
   position: absolute;
+  right: 0;
+
   top: 100%;
   z-index: 1;
-  background-color: #f1f1f1;
+  background-color: rgb(34, 33, 33);
   padding: 20px;
   min-height: 400px;
   min-width: 300px;
 }
-/* .vacio {
-  padding: 10px;
-  background-color: crimson;
-  text-align: center;
-  border-radius: 10px;
-  color: white;
-} */
+
 ul {
   list-style: none;
 }
@@ -29,4 +30,13 @@ header {
   padding: 0 0 0 0;
   background: white;
   text-align: center;
+}
+
+@media all and (max-width: 991px) {
+  header {
+    text-align: left;
+  }
+  .submenu:hover #carrito {
+    left: 0;
+  }
 }
