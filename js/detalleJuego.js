@@ -33,7 +33,7 @@ seccion1.innerHTML =`
 </aside>
 <aside class="container-fluid col">
     <p>${juegoBuscado.nombre}</p>
-    <p>${juegoBuscado.precio}</p>
+    <p>$${juegoBuscado.precio}</p>
     <p>${juegoBuscado.categoria}</p>
     <p>${juegoBuscado.desarrollador}</p>
   </aside>
