@@ -1,7 +1,7 @@
 import Juego from './classJuego.js';
 import { sumarioValidacionJuego } from './validacionJuego.js';
-import { verificarUser } from './helpers.js';
-verificarUser();
+import { verificarUserAdmin } from './helpers.js';
+verificarUserAdmin();
 
 //variables globales
 let listaJuegos = JSON.parse(localStorage.getItem('listaJuegos')) || [];

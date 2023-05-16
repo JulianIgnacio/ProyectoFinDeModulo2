@@ -1,5 +1,7 @@
 import Usuario from './classUsuario.js';
 import { sumarioValidacionUsuario } from './validacionUsuario.js';
+import { verificarUserAdmin } from './helpers.js';
+verificarUserAdmin();
 
 //variables globales
 let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];

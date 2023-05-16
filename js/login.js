@@ -1,6 +1,10 @@
 import Usuario from './classUsuario.js';
+import { verificarUserLogged, logout } from './helpers.js';
+
+verificarUserLogged();
 
 window.onload = function () {
+  document.getElementById('logout').addEventListener('click', logout);
   document.getElementById('formLogin').addEventListener('submit', login);
 };
 
@@ -22,7 +26,6 @@ function login(event) {
   let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
 
   if (listaUsuarios.length !== 0) {
-    //objecto Usuario
     listaUsuarios = listaUsuarios.map(
       (usuario) =>
         new Usuario(
@@ -55,14 +58,12 @@ function login(event) {
       u.rol === 'administrador'
   );
 
-  // Verificar el correo electrónico
   if (!esCorreoValido(correoElectronico.value)) {
     correoElectronico.classList.add('is-invalid');
   } else {
     correoElectronico.classList.remove('is-invalid');
   }
 
-  // Verificar la contraseña
   if (!esContraseniaValida(contrasenia.value)) {
     contrasenia.classList.add('is-invalid');
   } else {
@@ -70,7 +71,6 @@ function login(event) {
   }
 
   if (esValidadoAdministrador) {
-    console.log('Administrador');
     div.style.display = 'flex';
     modalLogin.hide();
     botonLogin.style.display = 'none';

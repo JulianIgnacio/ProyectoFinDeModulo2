@@ -1,10 +1,9 @@
-export function verificarUser() {
-  //let btnLogin = document.getElementById('btnLogin');
+export function verificarUserAdmin() {
   let div = document.getElementById('opciones_administrador');
   let botonLogin = document.getElementById('botonLogin');
 
   let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'));
-  let user = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || {};
+  let user = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || null;
 
   const usuarioBuscado = listaUsuarios.some(
     (usuario) =>
@@ -13,14 +12,19 @@ export function verificarUser() {
       usuario.rol === 'administrador'
   );
   if (usuarioBuscado) {
-    //mostrar la opcion de admin en el navbar solo si el usuario que está logueado es admin
     div.style.display = 'flex';
     botonLogin.style.display = 'none';
   } else {
     div.style.display = 'none';
-    let webAdmin = window.location.origin + '/pages/administracionJuegos.html';
-    //si no está logueado se le muestra un cartel que no tiene los permisos suficientes para ver dicha página.
-    if (window.location.href === webAdmin) {
+    let webAdminJuegos =
+      window.location.origin + '/pages/administracionJuegos.html';
+    let webAdminUsuarios =
+      window.location.origin + '/pages/administracionUsuarios.html';
+
+    if (
+      window.location.href === webAdminJuegos ||
+      window.location.href === webAdminUsuarios
+    ) {
       document.querySelector('body').innerHTML =
         "<h2 class='text-center'>No tienes los permisos suficientes para ver está página, será direccionado a la página principal</h2>";
       setTimeout(() => {
@@ -28,4 +32,23 @@ export function verificarUser() {
       }, 3000);
     }
   }
+}
+
+export function verificarUserLogged() {
+  let user = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || {};
+  let div = document.getElementById('opciones_administrador');
+  let botonLogin = document.getElementById('botonLogin');
+  if (JSON.stringify(user) !== '{}') {
+    div.style.display = 'flex';
+    botonLogin.style.display = 'none';
+  } else {
+    div.style.display = 'none';
+    botonLogin.style.display = 'flex';
+  }
+}
+
+export function logout() {
+  sessionStorage.removeItem('usuarioLogueado');
+  window.location.href = window.location.origin;
+  verificarUserLogged();
 }
