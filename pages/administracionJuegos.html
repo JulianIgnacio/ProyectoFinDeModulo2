@@ -252,7 +252,7 @@
           </div>
 
           <div class="modal-body">
-            <form id="formJuego" class="row g-3 needs-validation" novalidate>
+            <form id="formJuego" class="row g-3 needs-validation">
               <div class="mb-3 position-relative">
                 <label for="codigo">Código</label>
                 <input
@@ -338,7 +338,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Ej: http://127.0.0.1:5500/pages/leagueoflegends.png"
-                  maxlength="120"
+                  maxlength="250"
                   minlength="2"
                   pattern="https?://.+\.(png|jpe?g|gif|svg)"
                   required
@@ -355,16 +355,16 @@
                   <label for="requisitosProcesador">Procesador *</label>
                   <select id="requisitosProcesador" class="form-select">
                     <option value="">Seleccione una opción</option>
-                    <option value="pentium4a3ghz">Pentium 4 a 3 GHz</option>
-                    <option value="dualcorea3ghz">Dual Core a 3GHz</option>
-                    <option value="i3a3ghz">I3 a 3GHz</option>
-                    <option value="ryzen3a3ghz">Ryzen3 a 3GHz</option>
-                    <option value="i5a35ghz">I5 a 3,5GHz</option>
-                    <option value="ryzen5a35ghz">Ryzen5 a 3,5GHz</option>
-                    <option value="i7a35ghz">I7 a 3,5 GHz</option>
-                    <option value="ryzen7a35ghz">Ryzen7 a 3,5GHz</option>
-                    <option value="i9a42ghz">I9 a 4,2 GHz</option>
-                    <option value="ryzen9a42ghz">Ryzen9 a 4,2GHz</option>
+                    <option value="Pentium 4 a 3 GHz">Pentium 4 a 3 GHz</option>
+                    <option value="Dual Core a 3GHz">Dual Core a 3GHz</option>
+                    <option value="I3 a 3GHz">I3 a 3GHz</option>
+                    <option value="Ryzen3 a 3GHz">Ryzen3 a 3GHz</option>
+                    <option value="I5 a 3,5GHz">I5 a 3,5GHz</option>
+                    <option value="Ryzen5 a 3,5GHz">Ryzen5 a 3,5GHz</option>
+                    <option value="I7 a 3,5 GHz">I7 a 3,5 GHz</option>
+                    <option value="Ryzen7 a 3,5GHz">Ryzen7 a 3,5GHz</option>
+                    <option value="I9 a 4,2 GHz">I9 a 4,2 GHz</option>
+                    <option value="Ryzen9 a 4,2GHz">Ryzen9 a 4,2GHz</option>
                   </select>
                   <div class="invalid-feedback">Seleccione un procesador.</div>
                 </div>
@@ -372,14 +372,14 @@
                   <label for="requisitosMemoriaram">Memoria RAM *</label>
                   <select id="requisitosMemoriaram" class="form-select">
                     <option value="">Seleccione una opción</option>
-                    <option value="1gbram">1GB</option>
-                    <option value="2gbram">2GB</option>
-                    <option value="4gbram">4GB</option>
-                    <option value="8gbram">8GB</option>
-                    <option value="16gbram">16GB</option>
-                    <option value="32gbram">32GB</option>
-                    <option value="64gbram">64GB</option>
-                    <option value="128gbram">128GB</option>
+                    <option value="1GB">1GB</option>
+                    <option value="2GB">2GB</option>
+                    <option value="4GB">4GB</option>
+                    <option value="8GB">8GB</option>
+                    <option value="16GB">16GB</option>
+                    <option value="32GB">32GB</option>
+                    <option value="64GB">64GB</option>
+                    <option value="128GB">128GB</option>
                   </select>
                   <div class="invalid-feedback">
                     Seleccione una Memoria RAM.
@@ -389,15 +389,15 @@
                   <label for="requisitosAlmacenamiento">Almacenamiento *</label>
                   <select id="requisitosAlmacenamiento" class="form-select">
                     <option value="">Seleccione una opción</option>
-                    <option value="1gbdisco">1GB</option>
-                    <option value="2gbdisco">2GB</option>
-                    <option value="5gbdisco">5GB</option>
-                    <option value="75gbdisco">7,5GB</option>
-                    <option value="10gbdisco">10GB</option>
-                    <option value="20gbdisco">20GB</option>
-                    <option value="50gbdisco">50GB</option>
-                    <option value="100gbdisco">100GB</option>
-                    <option value="200gbdisco">200GB</option>
+                    <option value="1GB">1GB</option>
+                    <option value="2GB">2GB</option>
+                    <option value="5GB">5GB</option>
+                    <option value="75GB">7,5GB</option>
+                    <option value="10GB">10GB</option>
+                    <option value="20GB">20GB</option>
+                    <option value="50GB">50GB</option>
+                    <option value="100GB">100GB</option>
+                    <option value="200GB">200GB</option>
                   </select>
                   <div class="invalid-feedback">
                     Seleccione un espacio de Almacenamiento.
@@ -409,14 +409,14 @@
                   >
                   <select id="requisitosTarjetagrafica" class="form-select">
                     <option value="">Seleccione una opción</option>
-                    <option value="nvidia7600">nVidia 7600 (2GB)</option>
-                    <option value="gtx1650">
+                    <option value="nVidia 7600 (2GB)">nVidia 7600 (2GB)</option>
+                    <option value="Nvidia® GeForce™ GTX 1650 (4GB)">
                       Nvidia® GeForce™ GTX 1650 (4GB)
                     </option>
-                    <option value="radeonr9390x">
+                    <option value="AMD® Radeon™ R9 390X (8GB)">
                       AMD® Radeon™ R9 390X (8GB)
                     </option>
-                    <option value="atix1600">ATI X1600 (2GB)</option>
+                    <option value="ATI X1600 (2GB)">ATI X1600 (2GB)</option>
                   </select>
                   <div class="invalid-feedback">
                     Seleccione una tarjeta gráfica.
