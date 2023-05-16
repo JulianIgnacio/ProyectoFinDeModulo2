@@ -35,7 +35,6 @@ seccion1.innerHTML =`
     <p>${juegoBuscado.nombre}</p>
     <p>${juegoBuscado.precio}</p>
     <p>${juegoBuscado.categoria}</p>
-    <p>${juegoBuscado.codigo}</p>
     <p>${juegoBuscado.desarrollador}</p>
   </aside>
 </div>`
