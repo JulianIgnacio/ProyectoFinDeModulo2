@@ -35,6 +35,76 @@ function validarCategoria(categoria) {
     return false;
   }
 }
+function validarRequisitosProcesador(requisitosProcesador) {
+  if (
+    requisitosProcesador.value === 'pentium4a3ghz' ||
+    requisitosProcesador.value === 'dualcorea3ghz' ||
+    requisitosProcesador.value === 'i3a3ghz' ||
+    requisitosProcesador.value === 'ryzen3a3ghz' ||
+    requisitosProcesador.value === 'i5a35ghz' ||
+    requisitosProcesador.value === 'ryzen5a35ghz' ||
+    requisitosProcesador.value === 'i7a35ghz' ||
+    requisitosProcesador.value === 'ryzen7a35ghz' ||
+    requisitosProcesador.value === 'i9a42ghz' ||
+    requisitosProcesador.value === 'ryzen9a42ghz'
+  ) {
+    requisitosProcesador.className = 'form-select is-valid';
+    return true;
+  } else {
+    requisitosProcesador.className = 'form-select is-invalid';
+    return false;
+  }
+}
+function validarRequisitosMemoriaRAM(requisitosMemoriaram) {
+  if (
+    requisitosMemoriaram.value === '1gbram' ||
+    requisitosMemoriaram.value === '2gbram' ||
+    requisitosMemoriaram.value === '4gbram' ||
+    requisitosMemoriaram.value === '8gbram' ||
+    requisitosMemoriaram.value === '16gbram' ||
+    requisitosMemoriaram.value === '32gbram' ||
+    requisitosMemoriaram.value === '64gbram' ||
+    requisitosMemoriaram.value === '128gbram'
+  ) {
+    requisitosMemoriaram.className = 'form-select is-valid';
+    return true;
+  } else {
+    requisitosMemoriaram.className = 'form-select is-invalid';
+    return false;
+  }
+}
+function validarRequisitosAlmacenamiento(requisitosAlmacenamiento) {
+  if (
+    requisitosAlmacenamiento.value === '1gbdisco' ||
+    requisitosAlmacenamiento.value === '2gbdisco' ||
+    requisitosAlmacenamiento.value === '5gbdisco' ||
+    requisitosAlmacenamiento.value === '75gbdisco' ||
+    requisitosAlmacenamiento.value === '10gbdisco' ||
+    requisitosAlmacenamiento.value === '50gbdisco' ||
+    requisitosAlmacenamiento.value === '100gbdisco' ||
+    requisitosAlmacenamiento.value === '200gbdisco'
+  ) {
+    requisitosAlmacenamiento.className = 'form-select is-valid';
+    return true;
+  } else {
+    requisitosAlmacenamiento.className = 'form-select is-invalid';
+    return false;
+  }
+}
+function validarRequisitosTarjetaGrafica(requisitosTarjetagrafica) {
+  if (
+    requisitosTarjetagrafica.value === 'nvidia7600' ||
+    requisitosTarjetagrafica.value === 'gtx1650' ||
+    requisitosTarjetagrafica.value === 'radeonr9390x' ||
+    requisitosTarjetagrafica.value === 'atix1600'
+  ) {
+    requisitosTarjetagrafica.className = 'form-select is-valid';
+    return true;
+  } else {
+    requisitosTarjetagrafica.className = 'form-select is-invalid';
+    return false;
+  }
+}
 
 export function sumarioValidacionJuego(
   nombre,
@@ -42,7 +112,10 @@ export function sumarioValidacionJuego(
   categoria,
   descripcion,
   imagen,
-  requisitosSistema,
+  requisitosProcesador,
+  requisitosMemoriaram,
+  requisitosAlmacenamiento,
+  requisitosTarjetagrafica,
   desarrollador
 ) {
   let validado = true;
@@ -65,7 +138,17 @@ export function sumarioValidacionJuego(
   if (!validarURLImagen(imagen)) {
     validado = false;
   }
-  if (!validarCantidadCaracteres(requisitosSistema, 2, 500)) {
+
+  if (!validarRequisitosProcesador(requisitosProcesador)) {
+    validado = false;
+  }
+  if (!validarRequisitosMemoriaRAM(requisitosMemoriaram)) {
+    validado = false;
+  }
+  if (!validarRequisitosAlmacenamiento(requisitosAlmacenamiento)) {
+    validado = false;
+  }
+  if (!validarRequisitosTarjetaGrafica(requisitosTarjetagrafica)) {
     validado = false;
   }
   if (!validarCantidadCaracteres(desarrollador, 2, 60)) {

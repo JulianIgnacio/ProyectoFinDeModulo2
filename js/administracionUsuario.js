@@ -62,7 +62,7 @@ cargaInicial();
 function cargaInicial() {
   if (listaUsuarios.length > 0) {
     //dibujo una fila en la tabla
-    listaUsuarios.map((usuario) => crearFila(usuario));
+    listaUsuarios.map((usuario, indice) => crearFila(usuario, indice + 1));
   } else {
     let articleUsuario = document.querySelector('#articleUsuario');
     articleUsuario.innerHTML =
@@ -70,11 +70,11 @@ function cargaInicial() {
   }
 }
 
-function crearFila(usuario) {
+function crearFila(usuario, indice) {
   let tbody = document.querySelector('#tablaUsuario');
   if (tbody !== null) {
     tbody.innerHTML += `<tr>
-  <td scope="col">1</td>
+  <td scope="col">${indice}</td>
   <td>${usuario.nombre}</td>
   <td>
     ${usuario.apellido}

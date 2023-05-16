@@ -15,7 +15,10 @@ if (listaJuegos.length !== 0) {
         juego.categoria,
         juego.descripcion,
         juego.imagen,
-        juego.requisitosSistema,
+        juego.requisitosProcesador,
+        juego.requisitosMemoriaram,
+        juego.requisitosAlmacenamiento,
+        juego.requisitosTarjetagrafica,
         juego.desarrollador,
         juego.reseniaVoto,
         juego.reseniaDescripcion
@@ -33,7 +36,14 @@ let codigo = document.getElementById('codigo'),
   categoria = document.getElementById('categoria'),
   descripcion = document.getElementById('descripcion'),
   imagen = document.getElementById('imagen'),
-  requisitosSistema = document.getElementById('requisitosSistema'),
+  requisitosProcesador = document.getElementById('requisitosProcesador'),
+  requisitosMemoriaram = document.getElementById('requisitosMemoriaram'),
+  requisitosAlmacenamiento = document.getElementById(
+    'requisitosAlmacenamiento'
+  ),
+  requisitosTarjetagrafica = document.getElementById(
+    'requisitosTarjetagrafica'
+  ),
   desarrollador = document.getElementById('desarrollador');
 let modalFormJuego = new bootstrap.Modal(document.getElementById('modalJuego'));
 console.log(modalFormJuego);
@@ -56,8 +66,11 @@ document
     escrituraSelect(categoria);
     escrituraInput(descripcion);
     escrituraInput(imagen);
-    escrituraInput(requisitosSistema);
-    escrituraInput(desarrollador);
+    escrituraInput(requisitosProcesador);
+    escrituraSelect(requisitosMemoriaram);
+    escrituraSelect(requisitosAlmacenamiento);
+    escrituraSelect(requisitosTarjetagrafica);
+    escrituraSelect(desarrollador);
     //volver a mostrar el boton Enviar
     let btnFormulario = document.getElementById('btnFormulario');
     btnFormulario.style.display = 'block';
@@ -68,7 +81,7 @@ cargaInicial();
 function cargaInicial() {
   if (listaJuegos.length > 0) {
     //dibujo una fila en la tabla
-    listaJuegos.map((juego) => crearFila(juego));
+    listaJuegos.map((juego, indice) => crearFila(juego, indice + 1));
   } else {
     Swal.fire(
       'No hay juegos cargados',
@@ -78,13 +91,13 @@ function cargaInicial() {
   }
 }
 
-function crearFila(juego) {
+function crearFila(juego, indice) {
   let tbody = document.querySelector('#tablaJuego');
   tbody.innerHTML += `<tr>
-  <td scope="col">1</td>
+  <td scope="col">${indice}</td>
   <td>${juego.nombre}</td>
   <td>
-    ${juego.precio}
+    $ ${juego.precio}
   </td>
   <td class="tamanioCelda text-truncate">
     ${juego.categoria}
@@ -118,7 +131,10 @@ function crearJuego() {
     categoria,
     descripcion,
     imagen,
-    requisitosSistema,
+    requisitosProcesador,
+    requisitosMemoriaram,
+    requisitosAlmacenamiento,
+    requisitosTarjetagrafica,
     desarrollador
   );
 
@@ -132,7 +148,10 @@ function crearJuego() {
       categoria.value,
       descripcion.value,
       imagen.value,
-      requisitosSistema.value,
+      requisitosProcesador.value,
+      requisitosMemoriaram.value,
+      requisitosAlmacenamiento.value,
+      requisitosTarjetagrafica.value,
       desarrollador.value,
       0, //reseniaVoto
       '' //reseniaDescripcion
@@ -204,10 +223,16 @@ window.verJuego = (codigoJuego) => {
   soloLecturaInput(descripcion);
   imagen.value = juegoBuscado.imagen;
   soloLecturaInput(imagen);
-  requisitosSistema.value = juegoBuscado.requisitosSistema;
-  soloLecturaInput(requisitosSistema);
+  requisitosProcesador.value = juegoBuscado.requisitosProcesador;
+  soloLecturaSelect(requisitosProcesador);
+  requisitosMemoriaram.value = juegoBuscado.requisitosMemoriaram;
+  soloLecturaSelect(requisitosMemoriaram);
+  requisitosAlmacenamiento.value = juegoBuscado.requisitosAlmacenamiento;
+  soloLecturaSelect(requisitosAlmacenamiento);
+  requisitosTarjetagrafica.value = juegoBuscado.requisitosTarjetagrafica;
+  soloLecturaSelect(requisitosTarjetagrafica);
   desarrollador.value = juegoBuscado.desarrollador;
-  soloLecturaInput(desarrollador);
+  soloLecturaSelect(desarrollador);
   //Cambiar el title del modal
   let modalLabel = document.getElementById('modalLabel');
   modalLabel.innerHTML = 'Ver Juego';
