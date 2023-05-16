@@ -97,7 +97,9 @@ function crearFila(juego, indice) {
   let tbody = document.querySelector('#tablaJuego');
   tbody.innerHTML += `<tr>
   <td scope="col">${indice}</td>
-  <td>${juego.nombre}</td>
+  <td class="tamanioCelda text-truncate">
+    ${juego.nombre}
+  </td>
   <td>
     $ ${juego.precio}
   </td>
