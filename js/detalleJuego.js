@@ -2,34 +2,16 @@ const parametroCodigo = new URLSearchParams(window.location.search);
 
 let listaJuegos = JSON.parse(localStorage.getItem('listaJuegos')) || [];
 
-const juegoBuscado = listaJuegos.find((juego)=> juego.codigo === parametroCodigo.get('codigo'));
+const juegoBuscado = listaJuegos.find(
+  (juego) => juego.codigo === parametroCodigo.get('codigo')
+);
 
 let seccion1 = document.getElementById('presentacion');
 
-seccion1.innerHTML =`
+seccion1.innerHTML = `
 <div class="row">
-<aside class="container-fluid h-25 w-75" id="sliderDetalle">
-  <div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner ">
-      <div class="carousel-item active">
-        <img src="${juegoBuscado.imagen}" class="d-block w-100" alt="${juegoBuscado.nombre}">
-      </div>
-      <div class="carousel-item">
-        <img src="" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+<aside class="container-fluid h-lg-50 w-lg-75 " id="sliderDetalle">
+    <img src="${juegoBuscado.imagen}" class="d-block w-100" alt="${juegoBuscado.nombre}">
 </aside>
 <aside class="container-fluid col">
     <p>${juegoBuscado.nombre}</p>
@@ -37,13 +19,13 @@ seccion1.innerHTML =`
     <p>${juegoBuscado.categoria}</p>
     <p>${juegoBuscado.desarrollador}</p>
   </aside>
-</div>`
+</div>`;
 
 let seccion2 = document.getElementById('descripcion');
-seccion2.innerHTML =`
+seccion2.innerHTML = `
 <h4>Descripcion</h4>
 <hr>
-<p>${juegoBuscado.descripcion}</p>`
+<p>${juegoBuscado.descripcion}</p>`;
 
 let seccion3 = document.getElementById('requisitos');
 seccion3.innerHTML = `
@@ -67,4 +49,4 @@ seccion3.innerHTML = `
       </div>
     </div>
   </div>
-</div>`
+</div>`;
