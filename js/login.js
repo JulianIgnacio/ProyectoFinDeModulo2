@@ -1,7 +1,7 @@
-import Usuario from "./classUsuario.js";
+import Usuario from './classUsuario.js';
 
 window.onload = function () {
-  document.getElementById("formLogin").addEventListener("submit", login);
+  document.getElementById('formLogin').addEventListener('submit', login);
 };
 
 function esCorreoValido(correo) {
@@ -15,11 +15,11 @@ function esContraseniaValida(contrasenia) {
   return regexContrasenia.test(contrasenia);
 }
 
-var modalLogin = new bootstrap.Modal(document.getElementById("modalLogin"));
+var modalLogin = new bootstrap.Modal(document.getElementById('modalLogin'));
 
 function login(event) {
   event.preventDefault();
-  let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || [];
+  let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
 
   if (listaUsuarios.length !== 0) {
     //objecto Usuario
@@ -36,51 +36,68 @@ function login(event) {
     );
   }
 
-  let correoElectronico = document.getElementById("correoElectronico");
-  let contrasenia = document.getElementById("contrasenia");
-  let div = document.getElementById("opciones_administrador");
-  let botonLogin = document.getElementById("botonLogin")
+  let correoElectronico = document.getElementById('correoElectronico');
+  let contrasenia = document.getElementById('contrasenia');
+  let div = document.getElementById('opciones_administrador');
+  let botonLogin = document.getElementById('botonLogin');
 
   let esValidado = listaUsuarios.some(
     (u) =>
       u.correoElectronico === correoElectronico.value &&
       u.contrasenia === contrasenia.value &&
-      u.rol === "normal"
+      u.rol === 'normal'
   );
 
   let esValidadoAdministrador = listaUsuarios.some(
     (u) =>
       u.correoElectronico === correoElectronico.value &&
       u.contrasenia === contrasenia.value &&
-      u.rol === "administrador"
+      u.rol === 'administrador'
   );
 
   // Verificar el correo electrónico
   if (!esCorreoValido(correoElectronico.value)) {
-    correoElectronico.classList.add("is-invalid");
+    correoElectronico.classList.add('is-invalid');
   } else {
-    correoElectronico.classList.remove("is-invalid");
+    correoElectronico.classList.remove('is-invalid');
   }
 
   // Verificar la contraseña
   if (!esContraseniaValida(contrasenia.value)) {
-    contrasenia.classList.add("is-invalid");
+    contrasenia.classList.add('is-invalid');
   } else {
-    contrasenia.classList.remove("is-invalid");
+    contrasenia.classList.remove('is-invalid');
   }
 
   if (esValidadoAdministrador) {
-    div.style.display = "flex";
+    console.log('Administrador');
+    div.style.display = 'flex';
     modalLogin.hide();
-    botonLogin.style.display = "none"
+    botonLogin.style.display = 'none';
+    sessionStorage.setItem(
+      'usuarioLogueado',
+      JSON.stringify({
+        correoElectronico: correoElectronico.value,
+        contrasenia: contrasenia.value,
+        rol: 'administrador',
+      })
+    );
   } else if (esValidado) {
-    div.style.display = "none";
+    div.style.display = 'none';
     modalLogin.hide();
-    botonLogin.style.display = "none"
+    botonLogin.style.display = 'none';
+    sessionStorage.setItem(
+      'usuarioLogueado',
+      JSON.stringify({
+        correoElectronico: correoElectronico.value,
+        contrasenia: contrasenia.value,
+        rol: 'normal',
+      })
+    );
   } else {
-    div.style.display = "none";
-    let alertaFormuralio = document.getElementById("alertaFormulario");
-    alertaFormuralio.classList.add("d-flex");
-    alertaFormuralio.classList.remove("d-none");
+    div.style.display = 'none';
+    let alertaFormuralio = document.getElementById('alertaFormulario');
+    alertaFormuralio.classList.add('d-flex');
+    alertaFormuralio.classList.remove('d-none');
   }
 }
