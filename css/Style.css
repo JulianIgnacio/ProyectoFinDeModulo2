@@ -30,7 +30,7 @@ main {
   max-width: 2rem;
 }
 
-navbar,footer {
+nav, footer {
   background-color: rgb(15, 9, 43);
 }
 #menu {
@@ -92,8 +92,15 @@ navbar,footer {
   float: left;
 }
 
+aside ul {
+  list-style: none;
+  padding: 0;
+} 
+
+
 @media all and (min-width: 576px) {
   .h-sm-100 {
     height: 100%;
   }
 }
+
