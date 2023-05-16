@@ -30,7 +30,8 @@ main {
   max-width: 2rem;
 }
 
-nav, footer {
+nav,
+footer {
   background-color: rgb(15, 9, 43);
 }
 #menu {
@@ -95,8 +96,7 @@ nav, footer {
 aside ul {
   list-style: none;
   padding: 0;
-} 
-
+}
 
 @media all and (min-width: 576px) {
   .h-sm-100 {
@@ -104,3 +104,29 @@ aside ul {
   }
 }
 
+@media all and (max-width: 767px) {
+  .d-block {
+    width: 20%;
+    height: auto;
+    object-fit: cover;
+  }
+  .tituloJuegoDestacado {
+    margin-bottom: 0;
+  }
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .tituloJuegoDestacado {
+    margin-bottom: 0;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .tituloJuegoDestacado {
+    margin-bottom: 0;
+  }
+}
