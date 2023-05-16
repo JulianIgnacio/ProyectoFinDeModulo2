@@ -27,53 +27,39 @@ body {
   font-weight: 400;
   margin-bottom: 30px;
 }
-.section-style {
+.section-style-titulos {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(15, 9, 43),
+    rgb(23, 14, 66),
+    rgb(22, 13, 66),
+    rgb(15, 9, 43)
+  );
+  color: #ffffff;
+  padding: 75px 25px;
+  font-family: Montserrat, sans-serif;
+}
+
+.section-style-cometarios {
   background-image: linear-gradient(
     to bottom,
     rgb(2, 2, 2),
     rgb(23, 14, 66),
-    rgb(22, 13, 66)
+    rgb(22, 13, 66),
+    rgb(15, 9, 43)
   );
   color: #ffffff;
-  padding: 100px 25px;
+  padding: 75px 25px;
   font-family: Montserrat, sans-serif;
 }
 
-/* .container-fluid {
-  padding: 60px 50px;
-} */
+
 
 .bg-grey {
   background-color: #f6f6f6;
 }
 
-.carousel-control.right,
-.carousel-control.left {
-  background-image: none;
-  color: rgb(244, 81, 30);
-  margin-bottom: 50px;
-  margin-left: 30px 30px;
-}
 
-.carousel-indicators li {
-  display: none;
-}
-
-.carousel-indicators li.active {
-  display: none;
-}
-
-.item span {
-  font-style: normal;
-}
-
-.slide {
-  animation-name: slide;
-  -webkit-animation-name: slide;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  visibility: visible;
-}
 
 /* Imágenes */
 .section-personalizado {
@@ -124,11 +110,36 @@ body {
 }
 
 /* Media queries para ser responsive */
-@media (max-width: 280px) {
-  .ocultar {
+@media (min-width: 280px) and (max-width: 480px) {
+  .quienesSomos {
     display: none;
   }
+  .quienesSomos {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: block;
+    margin: 10% auto;
+    border: auto;
+    padding: 7px 0px;
+    object-fit: cover;
+  }
+
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  .quienesSomos {
+    width: 13rem;
+    height:13rem;
+    border-radius: 50%;
+    display: block;
+    margin: 10% auto;
+    border: auto;
+    padding: 7px 0px;
+    object-fit: cover;
+  }
+}
+
 @media (max-width: 767px) {
   .section-personalizado {
     display: flex;
@@ -186,6 +197,7 @@ body {
     width: 33.33%;
     height: auto;
   }
+  
 }
 
 @media (min-width: 1024px) {
@@ -222,3 +234,11 @@ body {
     filter: contrast(1);
   }
 }
+
+
+@media (min-width: 992px) { /* para desktop y más */
+  .custom-text {
+      font-size: 24px;
+  }
+}
+
