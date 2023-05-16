@@ -37,16 +37,16 @@ function validarCategoria(categoria) {
 }
 function validarRequisitosProcesador(requisitosProcesador) {
   if (
-    requisitosProcesador.value === 'pentium4a3ghz' ||
-    requisitosProcesador.value === 'dualcorea3ghz' ||
-    requisitosProcesador.value === 'i3a3ghz' ||
-    requisitosProcesador.value === 'ryzen3a3ghz' ||
-    requisitosProcesador.value === 'i5a35ghz' ||
-    requisitosProcesador.value === 'ryzen5a35ghz' ||
-    requisitosProcesador.value === 'i7a35ghz' ||
-    requisitosProcesador.value === 'ryzen7a35ghz' ||
-    requisitosProcesador.value === 'i9a42ghz' ||
-    requisitosProcesador.value === 'ryzen9a42ghz'
+    requisitosProcesador.value === 'Pentium 4 a 3 GHz' ||
+    requisitosProcesador.value === 'Dual Core a 3GHz' ||
+    requisitosProcesador.value === 'I3 a 3GHz' ||
+    requisitosProcesador.value === 'Ryzen3 a 3GHz' ||
+    requisitosProcesador.value === 'I5 a 3,5GHz' ||
+    requisitosProcesador.value === 'Ryzen5 a 3,5GHz' ||
+    requisitosProcesador.value === 'I7 a 3,5 GHz' ||
+    requisitosProcesador.value === 'Ryzen7 a 3,5GHz' ||
+    requisitosProcesador.value === 'I9 a 4,2 GHz' ||
+    requisitosProcesador.value === 'Ryzen9 a 4,2GHz'
   ) {
     requisitosProcesador.className = 'form-select is-valid';
     return true;
@@ -57,14 +57,14 @@ function validarRequisitosProcesador(requisitosProcesador) {
 }
 function validarRequisitosMemoriaRAM(requisitosMemoriaram) {
   if (
-    requisitosMemoriaram.value === '1gbram' ||
-    requisitosMemoriaram.value === '2gbram' ||
-    requisitosMemoriaram.value === '4gbram' ||
-    requisitosMemoriaram.value === '8gbram' ||
-    requisitosMemoriaram.value === '16gbram' ||
-    requisitosMemoriaram.value === '32gbram' ||
-    requisitosMemoriaram.value === '64gbram' ||
-    requisitosMemoriaram.value === '128gbram'
+    requisitosMemoriaram.value === '1GB' ||
+    requisitosMemoriaram.value === '2GB' ||
+    requisitosMemoriaram.value === '4GB' ||
+    requisitosMemoriaram.value === '8GB' ||
+    requisitosMemoriaram.value === '16GB' ||
+    requisitosMemoriaram.value === '32GB' ||
+    requisitosMemoriaram.value === '64GB' ||
+    requisitosMemoriaram.value === '128GB'
   ) {
     requisitosMemoriaram.className = 'form-select is-valid';
     return true;
@@ -75,14 +75,14 @@ function validarRequisitosMemoriaRAM(requisitosMemoriaram) {
 }
 function validarRequisitosAlmacenamiento(requisitosAlmacenamiento) {
   if (
-    requisitosAlmacenamiento.value === '1gbdisco' ||
-    requisitosAlmacenamiento.value === '2gbdisco' ||
-    requisitosAlmacenamiento.value === '5gbdisco' ||
-    requisitosAlmacenamiento.value === '75gbdisco' ||
-    requisitosAlmacenamiento.value === '10gbdisco' ||
-    requisitosAlmacenamiento.value === '50gbdisco' ||
-    requisitosAlmacenamiento.value === '100gbdisco' ||
-    requisitosAlmacenamiento.value === '200gbdisco'
+    requisitosAlmacenamiento.value === '1GB' ||
+    requisitosAlmacenamiento.value === '2GB' ||
+    requisitosAlmacenamiento.value === '5GB' ||
+    requisitosAlmacenamiento.value === '75GB' ||
+    requisitosAlmacenamiento.value === '10GB' ||
+    requisitosAlmacenamiento.value === '50GB' ||
+    requisitosAlmacenamiento.value === '100GB' ||
+    requisitosAlmacenamiento.value === '200GB'
   ) {
     requisitosAlmacenamiento.className = 'form-select is-valid';
     return true;
@@ -93,10 +93,10 @@ function validarRequisitosAlmacenamiento(requisitosAlmacenamiento) {
 }
 function validarRequisitosTarjetaGrafica(requisitosTarjetagrafica) {
   if (
-    requisitosTarjetagrafica.value === 'nvidia7600' ||
-    requisitosTarjetagrafica.value === 'gtx1650' ||
-    requisitosTarjetagrafica.value === 'radeonr9390x' ||
-    requisitosTarjetagrafica.value === 'atix1600'
+    requisitosTarjetagrafica.value === 'nVidia 7600 (2GB)' ||
+    requisitosTarjetagrafica.value === 'Nvidia® GeForce™ GTX 1650 (4GB)' ||
+    requisitosTarjetagrafica.value === 'AMD® Radeon™ R9 390X (8GB)' ||
+    requisitosTarjetagrafica.value === 'ATI X1600 (2GB)'
   ) {
     requisitosTarjetagrafica.className = 'form-select is-valid';
     return true;
