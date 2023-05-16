@@ -9,7 +9,7 @@ let articulosCarrito = [];
 listadoJuegos.addEventListener('click', agregarJuegoCarrito);
 
 //Elimina juego del carrito
-//carrito.addEventListener('click', eliminarJuego);
+carrito.addEventListener('click', eliminarJuego);
 
 //Vaciar el carrito
 botonVaciarCarrito.addEventListener('click', (e) => {
@@ -97,5 +97,19 @@ function carritoHTML() {
 function limpiarHTML() {
   while (contenedorCarrito.firstChild) {
     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+  }
+}
+
+function eliminarJuego(e) {
+  console.log('entro');
+  if (e.target.classList.contains('bi-x-circle')) {
+    console.log(e.target.parentElement.childNodes);
+    // const juegoNombre =
+    //   e.target.parentElement.parentElement.children[1].textContent;
+    // //Elimina del arrego de articulosCarrito por el titulo del juego
+    // articulosCarrito = articulosCarrito.filter(
+    //   (juego) => juego.nombre !== juegoNombre.trim()
+    // );
+    // carritoHTML(); //volvemos a iterar sobre carrito y mostrar su HTML
   }
 }
