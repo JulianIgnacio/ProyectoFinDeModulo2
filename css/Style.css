@@ -30,7 +30,7 @@ main {
   max-width: 2rem;
 }
 
-.nav {
+navbar,footer {
   background-color: rgb(15, 9, 43);
 }
 #menu {
