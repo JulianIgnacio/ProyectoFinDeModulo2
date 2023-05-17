@@ -19,15 +19,39 @@ main {
 }
 
 .bg-main-administracion-juegos {
-  background: rgb(15, 9, 43);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(2, 2, 2),
+    rgb(23, 14, 66),
+    rgb(22, 13, 66),
+    rgb(15, 9, 43)
+   
+  );
+  
+  font-family: Montserrat, sans-serif;
 }
 
 .bg-main-administracion-usuarios {
-  background: rgb(41, 35, 67);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(21, 18, 35),
+    rgb(51, 44, 84),
+    rgb(41, 35, 67),
+    rgb(41, 35, 67),
+    rgb(32, 27, 52),
+    rgb(15, 9, 43)
+   
+  );
+  
+  font-family: Montserrat, sans-serif;
 }
 
 .tamanioCelda {
   max-width: 2rem;
+}
+
+.color-texto{
+  color: rgb(111, 160, 252);
 }
 
 nav,
