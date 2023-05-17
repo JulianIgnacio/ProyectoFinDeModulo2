@@ -18,10 +18,8 @@ if (listaUsuarios.length !== 0) {
       )
   );
 }
-console.log(listaUsuarios);
 
 let formularioAdminUsuario = document.getElementById('formUsuario');
-console.log(formularioAdminUsuario);
 let codigo = document.getElementById('codigo'),
   nombre = document.getElementById('nombre'),
   apellido = document.getElementById('apellido'),
@@ -31,9 +29,7 @@ let codigo = document.getElementById('codigo'),
 let modalFormUsuario = new bootstrap.Modal(
   document.getElementById('modalUsuario')
 );
-console.log(modalFormUsuario);
 let btnCrearUsuario = document.getElementById('btnCrearUsuario');
-
 formularioAdminUsuario.addEventListener('submit', prepararFormularioUsuario);
 btnCrearUsuario.addEventListener('click', mostrarFormularioUsuario);
 document
@@ -52,7 +48,6 @@ document
   });
 
 cargaInicial();
-
 function cargaInicial() {
   if (listaUsuarios.length > 0) {
     listaUsuarios.map((usuario, indice) => crearFila(usuario, indice + 1));
@@ -122,9 +117,7 @@ function crearUsuario() {
       contrasenia.value,
       rol.value
     );
-    console.log(usuarioNuevo);
     listaUsuarios.push(usuarioNuevo);
-    console.log(listaUsuarios);
     guardarEnLocalstorage();
     limpiarFormulario();
     crearFila(usuarioNuevo, listaUsuarios.length);
@@ -160,7 +153,6 @@ function mostrarFormularioUsuario() {
 }
 
 window.verUsuario = (codigoUsuario) => {
-  console.log('aqui veo los detalles del usuario');
   let usuarioBuscado = listaUsuarios.find(
     (usuario) => usuario.codigo === codigoUsuario
   );
@@ -209,7 +201,6 @@ window.borrarUsuario = (codigoUsuario) => {
     confirmButtonText: 'Borrar',
     cancelButtonText: 'Cancelar',
   }).then((result) => {
-    console.log(result);
     if (result.isConfirmed) {
       let posicionUsuario = listaUsuarios.findIndex(
         (usuario) => usuario.codigo === codigoUsuario
@@ -248,11 +239,9 @@ window.prepararUsuario = (codigoUsuario) => {
 };
 
 window.editarUsuario = () => {
-  console.log('aqui quiero editar');
   let posicionUsuario = listaUsuarios.findIndex(
     (usuario) => usuario.codigo === codigo.value
   );
-  console.log(posicionUsuario);
   listaUsuarios[posicionUsuario].nombre = nombre.value;
   listaUsuarios[posicionUsuario].apellido = apellido.value;
   listaUsuarios[posicionUsuario].correoElectronico = correoElectronico.value;

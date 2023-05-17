@@ -64,7 +64,6 @@ function crearRegistro() {
       confirmarContrasenia.value,
       'normal'
     );
-    console.log(usuarioNuevo);
     listaUsuarios.push(usuarioNuevo);
     guardarEnLocalstorage();
     limpiarFormulario();
