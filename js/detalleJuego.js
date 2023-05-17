@@ -10,7 +10,7 @@ let seccion1 = document.getElementById('presentacion');
 
 seccion1.innerHTML = `
 <div class="row">
-<aside class="container-fluid h-lg-50 w-lg-75 " id="sliderDetalle">
+<aside class="container-fluid h-50 w-75 " id="sliderDetalle">
     <img src="${juegoBuscado.imagen}" class="d-block w-100" alt="${juegoBuscado.nombre}">
 </aside>
 <aside class="container-fluid col">
