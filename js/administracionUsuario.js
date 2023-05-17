@@ -23,8 +23,8 @@ let formularioAdminUsuario = document.getElementById('formUsuario');
 let codigo = document.getElementById('codigo'),
   nombre = document.getElementById('nombre'),
   apellido = document.getElementById('apellido'),
-  correoElectronico = document.getElementById('correoElectronico'),
-  contrasenia = document.getElementById('contrasenia'),
+  correoElectronico = document.getElementById('correoElectronicoPanel'),
+  contrasenia = document.getElementById('contraseniaPanel'),
   rol = document.getElementById('rol');
 let modalFormUsuario = new bootstrap.Modal(
   document.getElementById('modalUsuario')
@@ -218,10 +218,6 @@ window.borrarUsuario = (codigoUsuario) => {
   });
 };
 
-function mandaralLocalstorage() {
-  localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
-}
-
 window.prepararUsuario = (codigoUsuario) => {
   let usuarioBuscado = listaUsuarios.find(
     (usuario) => usuario.codigo === codigoUsuario
@@ -238,7 +234,7 @@ window.prepararUsuario = (codigoUsuario) => {
   crearUsuarioNuevo = false;
 };
 
-window.editarUsuario = () => {
+function editarUsuario() {
   let posicionUsuario = listaUsuarios.findIndex(
     (usuario) => usuario.codigo === codigo.value
   );
@@ -247,7 +243,7 @@ window.editarUsuario = () => {
   listaUsuarios[posicionUsuario].correoElectronico = correoElectronico.value;
   listaUsuarios[posicionUsuario].contrasenia = contrasenia.value;
   listaUsuarios[posicionUsuario].rol = rol.value;
-  mandaralLocalstorage();
+  guardarEnLocalstorage();
   let tbody = document.querySelector('#tablaUsuario');
   tbody.children[posicionUsuario].children[1].innerHTML = nombre.value;
   tbody.children[posicionUsuario].children[2].innerHTML =
@@ -262,4 +258,4 @@ window.editarUsuario = () => {
   });
 
   modalFormUsuario.hide();
-};
+}

@@ -6,6 +6,7 @@ if (listaUsuarios.length !== 0) {
   listaUsuarios = listaUsuarios.map(
     (usuario) =>
       new Usuario(
+        usuario.codigo,
         usuario.nombre,
         usuario.apellido,
         usuario.correoElectronico,
@@ -61,7 +62,6 @@ function crearRegistro() {
       apellido.value,
       correo.value,
       contrasenia.value,
-      confirmarContrasenia.value,
       'normal'
     );
     listaUsuarios.push(usuarioNuevo);
