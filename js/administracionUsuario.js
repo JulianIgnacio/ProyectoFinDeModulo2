@@ -218,10 +218,6 @@ window.borrarUsuario = (codigoUsuario) => {
   });
 };
 
-function mandaralLocalstorage() {
-  localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
-}
-
 window.prepararUsuario = (codigoUsuario) => {
   let usuarioBuscado = listaUsuarios.find(
     (usuario) => usuario.codigo === codigoUsuario
@@ -247,7 +243,7 @@ function editarUsuario() {
   listaUsuarios[posicionUsuario].correoElectronico = correoElectronico.value;
   listaUsuarios[posicionUsuario].contrasenia = contrasenia.value;
   listaUsuarios[posicionUsuario].rol = rol.value;
-  mandaralLocalstorage();
+  guardarEnLocalstorage();
   let tbody = document.querySelector('#tablaUsuario');
   tbody.children[posicionUsuario].children[1].innerHTML = nombre.value;
   tbody.children[posicionUsuario].children[2].innerHTML =
