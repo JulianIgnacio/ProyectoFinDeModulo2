@@ -17,12 +17,16 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../css/error404.css" />
-    <link rel="stylesheet" href="./css/login.css" />
-    <link rel="stylesheet" href="/css/Style.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/Style.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
     <title>Error 404</title>
   </head>
   <body>
-    <header data-bs-theme="dark">
+    <header>
       <nav class="navbar navbar-expand-lg navbar-dark nav">
         <div class="container-fluid">
           <button
@@ -37,13 +41,13 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a href="../index.html"
-              ><img
+            <a href="../index.html">
+              <img
                 src="../img/logo-1-removebg-preview.png"
                 alt="Imágen logo de Gamer's Haven"
                 width="90px"
-            /></a>
-
+              />
+            </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a
@@ -67,24 +71,27 @@
                   Login
                 </button>
               </li>
+              <div class="d-flex">
+                <ul
+                  class="navbar-nav me-auto mb-2 mb-lg-0"
+                  id="opciones_administrador"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link fs-5"
+                      href="./administracionUsuarios.html"
+                    >
+                      Administrador
+                    </a>
+                  </li>
+                  <li class="nav-item fs-5">
+                    <a class="nav-link" id="logout" href="../index.html">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </ul>
-            <div class="d-flex">
-              <ul
-                class="navbar-nav me-auto mb-2 mb-lg-0"
-                id="opciones_administrador"
-              >
-                <li class="nav-item">
-                  <a class="nav-link" href="./administracionJuegos.html"
-                    >Administrador</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="logout" href="../index.html"
-                    >Logout</a
-                  >
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </nav>
@@ -160,7 +167,7 @@
                 <p>
                   ¿Aún no tienes cuenta en Gamer Haven?
                   <button
-                    class="text-decoration-underline btn"
+                    class="text-light btn"
                     data-bs-target="#modalRegistro"
                     data-bs-toggle="modal"
                   >
@@ -177,7 +184,7 @@
         <div class="modal-dialog">
           <div class="modal-content text-light">
             <div class="modal-header">
-              <h4 class="modal-title">Regístrarse</h4>
+              <h4 class="modal-title text-light">Regístrarse</h4>
               <button
                 type="button"
                 class="btn-close text-bg-light"
@@ -295,10 +302,7 @@
       </section>
     </main>
 
-    <footer
-      class="p-3 mb-2 text-white text-center text-lg-start"
-      data-bs-theme="dark"
-    >
+    <footer class="p-3 mb-2 text-white text-center text-lg-start">
       <div class="row">
         <aside class="col-md-4 ps-lg-5 col-xs-12">
           <img
@@ -329,18 +333,30 @@
           <h6>Paginas que puede visitar</h6>
           <ul>
             <li>
-              <a href="./acercaDeNosotros.html"> ¿Quienes Somos? </a>
+              <a href="./acercaDeNosotros.html" class="color-texto fs-6">
+                ¿Quienes Somos?
+              </a>
             </li>
-            <li><a href="./error404.html"> Consultas </a></li>
-            <li><a href="./error404.html"> Suscripcion </a></li>
-            <li><a href="./error404.html"> Categorias </a></li>
+            <li>
+              <a href="./error404.html" class="color-texto fs-6"> Consultas </a>
+            </li>
+            <li>
+              <a href="./error404.html" class="color-texto fs-6">
+                Categorías
+              </a>
+            </li>
+            <li>
+              <a href="./error404.html" class="color-texto fs-6">
+                Política de Privacidad
+              </a>
+            </li>
           </ul>
         </aside>
         <aside class="col-md-4 col-xs-12">
           <h6 class="mb-4">
             Tambien nos puede descargar por los siguientes sitios
           </h6>
-          <a class="me-2" href="./error404.html">
+          <a class="me-2" href="/pages/error404.html">
             <img src="../img/logo-app-store.png" alt="Apple" width="50" />
           </a>
           <a class="mb-2 ms-2" href="./error404.html">

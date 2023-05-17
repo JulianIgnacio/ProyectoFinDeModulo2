@@ -72,21 +72,22 @@
                   Login
                 </button>
               </li>
+              <div class="d-flex">
+                <ul
+                  class="navbar-nav me-auto mb-2 mb-lg-0"
+                  id="opciones_administrador"
+                >
+                  <li class="nav-item">
+                    <a class="nav-link fs-5" href="./pages/administracionJuegos.html"
+                      >Administrador</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fs-5" id="logout" href="./index.html">Logout</a>
+                  </li>
+                </ul>
             </ul>
-            <div class="d-flex">
-              <ul
-                class="navbar-nav me-auto mb-2 mb-lg-0"
-                id="opciones_administrador"
-              >
-                <li class="nav-item">
-                  <a class="nav-link" href="./pages/administracionJuegos.html"
-                    >Administrador</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="logout" href="./index.html">Logout</a>
-                </li>
-              </ul>
+            
             </div>
             <form id="formBuscador" class="d-flex">
               <input
@@ -101,11 +102,8 @@
           </div>
         </div>
       </nav>
-    </header>
-
-    <main class="bg-black">
-      <!-- ventana modal -->
-      <div class="modal" id="modalLogin" tabindex="-1">
+       <!-- ventana modal -->
+       <div class="modal" id="modalLogin" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content text-light">
             <div class="modal-header">
@@ -295,6 +293,10 @@
           </div>
         </div>
       </div>
+    </header>
+
+    <main class="bg-black">
+     
       <div
         id="carouselExampleIndicators"
         class="carousel slide"
@@ -384,7 +386,7 @@
       <div class="row">
         <aside class="col-md-4 ps-lg-5 col-xs-12">
           <img
-            src="./img/img-gamer-removebg-preview.png"
+            src="../img/img-gamer-removebg-preview.png"
             alt="imagen logo gamer'haven"
             width="250px"
             height="90px"
@@ -392,16 +394,16 @@
 
           <div class="text-md-start my-2 ps-lg-2">
             <h6>Seguinos en nuestras redes</h6>
-            <a href="/pages/error404.html"
+            <a href="./pages/error404.html"
               ><i class="bi bi-facebook fs-3 text-primary me-2"></i
             ></a>
-            <a href="/pages/error404.html"
+            <a href="./pages/error404.html"
               ><i class="bi bi-twitter fs-3 text-info me-2"></i
             ></a>
-            <a href="/pages/error404.html"
+            <a href="./pages/error404.html"
               ><i class="bi bi-instagram fs-3 text-danger me-2"></i
             ></a>
-            <a href="/pages/error404.html"
+            <a href="./pages/error404.html"
               ><i class="bi bi-whatsapp fs-3 text-success"></i
             ></a>
           </div>
@@ -411,11 +413,23 @@
           <h6>Paginas que puede visitar</h6>
           <ul>
             <li>
-              <a href="./pages/acercaDeNosotros.html"> ¿Quienes Somos? </a>
+              <a href="./pages/error404.html" class="color-texto fs-6">
+                ¿Quienes Somos?
+              </a>
             </li>
-            <li><a href="./pages/error404.html"> Consultas </a></li>
-            <li><a href="./pages/error404.html"> Suscripcion </a></li>
-            <li><a href="./pages/error404.html"> Categorias </a></li>
+            <li>
+              <a href="./pages/error404.html" class="color-texto fs-6"> Consultas </a>
+            </li>
+            <li>
+              <a href="./pages/error404.html" class="color-texto fs-6">
+                Categorías
+              </a>
+            </li>
+            <li>
+              <a href="./pages/error404.html" class="color-texto fs-6">
+                Política de Privacidad
+              </a>
+            </li>
           </ul>
         </aside>
         <aside class="col-md-4 col-xs-12">
@@ -423,11 +437,11 @@
             Tambien nos puede descargar por los siguientes sitios
           </h6>
           <a class="me-2" href="/pages/error404.html">
-            <img src="./img/logo-app-store.png" alt="Apple" width="50" />
+            <img src="../img/logo-app-store.png" alt="Apple" width="50" />
           </a>
-          <a class="mb-2 ms-2" href="/pages/error404.html">
+          <a class="mb-2 ms-2" href="./pages/error404.html">
             <img
-              src="./img/logo-google-play.png"
+              src="../img/logo-google-play.png"
               alt="Google Play"
               width="50"
             />
