@@ -23,8 +23,8 @@ let formularioAdminUsuario = document.getElementById('formUsuario');
 let codigo = document.getElementById('codigo'),
   nombre = document.getElementById('nombre'),
   apellido = document.getElementById('apellido'),
-  correoElectronico = document.getElementById('correoElectronico'),
-  contrasenia = document.getElementById('contrasenia'),
+  correoElectronico = document.getElementById('correoElectronicoPanel'),
+  contrasenia = document.getElementById('contraseniaPanel'),
   rol = document.getElementById('rol');
 let modalFormUsuario = new bootstrap.Modal(
   document.getElementById('modalUsuario')
@@ -100,6 +100,7 @@ function prepararFormularioUsuario(e) {
 }
 
 function crearUsuario() {
+  console.log('entro aqui crear');
   let validado = sumarioValidacionUsuario(
     nombre,
     apellido,
@@ -238,7 +239,8 @@ window.prepararUsuario = (codigoUsuario) => {
   crearUsuarioNuevo = false;
 };
 
-window.editarUsuario = () => {
+function editarUsuario() {
+  console.log('entro aqui editar');
   let posicionUsuario = listaUsuarios.findIndex(
     (usuario) => usuario.codigo === codigo.value
   );
@@ -262,4 +264,4 @@ window.editarUsuario = () => {
   });
 
   modalFormUsuario.hide();
-};
+}
