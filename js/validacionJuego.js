@@ -78,8 +78,9 @@ function validarRequisitosAlmacenamiento(requisitosAlmacenamiento) {
     requisitosAlmacenamiento.value === '1GB' ||
     requisitosAlmacenamiento.value === '2GB' ||
     requisitosAlmacenamiento.value === '5GB' ||
-    requisitosAlmacenamiento.value === '75GB' ||
+    requisitosAlmacenamiento.value === '7,5GB' ||
     requisitosAlmacenamiento.value === '10GB' ||
+    requisitosAlmacenamiento.value === '20GB' ||
     requisitosAlmacenamiento.value === '50GB' ||
     requisitosAlmacenamiento.value === '100GB' ||
     requisitosAlmacenamiento.value === '200GB'
