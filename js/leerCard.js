@@ -1,4 +1,3 @@
-//variables globales
 let listaJuegos = JSON.parse(localStorage.getItem('listaJuegos')) || [];
 
 cargaInicial();

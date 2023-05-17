@@ -3,12 +3,9 @@ import { sumarioValidacionUsuario } from './validacionUsuario.js';
 import { verificarUserAdmin } from './helpers.js';
 verificarUserAdmin();
 
-//variables globales
 let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
 let crearUsuarioNuevo = true;
-//saber si el array esta no vacio
 if (listaUsuarios.length !== 0) {
-  //objecto Usuario
   listaUsuarios = listaUsuarios.map(
     (usuario) =>
       new Usuario(
@@ -23,7 +20,6 @@ if (listaUsuarios.length !== 0) {
 }
 console.log(listaUsuarios);
 
-//variables del objeto Usuario del modal Usuario
 let formularioAdminUsuario = document.getElementById('formUsuario');
 console.log(formularioAdminUsuario);
 let codigo = document.getElementById('codigo'),
@@ -38,24 +34,19 @@ let modalFormUsuario = new bootstrap.Modal(
 console.log(modalFormUsuario);
 let btnCrearUsuario = document.getElementById('btnCrearUsuario');
 
-//manejadores de eventos
 formularioAdminUsuario.addEventListener('submit', prepararFormularioUsuario);
 btnCrearUsuario.addEventListener('click', mostrarFormularioUsuario);
 document
   .getElementById('modalUsuario')
   .addEventListener('hidden.bs.modal', function () {
-    //cerrar el modal con el formulario
     limpiarFormulario();
-    //se vuelve por defecto el valor del title del formulario
     let modalLabel = document.getElementById('modalLabel');
     modalLabel.innerHTML = 'Crear Usuario';
-    //volver los inputs a escritura
     escrituraInput(nombre);
     escrituraInput(apellido);
     escrituraInput(correoElectronico);
     escrituraInput(contrasenia);
     escrituraSelect(rol);
-    //volver a mostrar el boton Enviar
     let btnFormulario = document.getElementById('btnFormulario');
     btnFormulario.style.display = 'block';
   });
@@ -64,7 +55,6 @@ cargaInicial();
 
 function cargaInicial() {
   if (listaUsuarios.length > 0) {
-    //dibujo una fila en la tabla
     listaUsuarios.map((usuario, indice) => crearFila(usuario, indice + 1));
   } else {
     Swal.fire(
@@ -115,7 +105,6 @@ function prepararFormularioUsuario(e) {
 }
 
 function crearUsuario() {
-  //validar los datos del formulario
   let validado = sumarioValidacionUsuario(
     nombre,
     apellido,
@@ -125,8 +114,6 @@ function crearUsuario() {
   );
 
   if (validado === true) {
-    // los datos son validos
-    //se crea el objeto
     const usuarioNuevo = new Usuario(
       undefined,
       nombre.value,
@@ -136,16 +123,11 @@ function crearUsuario() {
       rol.value
     );
     console.log(usuarioNuevo);
-    //la voy agregar en un array
     listaUsuarios.push(usuarioNuevo);
     console.log(listaUsuarios);
-    //almacenar el array de pelis en localsotarge
     guardarEnLocalstorage();
-    //cerrar el modal con el formulario
     limpiarFormulario();
-    //dibujar la fila nueva en la tabla
     crearFila(usuarioNuevo, listaUsuarios.length);
-    //avisar con una alerta que se grabó un nuevo usuario
     Swal.fire({
       position: 'top-end',
       icon: 'success',
@@ -163,15 +145,11 @@ function guardarEnLocalstorage() {
 
 function limpiarFormulario() {
   formularioAdminUsuario.reset();
-  //reiniciar los estilos de validaciones de los campos del formulario Usuario
   let formControls = formularioAdminUsuario.querySelectorAll('.form-control');
-  // Eliminar las clases de validación
   formControls.forEach(function (element) {
     element.classList.remove('is-valid', 'is-invalid');
   });
-  //reiniciar los estilos de validaciones de los campos del formulario Usuario
   let formSelects = formularioAdminUsuario.querySelectorAll('.form-select');
-  // Eliminar las clases de validación
   formSelects.forEach(function (element) {
     element.classList.remove('is-valid', 'is-invalid');
   });
@@ -183,11 +161,9 @@ function mostrarFormularioUsuario() {
 
 window.verUsuario = (codigoUsuario) => {
   console.log('aqui veo los detalles del usuario');
-  //1- buscar el objeto que quiero mostrar en el form
   let usuarioBuscado = listaUsuarios.find(
     (usuario) => usuario.codigo === codigoUsuario
   );
-  //2- mostrar el formulario con los datos
   modalFormUsuario.show();
   codigo.value = usuarioBuscado.codigo;
   nombre.value = usuarioBuscado.nombre;
@@ -200,10 +176,8 @@ window.verUsuario = (codigoUsuario) => {
   soloLecturaInput(contrasenia);
   rol.value = usuarioBuscado.rol;
   soloLecturaSelect(rol);
-  //Cambiar el title del modal
   let modalLabel = document.getElementById('modalLabel');
   modalLabel.innerHTML = 'Ver Usuario';
-  // ocultar el botón estableciendo su propiedad "display" en "none"
   let btnFormulario = document.getElementById('btnFormulario');
   btnFormulario.style.display = 'none';
 };
@@ -237,15 +211,11 @@ window.borrarUsuario = (codigoUsuario) => {
   }).then((result) => {
     console.log(result);
     if (result.isConfirmed) {
-      //agrega mi codigo de borrar
-      //borrar usuario del array
       let posicionUsuario = listaUsuarios.findIndex(
         (usuario) => usuario.codigo === codigoUsuario
       );
       listaUsuarios.splice(posicionUsuario);
-      //actualizar el localstorage
       guardarEnLocalstorage();
-      //borrar la fila de la tabla
       let tbody = document.querySelector('#tablaUsuario');
       tbody.removeChild(tbody.children[posicionUsuario]);
       Swal.fire(
@@ -262,12 +232,9 @@ function mandaralLocalstorage() {
 }
 
 window.prepararUsuario = (codigoUsuario) => {
-  //buscar el objeto que quiero mostrar en el form
   let usuarioBuscado = listaUsuarios.find(
     (usuario) => usuario.codigo === codigoUsuario
   );
-
-  //mostrar el formulario con los datos
   modalFormUsuario.show();
   codigo.value = usuarioBuscado.codigo;
   nombre.value = usuarioBuscado.nombre;
@@ -275,30 +242,23 @@ window.prepararUsuario = (codigoUsuario) => {
   correoElectronico.value = usuarioBuscado.correoElectronico;
   contrasenia.value = usuarioBuscado.contrasenia;
   rol.value = usuarioBuscado.rol;
-  //Cambiar el title del modal
   let modalLabel = document.getElementById('modalLabel');
   modalLabel.innerHTML = 'Editar Usuario';
-  //cambiar el estado de la variable crearusuario nuevo a false
   crearUsuarioNuevo = false;
 };
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 window.editarUsuario = () => {
   console.log('aqui quiero editar');
-  //en que posicion esta almancenado el usuario que quiero editar
   let posicionUsuario = listaUsuarios.findIndex(
     (usuario) => usuario.codigo === codigo.value
   );
   console.log(posicionUsuario);
-  //aca se editan los datos del usuario
   listaUsuarios[posicionUsuario].nombre = nombre.value;
   listaUsuarios[posicionUsuario].apellido = apellido.value;
   listaUsuarios[posicionUsuario].correoElectronico = correoElectronico.value;
   listaUsuarios[posicionUsuario].contrasenia = contrasenia.value;
   listaUsuarios[posicionUsuario].rol = rol.value;
-
-  //actualizar el localstorage
   mandaralLocalstorage();
-  //actualizar la fila de la tabla
   let tbody = document.querySelector('#tablaUsuario');
   tbody.children[posicionUsuario].children[1].innerHTML = nombre.value;
   tbody.children[posicionUsuario].children[2].innerHTML =

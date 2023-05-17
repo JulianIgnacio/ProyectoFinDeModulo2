@@ -1,4 +1,3 @@
-// obtener los elementos de la lista de juegos
 let arrayListadoJuegos = Array.from(
   document.getElementsByClassName('card-container')
 );
@@ -9,7 +8,6 @@ let listadoJuegos = document.getElementById('listadoJuegos');
 let sectionPrincipal = document.getElementById('sectionPrincipal');
 let respaldoListadoJuegos = document.createDocumentFragment();
 
-// agregar un evento para escuchar cuando se envía el formulario del buscador
 formBuscador.addEventListener('submit', function (e) {
   e.preventDefault();
   let inputBuscador = buscador.value.toLowerCase();
@@ -18,9 +16,7 @@ formBuscador.addEventListener('submit', function (e) {
   while (listadoJuegos.firstChild) {
     respaldoListadoJuegos.appendChild(listadoJuegos.firstChild);
   }
-
   if (inputBuscador !== '') {
-    //recorre el array de juegos y lo filtra por titulo y por descripción
     filtrar = arrayListadoJuegos.filter((juego) => {
       titulo = juego.querySelector('.card-title').innerHTML.toLowerCase();
       descripcion = juego.querySelector('.card-text').innerHTML.toLowerCase();
@@ -30,19 +26,14 @@ formBuscador.addEventListener('submit', function (e) {
     });
 
     mostrarBannerCarrousel(false);
-
-    //guardo los juegos que fueron filtrados
     filtrar.forEach((juego) => {
       if (filtrar.includes(juego)) {
         listadoJuegos.append(juego);
       }
     });
-
     if (filtrar.length === 0) mostrarMensaje();
   } else {
-    //función para traer todo el array de forma ordenada
     mostrarArrayJuegos();
-    //vuelvo a mostrar el banner carrousel
     mostrarBannerCarrousel(true);
   }
 });
@@ -68,7 +59,6 @@ function mostrarArrayJuegos() {
   });
 }
 
-// mostrar un mensaje cuando la búsqueda sea 0 juegos
 function mostrarMensaje() {
   let div = document.createElement('div');
 
