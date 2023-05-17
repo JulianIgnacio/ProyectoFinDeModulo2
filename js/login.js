@@ -58,8 +58,6 @@ function login(event) {
       u.contrasenia === contrasenia.value &&
       u.rol === 'administrador'
   );
-  console.log('esValidado', esValidado);
-  console.log('esValidadoAdministrador', esValidadoAdministrador);
   if (!esCorreoValido(correoElectronico.value)) {
     correoElectronico.classList.add('is-invalid');
   } else {
