@@ -1,0 +1,54 @@
+#presentacion{
+    display: flex;
+    justify-content: center;
+}
+#descripcion {
+    font-size: small;
+}
+
+#titulo {
+    display: flex;
+    justify-content: center;
+}
+#sliderDetalle{
+    padding-right: 30px;
+}
+#avatar {
+    height: 75px;
+    width: 75px;
+    border: 1px lightblue solid;
+    display: flex;
+    justify-content: flex-start;
+}
+.card{
+    margin: 2px;
+    width: 29rem;
+}
+@media all and (max-width:576px) {
+    #carouselExample{
+        width: 230px;
+        height: 100%;
+    }
+    #sliderDetalle{
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+    #columnas{
+        display: flex;
+        flex-direction: column;
+    }
+    .card{
+        width: 9rem;
+    }
+    
+}
+@media all and (min-width:577px) and (max-width:768px){
+    .card{
+        width: 16rem;
+    }
+}
+@media all and (min-width:769px) and (max-width:992px){
+    .card{
+        width: 285px;
+    }
+}

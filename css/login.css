@@ -1,0 +1,16 @@
+#opciones_administrador {
+  display: none;
+}
+
+.modal-content {
+  background-color: #0c0c0c;
+  background-image: linear-gradient(160deg, #0c0c0c 0%, #010237 100%);
+}
+
+a {
+  color: #ffff;
+}
+
+a:hover {
+  color: #bab6b6;
+}
