@@ -110,203 +110,193 @@
               </div>
             </ul>
 
-            <form id="formBuscador" class="d-flex">
-              <input
-                id="buscador"
-                class="form-control me-2"
-                type="search"
-                placeholder="Buscar"
-                aria-label="Buscar"
-              />
-              <button class="btn btn-dark" type="submit">BUSCAR</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-      <!-- ventana modal -->
-      <div class="modal" id="modalLogin" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content text-light">
-            <div class="modal-header">
-              <h4 class="modal-title">Iniciar Sesión</h4>
-              <button
-                type="button"
-                class="btn-close text-bg-light"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form id="formLogin">
-                <div>
-                  <label for="titulo">Correo Electronico</label>
-                  <input
-                    id="correoElectronico"
-                    class="form-control"
-                    type="email"
-                    placeholder="name@example.com"
-                    maxlength="25"
-                    minlength="8"
-                  />
-                  <div class="invalid-feedback">Ingrese un email valido.</div>
-                </div>
-                <div class="mt-4">
-                  <label for="titulo">Contraseña</label>
-                  <input
-                    id="contrasenia"
-                    class="form-control"
-                    type="password"
-                    placeholder="Contraseña"
-                  />
-                  <div class="invalid-feedback">
-                    Ingrese una contraseña valida: 8 caracteres minimos, una
-                    mayuscula, una minuscula y un simbolo.
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between mt-4">
+        <!-- ventana modal -->
+        <div class="modal" id="modalLogin" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content text-light">
+              <div class="modal-header">
+                <h4 class="modal-title">Iniciar Sesión</h4>
+                <button
+                  type="button"
+                  class="btn-close text-bg-light"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="formLogin">
                   <div>
-                    <input type="checkbox" name="" id="" checked /> Recordarme
+                    <label for="titulo">Correo Electronico</label>
+                    <input
+                      id="correoElectronico"
+                      class="form-control"
+                      type="email"
+                      placeholder="name@example.com"
+                      maxlength="25"
+                      minlength="8"
+                    />
+                    <div class="invalid-feedback">Ingrese un email valido.</div>
                   </div>
-                  <a href="/pages/error404.html" class="contraseniaOlvidada"
-                    >¿Has olvidado tu contraseña?</a
+                  <div class="mt-4">
+                    <label for="titulo">Contraseña</label>
+                    <input
+                      id="contrasenia"
+                      class="form-control"
+                      type="password"
+                      placeholder="Contraseña"
+                    />
+                    <div class="invalid-feedback">
+                      Ingrese una contraseña valida: 8 caracteres minimos, una
+                      mayuscula, una minuscula y un simbolo.
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between mt-4">
+                    <div>
+                      <input type="checkbox" name="" id="" checked /> Recordarme
+                    </div>
+                    <a href="/pages/error404.html" class="contraseniaOlvidada"
+                      >¿Has olvidado tu contraseña?</a
+                    >
+                  </div>
+                  <div
+                    class="alert alert-danger mt-3 d-none"
+                    role="alert"
+                    id="alertaFormulario"
+                  >
+                    Las credenciales son invalidas.
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary mt-4 d-block m-auto"
+                    id="btnFormulario"
+                  >
+                    Iniciar sesión
+                  </button>
+                </form>
+                <div class="text-center mt-4">
+                  <a href="/pages/error404.html" class="privacidad"
+                    >Política de privacidad</a
                   >
                 </div>
-                <div
-                  class="alert alert-danger mt-3 d-none"
-                  role="alert"
-                  id="alertaFormulario"
-                >
-                  Las credenciales son invalidas.
+                <div class="text-center mt-4">
+                  <p>
+                    ¿Aún no tienes cuenta en Gamer Haven?
+                    <button
+                      class="text-light btn"
+                      data-bs-target="#modalRegistro"
+                      data-bs-toggle="modal"
+                    >
+                      Regístrarse
+                    </button>
+                  </p>
                 </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary mt-4 d-block m-auto"
-                  id="btnFormulario"
-                >
-                  Iniciar sesión
-                </button>
-              </form>
-              <div class="text-center mt-4">
-                <a href="/pages/error404.html" class="privacidad"
-                  >Política de privacidad</a
-                >
               </div>
-              <div class="text-center mt-4">
-                <p>
-                  ¿Aún no tienes cuenta en Gamer Haven?
+            </div>
+          </div>
+        </div>
+        <!-- modal registro -->
+        <div class="modal" id="modalRegistro" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content text-light">
+              <div class="modal-header">
+                <h4 class="modal-title text-light">Regístrarse</h4>
+                <button
+                  type="button"
+                  class="btn-close text-bg-light"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="formRegistro">
+                  <div>
+                    <label for="titulo">Nombre</label>
+                    <input
+                      id="nombre"
+                      class="form-control"
+                      type="text"
+                      placeholder="Nombre"
+                      maxlength="25"
+                      minlength="2"
+                    />
+                    <div class="invalid-feedback">
+                      Ingrese un nombre valido.
+                    </div>
+                  </div>
+                  <div class="mt-4">
+                    <label for="titulo">Apellido</label>
+                    <input
+                      id="apellido"
+                      class="form-control"
+                      type="text"
+                      placeholder="Apellido"
+                      maxlength="25"
+                      minlength="2"
+                    />
+                    <div class="invalid-feedback">
+                      Ingrese un apellido valido.
+                    </div>
+                  </div>
+                  <div class="mt-4">
+                    <label for="titulo">Correo Electronico</label>
+                    <input
+                      id="correoElectronico"
+                      class="form-control"
+                      type="email"
+                      placeholder="name@example.com"
+                    />
+                    <div class="invalid-feedback">Ingrese un email valido</div>
+                  </div>
+                  <div class="mt-4">
+                    <label for="titulo">Contraseña</label>
+                    <input
+                      id="contrasenia"
+                      class="form-control"
+                      type="password"
+                      placeholder="Contraseña"
+                    />
+                    <div class="invalid-feedback">
+                      Ingrese una contraseña valida: 8 caracteres minimos, una
+                      mayuscula, una minuscula y un simbolo.
+                    </div>
+                  </div>
+                  <div class="mt-4">
+                    <label for="titulo">Repetir contraseña</label>
+                    <input
+                      id="repetirContrasenia"
+                      class="form-control"
+                      type="password"
+                      placeholder="Contraseña"
+                    />
+                    <div class="invalid-feedback">
+                      La contraseña de verificación no coinciden.
+                    </div>
+                  </div>
+                  <div
+                    class="alert alert-danger mt-3 d-none"
+                    role="alert"
+                    id="alertaFormulario"
+                  >
+                    Las credenciales son invalidas.
+                  </div>
                   <button
-                    class="text-decoration-underline btn"
-                    data-bs-target="#modalRegistro"
-                    data-bs-toggle="modal"
+                    type="submit"
+                    class="btn btn-primary mt-4 d-block m-auto"
+                    id="btnFormulario"
                   >
                     Regístrarse
                   </button>
-                </p>
+                </form>
+                <div class="text-center mt-4">
+                  <a href="/pages/error404.html" class="privacidad"
+                    >Política de privacidad</a
+                  >
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- modal registro -->
-      <div class="modal" id="modalRegistro" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content text-light">
-            <div class="modal-header">
-              <h4 class="modal-title">Regístrarse</h4>
-              <button
-                type="button"
-                class="btn-close text-bg-light"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form id="formRegistro">
-                <div>
-                  <label for="titulo">Nombre</label>
-                  <input
-                    id="nombre"
-                    class="form-control"
-                    type="text"
-                    placeholder="Nombre"
-                    maxlength="25"
-                    minlength="2"
-                  />
-                  <div class="invalid-feedback">Ingrese un nombre valido.</div>
-                </div>
-                <div class="mt-4">
-                  <label for="titulo">Apellido</label>
-                  <input
-                    id="apellido"
-                    class="form-control"
-                    type="text"
-                    placeholder="Apellido"
-                    maxlength="25"
-                    minlength="2"
-                  />
-                  <div class="invalid-feedback">
-                    Ingrese un apellido valido.
-                  </div>
-                </div>
-                <div class="mt-4">
-                  <label for="titulo">Correo Electronico</label>
-                  <input
-                    id="correoElectronico"
-                    class="form-control"
-                    type="email"
-                    placeholder="name@example.com"
-                  />
-                  <div class="invalid-feedback">Ingrese un email valido</div>
-                </div>
-                <div class="mt-4">
-                  <label for="titulo">Contraseña</label>
-                  <input
-                    id="contrasenia"
-                    class="form-control"
-                    type="password"
-                    placeholder="Contraseña"
-                  />
-                  <div class="invalid-feedback">
-                    Ingrese una contraseña valida: 8 caracteres minimos, una
-                    mayuscula, una minuscula y un simbolo.
-                  </div>
-                </div>
-                <div class="mt-4">
-                  <label for="titulo">Repetir contraseña</label>
-                  <input
-                    id="repetirContrasenia"
-                    class="form-control"
-                    type="password"
-                    placeholder="Contraseña"
-                  />
-                  <div class="invalid-feedback">
-                    La contraseña de verificación no coinciden.
-                  </div>
-                </div>
-                <div
-                  class="alert alert-danger mt-3 d-none"
-                  role="alert"
-                  id="alertaFormulario"
-                >
-                  Las credenciales son invalidas.
-                </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary mt-4 d-block m-auto"
-                  id="btnFormulario"
-                >
-                  Regístrarse
-                </button>
-              </form>
-              <div class="text-center mt-4">
-                <a href="/pages/error404.html" class="privacidad"
-                  >Política de privacidad</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </nav>
     </header>
     <section class="section-style-titulos text-center">
       <h1 class="sombreado">Gamer's Haven</h1>
@@ -316,7 +306,10 @@
     <section id="about" class="container">
       <div class="row">
         <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6 px-3 ps-md-2">
-          <h2 class="titulos-h2-blancos sombreado py-4 px-sm-2" style="color: rgb(243, 31, 31);">
+          <h2
+            class="titulos-h2-blancos sombreado py-4 px-sm-2"
+            style="color: rgb(243, 31, 31)"
+          >
             Sobre nosotros
           </h2>
           <h4 class="texto-blanco sombreado">
@@ -379,7 +372,10 @@
       <div class="row">
         <aside class="col-sm-4 text-center">
           <span>
-            <img src="/img//img-gamer-removebg-preview.png" alt="logo gamer" style="width: 75%"
+            <img
+              src="/img//img-gamer-removebg-preview.png"
+              alt="logo gamer"
+              style="width: 75%"
           /></span>
         </aside>
         <article class="col-sm-8 px-3">
@@ -407,7 +403,6 @@
       </div>
     </section>
 
-    <!--imagenes de avatar-->
     <section class="container nosotros texto-blanco">
       <article class="row" id="bannerQuienesSomos">
         <h2 class="h2 text-center d-flex justify-content-center mt-1 sombreado">
@@ -451,7 +446,8 @@
               Ma. Eugenia Cáceres Herrera
             </p>
             <p class="card-text text-center">
-              "Programar es una carrera de resistencia, no de velocidad. Continua!"
+              "Programar es una carrera de resistencia, no de velocidad.
+              Continua!"
             </p>
             <aside class="text-center">
               <a href="https://github.com/EugeniaCaceres"
@@ -459,7 +455,8 @@
                   class="bi bi-github"
                   style="margin-right: 10px; font-size: 150%"
                 ></i></a
-              ><a href="https://www.linkedin.com/in/eugenia-c%C3%A1ceres-1a3819252/"
+              ><a
+                href="https://www.linkedin.com/in/eugenia-c%C3%A1ceres-1a3819252/"
                 ><i class="bi bi-linkedin" style="font-size: 150%"></i
               ></a>
             </aside>
@@ -477,7 +474,8 @@
               Ivan Jesus Alberto
             </p>
             <p class="card-text text-center">
-              "Todo el mundo debería aprender a programar, porque te enseña a pensar"
+              "Todo el mundo debería aprender a programar, porque te enseña a
+              pensar"
             </p>
             <aside class="text-center">
               <a href="https://github.com/ivan-silva22"
@@ -555,7 +553,7 @@
               Juan Gerardo Romero Uro
             </p>
             <p class="card-tex text-center">
-              "Si no logras el éxito en la primera vez, llama a esa versión 1.0"
+              "Si no logras el éxito en la primera vez, llama a esa versión 1.0"
             </p>
             <aside class="text-center">
               <a href="https://github.com/jgromerou"
@@ -602,7 +600,7 @@
             </h4>
           </div>
         </div>
-        <!-- Left and right controls -->
+
         <button
           class="carousel-control-prev"
           type="button"
@@ -634,7 +632,7 @@
           />
 
           <div class="text-md-start my-2 ps-lg-2">
-            <h5>Seguinos en nuestras redes</h5>
+            <h6>Seguinos en nuestras redes</h6>
             <a href="./error404.html"
               ><i class="bi bi-facebook fs-3 text-primary me-2"></i
             ></a>
@@ -651,21 +649,32 @@
         </aside>
 
         <aside class="col-md-4 text-md-center col-xs-12">
-          <h5>Paginas que puede visitar</h5>
+          <h6>Paginas que puede visitar</h6>
           <ul>
             <li>
-              <a href="./acercaDeNosotros.html" class="color-texto fs-5"> ¿Quienes Somos? </a>
+              <a href="./acercaDeNosotros.html" class="color-texto fs-6">
+                ¿Quienes Somos?
+              </a>
             </li>
-            <li><a href="./error404.html" class="color-texto fs-5"> Consultas </a></li>
-            <li><a href="./error404.html" class="color-texto fs-5"> Categorías </a></li>
-            <li><a href="./error404.html" class="color-texto fs-5"> Política de Privacidad </a></li>
-
+            <li>
+              <a href="./error404.html" class="color-texto fs-6"> Consultas </a>
+            </li>
+            <li>
+              <a href="./error404.html" class="color-texto fs-6">
+                Categorías
+              </a>
+            </li>
+            <li>
+              <a href="./error404.html" class="color-texto fs-6">
+                Política de Privacidad
+              </a>
+            </li>
           </ul>
         </aside>
         <aside class="col-md-4 col-xs-12">
-          <h5 class="mb-4 ">
+          <h6 class="mb-4">
             Tambien nos puede descargar por los siguientes sitios
-          </h5>
+          </h6>
           <a class="me-2" href="/pages/error404.html">
             <img src="../img/logo-app-store.png" alt="Apple" width="50" />
           </a>
