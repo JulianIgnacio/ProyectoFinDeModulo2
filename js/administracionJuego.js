@@ -25,10 +25,8 @@ if (listaJuegos.length !== 0) {
       )
   );
 }
-console.log(listaJuegos);
 
 let formularioAdminJuego = document.getElementById('formJuego');
-console.log(formularioAdminJuego);
 let codigo = document.getElementById('codigo'),
   nombre = document.getElementById('nombre'),
   precio = document.getElementById('precio'),
@@ -45,7 +43,6 @@ let codigo = document.getElementById('codigo'),
   ),
   desarrollador = document.getElementById('desarrollador');
 let modalFormJuego = new bootstrap.Modal(document.getElementById('modalJuego'));
-console.log(modalFormJuego);
 let btnCrearJuego = document.getElementById('btnCrearJuego');
 
 formularioAdminJuego.addEventListener('submit', prepararFormularioJuego);
@@ -114,7 +111,6 @@ function crearFila(juego, indice) {
 
 function prepararFormularioJuego(e) {
   e.preventDefault();
-  console.log('aqui creo el juego');
   if (crearJuegoNuevo) {
     crearJuego();
   } else {
@@ -152,9 +148,7 @@ function crearJuego() {
       0,
       ''
     );
-    console.log(juegoNuevo);
     listaJuegos.push(juegoNuevo);
-    console.log(listaJuegos);
     guardarEnLocalstorage();
     limpiarFormulario();
     crearFila(juegoNuevo, listaJuegos.length);
@@ -166,8 +160,6 @@ function crearJuego() {
       timer: 2000,
     });
     modalFormJuego.hide();
-  } else {
-    console.log('entro por el false');
   }
 }
 
@@ -193,9 +185,7 @@ function mostrarFormularioJuego() {
 }
 
 window.verJuego = (codigoJuego) => {
-  console.log('aqui veo los detalles del juego');
   let juegoBuscado = listaJuegos.find((juego) => juego.codigo === codigoJuego);
-  console.log(juegoBuscado);
   modalFormJuego.show();
   codigo.value = juegoBuscado.codigo;
   nombre.value = juegoBuscado.nombre;
@@ -252,7 +242,6 @@ window.borrarJuego = (codigoJuego) => {
     confirmButtonText: 'Borrar',
     cancelButtonText: 'Cancelar',
   }).then((result) => {
-    console.log(result);
     if (result.isConfirmed) {
       let posicionJuego = listaJuegos.findIndex(
         (juego) => juego.codigo === codigoJuego
@@ -276,7 +265,6 @@ function mandaralLocalstorage() {
 
 window.prepararJuego = (codigoJuego) => {
   let juegoBuscado = listaJuegos.find((juego) => juego.codigo === codigoJuego);
-  console.log('eeeee', juegoBuscado);
   modalFormJuego.show();
   codigo.value = juegoBuscado.codigo;
   nombre.value = juegoBuscado.nombre;
@@ -292,10 +280,8 @@ window.prepararJuego = (codigoJuego) => {
   crearJuegoNuevo = false;
   let modalLabel = document.getElementById('modalLabel');
   modalLabel.innerHTML = 'Editar Juego';
-  console.log('crearJuegoNue', crearJuegoNuevo);
 };
 window.editarJuego = () => {
-  console.log('aqui quiero editar');
   let posicionJuego = listaJuegos.findIndex(
     (juego) => juego.codigo === codigo.value
   );
