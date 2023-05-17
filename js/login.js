@@ -42,6 +42,7 @@ function login(event) {
   let correoElectronico = document.getElementById('correoElectronico');
   let contrasenia = document.getElementById('contrasenia');
   let div = document.getElementById('opciones_administrador');
+  let logout = document.getElementById('logout');
   let botonLogin = document.getElementById('botonLogin');
 
   let esValidado = listaUsuarios.some(
@@ -57,7 +58,8 @@ function login(event) {
       u.contrasenia === contrasenia.value &&
       u.rol === 'administrador'
   );
-
+  console.log('esValidado', esValidado);
+  console.log('esValidadoAdministrador', esValidadoAdministrador);
   if (!esCorreoValido(correoElectronico.value)) {
     correoElectronico.classList.add('is-invalid');
   } else {
@@ -84,6 +86,7 @@ function login(event) {
     );
   } else if (esValidado) {
     div.style.display = 'none';
+    logout.style.display = 'flex';
     modalLogin.hide();
     botonLogin.style.display = 'none';
     sessionStorage.setItem(

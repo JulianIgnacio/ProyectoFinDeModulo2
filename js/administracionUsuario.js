@@ -100,7 +100,6 @@ function prepararFormularioUsuario(e) {
 }
 
 function crearUsuario() {
-  console.log('entro aqui crear');
   let validado = sumarioValidacionUsuario(
     nombre,
     apellido,
@@ -240,7 +239,6 @@ window.prepararUsuario = (codigoUsuario) => {
 };
 
 function editarUsuario() {
-  console.log('entro aqui editar');
   let posicionUsuario = listaUsuarios.findIndex(
     (usuario) => usuario.codigo === codigo.value
   );
