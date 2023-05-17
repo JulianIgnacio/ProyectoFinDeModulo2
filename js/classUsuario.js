@@ -19,7 +19,7 @@ export default class Usuario {
     this.#apellido = apellido;
     this.#correoElectronico = correoElectronico;
     this.#contrasenia = contrasenia;
-    this.#rol = rol; //Administrador o Normal
+    this.#rol = rol;
   }
 
   get codigo() {
